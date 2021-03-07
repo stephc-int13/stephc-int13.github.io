@@ -1,0 +1,54 @@
+
+
+html
+{
+    font-family: georgia;
+
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.2em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--background-color);
+}
+
+body
+{
+    padding: 0;
+    border:  0;
+    margin:  0;
+}
+
+
+.wrapper
+{
+  	display: grid;
+
+  	grid-template-columns:
+    	1fr
+    	min(65ch, 100%)
+    	1fr;
+}
+
+.wrapper > *
+{
+	grid-column: 2;
+}
+
+.full-bleed
+{
+	width: 100%;
+	grid-column: 1 / 4;
+}
+
+.pseudo-full-bleed
+{
+  	width: 100%;
+  	grid-column: 1 / 4;
+  	/* constrain the width for very-large monitors */
+  	max-width: 1500px;
+  	/* center the element */
+  	margin-left: auto;
+  	margin-right: auto;
+}
