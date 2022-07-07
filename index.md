@@ -1,4 +1,7 @@
-
+---
+layout: cv
+title: Isaac Newtons's CV
+---
 
 Stephane Cocquereaumont
 =======================
