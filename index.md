@@ -18,9 +18,8 @@ Stephane Cocquereaumont
 Working on long-term ventures as a solo founder.
 Available for interesting projects.
 
-#### Specialized in
-
-Game Engine Architecture, Gameplay Programming, UI Code, Networking, Computer Vision, Performance Optimization.
+Specialized in
+:   Game Engine Architecture, Gameplay Programming, UI Code, Networking, Computer Vision, Performance Optimization.
 
 ----
 
@@ -38,6 +37,8 @@ Experience
 
     Prototyping of the _RIO9_ indie game project, a narrative shmup built with _Crayfish_ (ongoing).
 
+----
+
 `Jan 2018 - Oct 2019`
 : Magic Pocket - Torcy - _Principal Developer_
 
@@ -49,12 +50,16 @@ Experience
     - Frisbee and Golf Prototyping
     - Supervision of the developers team, monitoring of game performances, rendering quality and compliance with tight milestones
 
+----
+
 `Sep 2018 - Dec 2018`
 : Magic Pocket - Torcy - _Senior Developer_
 
     - Development of a prototype Jetski racing game (camera, physics, gameplay) for the Nintendo Switch as part of the _Sports Party_ project on behalf of Ubisoft.
 
     - Development and integration of a prototype version of the netcode for the _Tennis World Tour_ game for Playstation 4.
+
+----
 
 `Sep 2016 - Dec 2019`
 : Flat Pixel - Paris - _CTO_
@@ -66,6 +71,8 @@ Experience
     - Writing of a proposal and prototype demo in response to Nickelodeon's RFP for an Augmented Reality game for iOS.
     - Design of the technical architecture, in particular the integration of a Lua VM enabling "Over-The-Air" updates of the "Do Not Touch" project on behalf of Nickelodeon. (Unity, iOS)
 
+----
+
 `Jan 2016 - Jun 2016`
 : Ubisoft - Paris - _Senior Developer_
 
@@ -74,6 +81,7 @@ Experience
     - Redesign, optimization and simplification of the Resources Loading API.
     - Rewriting and optimization of the "picking" tool integrated into the scene editor.
 
+----
 
 `Apr 2008 - Sep 2015`
 : int13 - Paris - Co-Founder, _CTO_
@@ -88,6 +96,7 @@ Experience
     - Defined the software architecure of all the projects, tools and libraries, including network architecture, animation system, 3D engine, 3D exporters, physics engine.
     - Conducted software optimization of cricital code in several projects, including rewriting in ARM and NEON assembly language.
 
+----
 
 `Jun 2006 - Nov 2007`
 : VirtualLogix - Paris - _Software Engineer, ARM Architecture Specialist_
@@ -97,6 +106,7 @@ Experience
     - Ported VLX to _Wavecom_ custom RTX embedded OS running on ARM11.
     - Ported VLX to the _Gumstix_ platform and built a prototype network isolation bridge based on three virtualized GNU Linux systems running on the same CPU for _Boeing_.
 
+----
 
 `Dec 1999 - Apr 2006`
 : Alten, Coframi - Toulouse, Lyon, Bordeaux - _Embedded/Real Time Software Engineer_
