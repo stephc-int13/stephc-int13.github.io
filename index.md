@@ -18,7 +18,7 @@ Available for interesting projects.
 
 ### Specialized in
 
-Game Engine Architecture, Gameplay Programming, UI Code, Networking, Computer Vision,
+Game Engine Architecture, Gameplay Programming, UI Code, Netcode, Computer Vision.
 
 ### Interests
 
@@ -27,7 +27,7 @@ Cooking, Gameplay Progamming, etc.
 ## Experience
 
 `Jan 2020 - now`
-: int13 Labs - Leamington Spa - _Founder_
+int13 Labs - Leamington Spa - _Founder_
 
     **Creation of the _Crayfish_ development framework (ongoing).**
 
@@ -37,10 +37,9 @@ Cooking, Gameplay Progamming, etc.
 
     Prototyping of the _RIO9_ indie game project, a narrative shmup built with _Crayfish_ (ongoing).
 
-----
 
 `Jan 2018 - Oct 2019`
-: Magic Pocket - Torcy - _Principal Developer_
+Magic Pocket - Torcy - _Principal Developer_
 
     **Took charge of the technical aspects of the _Sports Party_ game, developed for the Nintendo Switch on behalf of Ubisoft. (C/C++, in-house engine)**
 
@@ -50,19 +49,16 @@ Cooking, Gameplay Progamming, etc.
     - Frisbee and Golf Prototyping
     - Supervision of the developers team, monitoring of game performances, rendering quality and compliance with tight milestones
 
-----
 
 `Sep 2018 - Dec 2018`
-: Magic Pocket - Torcy - _Senior Developer_
+Magic Pocket - Torcy - _Senior Developer_
 
     - Development of a prototype Jetski racing game (camera, physics, gameplay) for the Nintendo Switch as part of the _Sports Party_ project on behalf of Ubisoft.
 
     - Development and integration of a prototype version of the netcode for the _Tennis World Tour_ game for Playstation 4.
 
-----
-
 `Sep 2016 - Dec 2019`
-: Flat Pixel - Paris - _CTO_
+Flat Pixel - Paris - _CTO_
 
     **Started the company with tree co-founders and took charge of the technical direction.**
 
@@ -71,20 +67,18 @@ Cooking, Gameplay Progamming, etc.
     - Writing of a proposal and prototype demo in response to Nickelodeon's RFP for an Augmented Reality game for iOS.
     - Design of the technical architecture, in particular the integration of a Lua VM enabling "Over-The-Air" updates of the "Do Not Touch" project on behalf of Nickelodeon. (Unity, iOS)
 
-----
 
 `Jan 2016 - Jun 2016`
-: Ubisoft - Paris - _Senior Developer_
+Ubisoft - Paris - _Senior Developer_
 
     **Worked on various optimizations of the _Cosmos_ in-house engine and tools for mobile games. (C++, Lua)**
 
     - Redesign, optimization and simplification of the Resources Loading API.
     - Rewriting and optimization of the "picking" tool integrated into the scene editor.
 
-----
 
 `Apr 2008 - Sep 2015`
-: int13 (http://int13.net/) - Paris - Co-Founder, _CTO_
+int13 (http://int13.net/) - Paris - Co-Founder, _CTO_
 
     **Started and ran the company, raised initial capital ($100K), hired a solid team of six engineers and artists.**
 
@@ -96,20 +90,17 @@ Cooking, Gameplay Progamming, etc.
     - Defined the software architecure of all the projects, tools and libraries, including network architecture, animation system, 3D engine, 3D exporters, physics engine.
     - Conducted software optimization of cricital code in several projects, including rewriting in ARM and NEON assembly language.
 
-----
-
 `Jun 2006 - Nov 2007`
-: VirtualLogix - Paris - _Software Engineer, ARM Architecture Specialist_
+VirtualLogix - Paris - _Software Engineer, ARM Architecture Specialist_
 
     **Adaptation of the VLX hypervisor (VirtualLogix flagship product) to meet the specific constraints of customers. (C Language, ARM Assembler, Linux Kernel).**
 
     - Ported VLX to _Wavecom_ custom RTX embedded OS running on ARM11.
     - Ported VLX to the _Gumstix_ platform and built a prototype network isolation bridge based on three virtualized GNU Linux systems running on the same CPU for _Boeing_.
 
-----
 
 `Dec 1999 - Apr 2006`
-: Alten, Coframi - Toulouse, Lyon, Bordeaux - _Embedded/Real Time Software Engineer_
+Alten, Coframi - Toulouse, Lyon, Bordeaux - _Embedded/Real Time Software Engineer_
 
     **Consulting IT services on the embedded software part of various industrial projects. (C, 68k Assembler, RTOS).**
 
