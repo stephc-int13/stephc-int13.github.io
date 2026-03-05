@@ -37,7 +37,41 @@
     font-weight: normal;
     font-style: normal;
     font-display: swap;
+
 }
+
+
+
+@font-face {
+    font-family: "JetBrains Mono";
+    font-style: normal;
+    font-weight: bold;
+    src:
+        local(JetBrains Mono),
+        url("/fonts/JetBrainsMono-Bold.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    font-style: italic;
+    font-weight: normal;
+    src:
+        local(JetBrains Mono),
+        url("/fonts/JetBrainsMono-Italic.woff2") format("woff2");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "JetBrains Mono";
+    font-style: italic;
+    font-weight: bold;
+    src:
+        local(JetBrains Mono),
+        url("/fonts/JetBrainsMono-SemiBoldItalic.woff2") format("woff2");
+    font-display: swap;
+}
+
 
 /* Tufte CSS styles */
 html {
@@ -64,11 +98,62 @@ body {
     }
 }
 
+/* customize the navigation */
+
+ nav {
+    font-family: JetBrains Mono;
+} 
+
+.blog-title {
+    font-size: 2rem;
+    font-weight: normal;
+
+    /* color:#ddd; */
+    /* background-color: #ddd;  */
+
+    opacity: 0.6;        /* lower contrast by default */
+
+}
+
+
+nav ul {
+    padding: 0px;
+} 
+
+nav ul li a {
+  padding: 2px 6px;
+}
+
+
+
+nav ul li a:hover,
+nav ul li a:active {
+  color: #181818;        
+  background-color: #ddd;  
+  opacity: 1;          
+}
+
+
+nav li {
+    display: inline;
+    margin: 0 0.5em 0 0;
+    font-feature-settings: "smcp" on;
+}
+
+nav a:link {
+    /*background: none; */
+    text-decoration: none;
+}
+
+
+
+/* Headings */
+
 h1 {
     font-weight: 400;
     margin-top: 4rem;
     margin-bottom: 1.5rem;
-    font-size: 5.2rem;
+    font-size: 7.2rem;
     line-height: 1;
 }
 
