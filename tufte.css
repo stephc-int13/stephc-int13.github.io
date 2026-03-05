@@ -109,22 +109,24 @@ nav {
     position: fixed;
     top:0px;
     z-index: 100;
-    width:90%;
+    width:100%;
     padding:0px;
 
-  margin-left: -24px;   /* your body margin */
+  margin-left: -200px;   /* your body margin */
   margin-right: 0px;
-  padding-left: 24px;
+  padding-left: 200px;
   padding-right: auto;
     
     background-color: rgba(24   , 24, 24, 0.8); /* adjust opacity to taste */
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);    
 
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* subtle border */
+
 } 
 
 .blog-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: normal;
     opacity: 0.7;     
 }
@@ -150,7 +152,7 @@ nav ul li a:active {
 
 
 nav li {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     display: inline;
     margin: 0;
 }
