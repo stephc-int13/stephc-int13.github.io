@@ -109,15 +109,15 @@ nav {
     position: fixed;
     top:0px;
     z-index: 100;
-    width:80%;
+    width:90%;
     padding:0px;
 
   margin-left: -24px;   /* your body margin */
   margin-right: 0px;
   padding-left: 24px;
-  padding-right: 0px
+  padding-right: auto;
     
-    background-color: rgba(24   , 24, 24, 0.7); /* adjust opacity to taste */
+    background-color: rgba(24   , 24, 24, 0.8); /* adjust opacity to taste */
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);    
 
