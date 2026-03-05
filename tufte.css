@@ -106,10 +106,6 @@ body {
 
 nav {
     font-family: JetBrains Mono; 
-
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
     position: fixed;
     top:0px;
     z-index: 100;
@@ -125,7 +121,7 @@ nav {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);    
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* subtle border */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* subtle border */
 
 } 
 
