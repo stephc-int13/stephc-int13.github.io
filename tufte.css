@@ -121,7 +121,7 @@ nav {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);    
 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* subtle border */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* subtle border */
 
 } 
 
@@ -135,12 +135,13 @@ nav {
 nav ul {
     padding: 0px;
     margin-top:20px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 
 } 
 
 nav ul li a {
   padding: 1px 4px;
+
 }
 
 nav ul li a:hover,
@@ -155,6 +156,7 @@ nav li {
     font-size: 0.8rem;
     display: inline;
     margin: 0;
+    padding: 0;
 }
 
 nav a:link {
