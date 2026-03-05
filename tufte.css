@@ -40,8 +40,6 @@
 
 }
 
-
-
 @font-face {
     font-family: "JetBrains Mono";
     font-style: normal;
@@ -100,19 +98,23 @@ body {
 
 /* customize the navigation */
 
- nav {
-    font-family: JetBrains Mono;
+nav {
+    font-family: JetBrains Mono; 
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    margin-top: 0;
+
+    background-color: rgba(24   , 24, 24, 0.7); /* adjust opacity to taste */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
 } 
 
 .blog-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: normal;
-
-    /* color:#ddd; */
-    /* background-color: #ddd;  */
-
-    opacity: 0.7;        /* lower contrast by default */
-
+    opacity: 0.7;     
 }
 
 
@@ -121,10 +123,8 @@ nav ul {
 } 
 
 nav ul li a {
-  padding: 2px 6px;
+  padding: 1px 4px;
 }
-
-
 
 nav ul li a:hover,
 nav ul li a:active {
@@ -135,6 +135,7 @@ nav ul li a:active {
 
 
 nav li {
+    font-size: 0.9rem;
     display: inline;
     margin: 0;
 }
@@ -374,7 +375,7 @@ table.fullwidth {
 }
 
 div.table-wrapper {
-    overflow-x: auto;
+     overflow-x: auto;
     font-family: "Trebuchet MS", "Gill Sans", "Gill Sans MT", sans-serif;
 }
 
