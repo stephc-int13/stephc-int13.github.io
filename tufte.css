@@ -43,7 +43,7 @@
 @font-face {
     font-family: "JetBrains Mono";
     font-style: normal;
-    font-weight: bold;
+    font-weight: normal;
     src:
         local(JetBrains Mono),
         url("/fonts/JetBrainsMono-Bold.woff2") format("woff2");
@@ -63,7 +63,7 @@
 @font-face {
     font-family: "JetBrains Mono";
     font-style: italic;
-    font-weight: bold;
+    font-weight: normal;
     src:
         local(JetBrains Mono),
         url("/fonts/JetBrainsMono-SemiBoldItalic.woff2") format("woff2");
