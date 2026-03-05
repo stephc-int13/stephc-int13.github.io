@@ -78,9 +78,15 @@ html {
 
 body {
     width: 87.5%;
+    
+
+    
     margin-left: auto;
     margin-right: auto;
     padding-left: 12.5%;
+
+
+
     font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
     background-color: #fffff8;
     color: #111;
@@ -100,14 +106,20 @@ body {
 
 nav {
     font-family: JetBrains Mono; 
-    position: sticky;
-    top: 30px;
+    position: fixed;
+    top:0px;
     z-index: 100;
-    margin-top: 30px;
+    width:80%;
+    padding:0px;
 
+  margin-left: -24px;   /* your body margin */
+  margin-right: 0px;
+  padding-left: 24px;
+  padding-right: 0px
+    
     background-color: rgba(24   , 24, 24, 0.7); /* adjust opacity to taste */
     backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);    
 
 } 
 
@@ -120,6 +132,9 @@ nav {
 
 nav ul {
     padding: 0px;
+    margin-top:20px;
+    margin-bottom: 5px;
+
 } 
 
 nav ul li a {
