@@ -101,9 +101,9 @@ body {
 nav {
     font-family: JetBrains Mono; 
     position: sticky;
-    top: 0;
+    top: 30px;
     z-index: 100;
-    margin-top: 0;
+    margin-top: 30px;
 
     background-color: rgba(24   , 24, 24, 0.7); /* adjust opacity to taste */
     backdrop-filter: blur(8px);
