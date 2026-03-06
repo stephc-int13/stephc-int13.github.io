@@ -83,7 +83,7 @@ body {
 
 /* Dark mode support */
 
-/*
+
 @media (prefers-color-scheme: dark) {
     :root {
         --text-color: #ddd;;
@@ -91,7 +91,6 @@ body {
     }
 }
 
-*/
 
 /* customize the navigation */
 
@@ -100,13 +99,13 @@ nav {
     position: fixed;
     top:0px;
     z-index: 100;
-    width:100%;
+    width:1300px; 
     padding:0px;
 
   margin-left: -200px;   /* your body margin */
   margin-right: 0px;
   padding-left: 200px;
-  padding-right: auto;
+  padding-right: 0px;
     
     background-color: color-mix(in srgb, var(--background-color) 80%, transparent); /* adjust opacity to taste */
     backdrop-filter: blur(8px);
@@ -125,8 +124,8 @@ nav {
 
 nav ul {
     padding: 0px;
-    margin-top:20px;
-    margin-bottom: 10px;
+    margin-top:12px;
+    margin-bottom: 6px;
 
     width: 87.5%;
 
