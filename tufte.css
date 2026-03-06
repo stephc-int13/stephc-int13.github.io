@@ -53,8 +53,8 @@
 
 
 :root {
-  --text-color: #111;;
-  --background-color: #fffff8;;
+  --text-color: #181818;
+  --background-color: #fffff8;
 }
 
 /* Tufte CSS styles */
@@ -99,11 +99,11 @@ nav {
     top:0px;
     z-index: 100;
     width: 100%;
-    max-width: 1300px;
+    max-width: 1350px;
     padding:0px;
-    margin-left: -200px;  
+    margin-left: -150px;  
     margin-right: 0px;
-    padding-left: 200px;
+    padding-left: 150px;
     padding-right: 0px;
     background-color: color-mix(in srgb, var(--background-color) 80%, transparent); 
     backdrop-filter: blur(8px);
