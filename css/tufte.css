@@ -44,7 +44,7 @@
     font-family: "JetBrains Mono";
     font-style: normal;
     font-weight: normal;
-    src:url("fonts/JetBrainsMono-Regular.woff2") format("woff2");
+    src:url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
     font-display: swap;
 }
 
@@ -53,6 +53,18 @@
 :root {
   --text-color: #181818;
   --background-color: #fffff8;
+}
+
+.icon {
+  background-color: #1a1a1a; /* the color you want the shape to appear in */
+  mask-image: url('images/favicon-mask.svg');
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: url('images/favicon-mask.svg');
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
 }
 
 /* Tufte CSS styles */
