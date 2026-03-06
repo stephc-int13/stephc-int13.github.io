@@ -81,7 +81,7 @@ body {
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --text-color: #ddddd8;;
+        --text-color: #ddddd9;;
         --background-color: #181818;;
         --highlight-color:#000018;        
     }
