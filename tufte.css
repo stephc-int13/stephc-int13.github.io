@@ -91,6 +91,13 @@ body {
     }
 }
 
+@media (max-width: 768px) {
+    nav {
+        margin-left: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
 
 /* customize the navigation */
 
@@ -99,7 +106,10 @@ nav {
     position: fixed;
     top:0px;
     z-index: 100;
-    width:1300px; 
+    
+    width: 100%;
+    max-width: 1300px;
+
     padding:0px;
 
   margin-left: -200px;   /* your body margin */
