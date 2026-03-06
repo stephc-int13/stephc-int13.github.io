@@ -51,25 +51,10 @@
 
 
 :root {
-  --text-color: #181818;
-  --background-color: #fffff8;
+  --text-color: #18180c;
+  --background-color: #ddddd8;
+  --highlight-color:#fffff8;
 }
-
-/*
-
-.icon {
-  background-color: #1a1a1a; 
-  mask-image: url('images/favicon-mask.svg');
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  -webkit-mask-image: url('images/favicon-mask.svg');
-  -webkit-mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-}
-
-*/
 
 /* Tufte CSS styles */
 html {
@@ -94,10 +79,13 @@ body {
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --text-color: #ddd;;
+        --text-color: #ddddd8;;
         --background-color: #181818;;
+        --highlight-color:#000018;        
     }
 }
+
+
 
 @media (max-width: 768px) {
     nav {
@@ -144,7 +132,7 @@ nav ul {
 
 nav ul li a:hover,
 nav ul li a:active {
-  color: var(--background-color);        
+  color: var(--highlight-color);        
   background-color:var(--text-color);          
 }
 
