@@ -15,7 +15,7 @@
     font-family="'JetBrains Mono', monospace"
     font-weight="400"
     font-size="42"
-    fill="#18180c"
+    fill="#000000"
     text-anchor="middle"
     letter-spacing="-1"
   >[SC]</text>

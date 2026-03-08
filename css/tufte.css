@@ -53,6 +53,14 @@
     font-display: swap;
 }
 
+@font-face 
+{
+    font-family: "Libertinus Serif";
+    font-style: normal;
+    font-weight: normal;
+    src:url("/fonts/LibertinusSerif-Regular.woff2") format("woff2");
+    font-display: swap;
+}
 
 
 :root 
@@ -76,12 +84,31 @@ body
     margin-right: auto;
     padding-left: 12.5%;
 
-    font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+    font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif; 
+
+
+
     background-color: var(--background-color);
     color: var(--text-color);
     max-width: 1400px;
     counter-reset: sidenote-counter;
 }
+
+.test1 
+{
+    font-family: et-book;;
+}
+
+.test2 
+{
+    font-family:  Georgia, serif; 
+}
+
+.test3 
+{
+    font-family:  Libertinus Serif;
+}
+
 
 /* Dark mode support */
 
@@ -111,6 +138,7 @@ body
 nav 
 {
     font-family: JetBrains Mono; 
+
     position: fixed;
     top:0px;
     z-index: 100;
@@ -163,21 +191,32 @@ nav a:link
 
 /* === Footer ================================================================================== */
 
-footer
+.site-footer 
 {
-    font-family: JetBrains Mono; 
+  font-family: JetBrains Mono; 
 
-    width: 80%;
-        
+  /* Layout: full-width block, caps at 1350px, centered */
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1350px;
+  margin-left: 0;
+  margin-right: 0;
+
+  /* Separator line on top */
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 4rem;
+  padding: 2rem 1.5rem;
+
+  /* Text */
+  text-align: center;
+  font-size: 0.7rem;
 
 
-    border-top: 1px solid color-mix(in srgb, var(--text-color) 20%, transparent); 
-} 
+  /* Ensure no inherited positioning interferes */
+  position: static;
 
-footer p 
-{
-    font-size: 0.8rem;
-    text-align: center;
+  float: left;
+  clear: both;
 }
 
 
@@ -539,11 +578,13 @@ label.margin-toggle:not(.sidenote-number)
     height: 100%;
 }
 
+
+
 @media (max-width: 760px) 
 {
     body 
     {
-        width: 84%;
+        width: 84%;  
         padding-left: 8%;
         padding-right: 8%;
     }
@@ -612,7 +653,7 @@ label.margin-toggle:not(.sidenote-number)
         clear: both;
         width: 95%;
         margin: 1rem 2.5%;
-        /* vertical-align: baseline; */
+
         position: relative;
     }
 
@@ -631,5 +672,11 @@ label.margin-toggle:not(.sidenote-number)
     {
         width: 100%;
     }
-}
 
+    .copyright-footer
+    {
+        margin-left: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
