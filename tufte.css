@@ -3,6 +3,7 @@
 /* Import ET Book styles
    adapted from https://github.com/edwardtufte/et-book/blob/gh-pages/et-book.css */
 
+/*   
 @font-face 
 {
     font-family: "et-book";
@@ -62,6 +63,7 @@
     font-display: swap;
 }
 
+*/
 
 :root 
 {
@@ -84,9 +86,9 @@ body
     margin-right: auto;
     padding-left: 12.5%;
 
-    font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif; 
+    font-family:  Georgia, serif; 
 
-
+    /*font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;  */
 
     background-color: var(--background-color);
     color: var(--text-color);
@@ -94,19 +96,12 @@ body
     counter-reset: sidenote-counter;
 }
 
-.test1 
-{
-    font-family: et-book;;
-}
 
-.test2 
-{
-    font-family:  Georgia, serif; 
-}
 
-.test3 
+::selection 
 {
-    font-family:  Libertinus Serif;
+    background-color: #f5d90a;
+    color: #2a1f00;
 }
 
 
@@ -121,6 +116,7 @@ body
         --highlight-color:#000018;        
     }
 }
+
 
 
 @media (max-width: 768px) 
@@ -225,7 +221,7 @@ nav a:link
 h1 
 {
     font-weight: 400;
-    margin-top: 8rem;
+    margin-top: 12rem;
     margin-bottom: 1.5rem;
     font-size: 7.2rem;
     line-height: 1;
@@ -272,10 +268,12 @@ p.subtitle
     line-height: 1;
 }
 
+/*
 .numeral 
 {
     font-family: et-book-roman-old-style;
 }
+*/
 
 .danger 
 {
