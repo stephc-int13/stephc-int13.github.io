@@ -644,19 +644,13 @@ label.margin-toggle:not(.sidenote-number)
     .publish-date 
     {        
         width: 100%;
-    
     }
 
-    /*
+    
     .site-footer 
     {
         margin:0;
         padding:0;
-
-        margin-left:-200px;
-        padding-left:200px;
-
-
     }
-    */
+    
 }
