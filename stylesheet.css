@@ -138,12 +138,12 @@ nav a:link
 
 .publish-date 
 {        
-    margin-top: 2rem;
+    margin-top: 2.0rem;
     margin-bottom: 0;
     margin-left: 0;
     width: 55%;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    border-top: 1px solid var(--text-color);
+    border-bottom: 1px solid var(--text-color);
 }
 
 .publish-date ul 
