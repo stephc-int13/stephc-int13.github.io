@@ -26,7 +26,7 @@
 /* Tufte CSS styles */
 html 
 {
-    font-size: 14px;
+    font-size: 15px;
 }
 
 body 
@@ -268,8 +268,8 @@ dl,
 ol,
 ul 
 {
-    font-size: 1.4rem;
-    line-height: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
 }
 
 p 
