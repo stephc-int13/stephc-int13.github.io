@@ -10,6 +10,11 @@
     font-display: swap;
 }
 
+*, *::before, *::after 
+{
+  box-sizing: content-box;
+}
+
 
 :root 
 {
@@ -33,12 +38,10 @@ body
     padding-left: 12.5%;
 
     font-family:  Georgia, serif; 
-
-    /*font-family: et-book, Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;  */
-
+ 
     background-color: var(--background-color);
     color: var(--text-color);
-    max-width: 1400px;
+    max-width: 1350px;
     counter-reset: sidenote-counter;
 }
 
@@ -86,11 +89,13 @@ nav
     z-index: 100;
     width: 100%;
     max-width: 1350px;
+    
     padding:0px;
-    margin-left: -150px;  
+    margin-left: -190px;  
     margin-right: 0px;
-    padding-left: 150px;
+    padding-left: 190px;
     padding-right: 0px;
+
     background-color: color-mix(in srgb, var(--background-color) 80%, transparent); 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);    
@@ -114,8 +119,8 @@ nav ul
 nav ul li a:hover,
 nav ul li a:active 
 {
-  color: var(--highlight-color);        
-  background-color:var(--text-color);          
+    color: var(--highlight-color);        
+    background-color:var(--text-color);          
 }
 
 nav li 
@@ -135,30 +140,34 @@ nav a:link
 
 .site-footer 
 {
-  font-family: JetBrains Mono; 
+    font-family: JetBrains Mono; 
 
-  /* Layout: full-width block, caps at 1350px, centered */
-  box-sizing: border-box;
-  width: 100%;
-  max-width: 1350px;
-  margin-left: 0;
-  margin-right: 0;
+    width: 100%;
+    max-width: 1350px;
 
-  /* Separator line on top */
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  margin-top: 4rem;
-  padding: 2rem 1.5rem;
+    margin:0;
+    padding:0.5rem;
+    margin-left: -190px;  
+    margin-right: 0px;
+    padding-left: 190px;
+    padding-right: 0px;
+    
+    border-top: 1px solid color-mix(in srgb, var(--text-color) 20%, transparent); 
+}
 
-  /* Text */
-  text-align: center;
-  font-size: 0.7rem;
+.site-footer ul 
+{
+    padding:0;
+    margin:0;
+    width: 87.5%;
+} 
 
-
-  /* Ensure no inherited positioning interferes */
-  position: static;
-
-  float: left;
-  clear: both;
+.site-footer li 
+{
+    font-size: 0.8rem;
+    display: inline-block;
+    padding:0;
+    margin:0;
 }
 
 
@@ -229,6 +238,13 @@ p.subtitle
 article 
 {
     padding: 5rem 0rem;
+
+    /*
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 12.5%;
+    */
+
 }
 
 section 
@@ -617,10 +633,9 @@ label.margin-toggle:not(.sidenote-number)
         width: 100%;
     }
 
-    .copyright-footer
+    .site-footer
     {
-        margin-left: 0;
-        padding-left: 1rem;
-        padding-right: 1rem;
+        margin:0;
+        padding:0.5rem;
     }
 }
