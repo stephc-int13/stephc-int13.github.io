@@ -161,12 +161,15 @@ nav a:link
     max-width: 1350px;
 
     margin:0;
-    padding:0.5rem;
+
     margin-left: -190px;  
     margin-right: 0px;
     padding-left: 190px;
     padding-right: 0px;
-    
+
+    padding-top:1rem;
+    padding-bottom:1rem;
+
     border-top: 1px solid color-mix(in srgb, var(--text-color) 20%, transparent); 
 }
 
@@ -653,6 +656,8 @@ label.margin-toggle:not(.sidenote-number)
     {
         margin:0;
         padding:0;
+        padding-top:1rem;
+        padding-bottom:1rem;
     }
     
 }
