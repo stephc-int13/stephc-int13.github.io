@@ -12,9 +12,8 @@
 
 *, *::before, *::after 
 {
-  box-sizing: content-box;
+    box-sizing: content-box;
 }
-
 
 :root 
 {
@@ -23,7 +22,6 @@
   --highlight-color:#fffff8;
 }
 
-/* Tufte CSS styles */
 html 
 {
     font-size: 15px;
@@ -45,16 +43,11 @@ body
     counter-reset: sidenote-counter;
 }
 
-
-
 ::selection 
 {
     background-color: #f5d90a;
     color: #2a1f00;
 }
-
-
-/* Dark mode support */
 
 @media (prefers-color-scheme: dark) 
 {
@@ -65,10 +58,6 @@ body
         --highlight-color:#000018;        
     }
 }
-
-
-
-/* === Navigation ============================================================================== */
 
 nav 
 {
@@ -149,9 +138,6 @@ nav a:link
     font-style: italic;
     display: inline-block;
 }
-
-
-/* === Footer ================================================================================== */
 
 .site-footer 
 {
@@ -243,13 +229,6 @@ p.subtitle
     line-height: 1;
 
 }
-
-/*
-.numeral 
-{
-    font-family: et-book-roman-old-style;
-}
-*/
 
 .danger 
 {
@@ -421,7 +400,6 @@ img
 .sidenote-number:after,
 .sidenote:before 
 {
-    font-family: et-book-roman-old-style;
     position: relative;
     vertical-align: baseline;
 }
@@ -469,7 +447,7 @@ div.table-wrapper
 
 code, pre > code 
 {
-    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+    font-family: Jetbrains Mono;
     font-size: 1.0rem;
     line-height: 1.42;
     -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. See https://github.com/edwardtufte/tufte-css/issues/81#issuecomment-261953409 */
