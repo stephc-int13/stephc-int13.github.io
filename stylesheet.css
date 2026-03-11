@@ -634,4 +634,10 @@ label.margin-toggle:not(.sidenote-number)
         margin-left:-5%;
         padding-left:5%;
     }
+
+    .site-footer ul 
+    {
+        margin:0;
+        padding:1rem;  
+    } 
 }
