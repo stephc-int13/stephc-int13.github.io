@@ -365,9 +365,7 @@ a:hover,
 a:active 
 {
     color: var(--link-color);       
-
     text-decoration-thickness: 0.10em;
-
 }
 
 
@@ -632,8 +630,8 @@ label.margin-toggle:not(.sidenote-number)
 
     nav
     {
-        width:100%;
-        margin-left:-100px;
-        padding-left:100px;
+        width:85%;
+        margin-left:-5%;
+        padding-left:5%;
     }
 }
