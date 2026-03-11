@@ -66,19 +66,23 @@ nav
     position: fixed;
     top:0px;
     z-index: 100;
-    width: 100%;
+    width: 84%;
     max-width: 1350px;
     
+
+
+    
     padding:0px;
-    margin-left: -190px;  
+    margin-left: -8%;  
     margin-right: 0px;
-    padding-left: 190px;
+    padding-left: 8%;
     padding-right: 0px;
+    
 
     background-color: color-mix(in srgb, var(--background-color) 80%, transparent); 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);    
-    border-bottom: 1px solid color-mix(in srgb, var(--text-color) 20%, transparent); 
+    border-bottom: 1px dotted color-mix(in srgb, var(--text-color) 10%, transparent); 
 } 
 
 .blog-title 
@@ -143,20 +147,23 @@ nav a:link
 {
     font-family: JetBrains Mono; 
 
-    width: 100%;
+    width: 80%;
+
+/*
     max-width: 1350px;
-
-    margin:0;
-
-    margin-left: -190px;  
-    margin-right: 0px;
-    padding-left: 190px;
-    padding-right: 0px;
+    
+    width: 84%;  
+    
+    margin-left : -8%;
+    padding-left: 8%;
+    padding-right: 0%;
+    margin-right : 0%;
+*/
 
     padding-top:1rem;
     padding-bottom:1rem;
 
-    border-top: 1px solid color-mix(in srgb, var(--text-color) 20%, transparent); 
+    border-top: 1px dotted color-mix(in srgb, var(--text-color) 10%, transparent); 
 }
 
 .site-footer ul 
@@ -630,9 +637,17 @@ label.margin-toggle:not(.sidenote-number)
         width: 100%;
     }
 
+    nav
+    {
+        width:100%;
+        margin-left:-100px;
+        padding-left:100px;
+    }
+
     
     .site-footer 
     {
+        width:100%;
         margin:0;
         padding:0;
         padding-top:1rem;
