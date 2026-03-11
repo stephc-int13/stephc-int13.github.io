@@ -62,23 +62,16 @@ body
 nav 
 {
     font-family: JetBrains Mono; 
-
     position: fixed;
     top:0px;
     z-index: 100;
     width: 84%;
     max-width: 1350px;
-    
-
-
-    
     padding:0px;
     margin-left: -8%;  
     margin-right: 0px;
     padding-left: 8%;
     padding-right: 0px;
-    
-
     background-color: color-mix(in srgb, var(--background-color) 80%, transparent); 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);    
@@ -146,23 +139,9 @@ nav a:link
 .site-footer 
 {
     font-family: JetBrains Mono; 
-
     width: 80%;
-
-/*
-    max-width: 1350px;
-    
-    width: 84%;  
-    
-    margin-left : -8%;
-    padding-left: 8%;
-    padding-right: 0%;
-    margin-right : 0%;
-*/
-
     padding-top:1rem;
     padding-bottom:1rem;
-
     border-top: 1px solid color-mix(in srgb, var(--text-color) 15%, transparent); 
 }
 
@@ -181,9 +160,6 @@ nav a:link
     margin:0;
 }
 
-
-/* Headings */
-
 h1 
 {
     font-weight: 400;
@@ -192,7 +168,6 @@ h1
     margin-right:5rem;
     font-size: 6.2rem;
     line-height: 1;
-   
 }
 
 h2 
@@ -235,7 +210,6 @@ p.subtitle
     font-size: 1.5rem;
     display: block;
     line-height: 1;
-
 }
 
 .danger 
@@ -544,9 +518,9 @@ label.margin-toggle:not(.sidenote-number)
 {
     body 
     {
-        width: 84%;  
-        padding-left: 8%;
-        padding-right: 8%;
+        width: 80%;  
+        padding-left: 10%;
+        padding-right: 10%;
     }
 
     hr,
@@ -644,7 +618,6 @@ label.margin-toggle:not(.sidenote-number)
         margin-left:-100px;
         padding-left:100px;
     }
-
     
     .site-footer 
     {
