@@ -71,17 +71,22 @@ nav
     position: fixed;
     top:0px;
     z-index: 100;
-    width: 84%;
+    width: 100%;
     max-width: 1350px;
     padding:0px;
+
+    /*
     margin-left: -8%;  
     margin-right: 0px;
     padding-left: 8%;
     padding-right: 0px;
+    */
+    
     background-color: color-mix(in srgb, var(--background-color) 80%, transparent); 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);    
-    border-bottom: 1px solid color-mix(in srgb, var(--text-color) 15%, transparent); 
+    
+    /* border-bottom: 1px solid color-mix(in srgb, var(--text-color) 15%, transparent);  */
 } 
 
 .blog-title 
@@ -89,6 +94,26 @@ nav
     font-size: 1.3rem;
     font-weight: normal;
 }
+
+nav hr
+{
+    display: block;
+    height: 1px;
+    width: 85%;
+    border: 0;
+
+    margin:0;
+    padding:0;
+
+    margin-left: -5%;  
+    margin-right: 0px;
+    padding-left: 5%;
+    padding-right: 0px;
+
+    border-bottom: 1px solid color-mix(in srgb, var(--text-color) 15%, transparent); 
+
+}
+
 
 nav ul 
 {
@@ -628,12 +653,14 @@ label.margin-toggle:not(.sidenote-number)
         width: 100%;
     }
 
+    /*
     nav
     {
         width:89%;
         margin-left:-8%;
         padding-left:8%;
     }
+    */
 
     .site-footer ul 
     {
