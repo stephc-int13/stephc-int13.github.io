@@ -20,6 +20,7 @@
   --text-color: #18180c;
   --background-color: #eeeee9;
   --highlight-color:#fffff8;
+  --link-color:#000; 
 }
 
 html 
@@ -49,15 +50,20 @@ body
     color: #2a1f00;
 }
 
+
+
 @media (prefers-color-scheme: dark) 
 {
     :root 
     {
         --text-color: #ddddd9;;
         --background-color: #181818;;
-        --highlight-color:#000018;        
+        --highlight-color:#000018;   
+        --link-color:#fff;      
     }
 }
+
+
 
 nav 
 {
@@ -139,15 +145,11 @@ nav a:link
 .site-footer 
 {
     font-family: JetBrains Mono; 
-
+    color: color-mix(in srgb, var(--text-color) 60%, transparent); 
     width:fit-content;
-
     margin:0;
     padding:0;
-    
     border-top: 1px solid color-mix(in srgb, var(--text-color) 15%, transparent); 
-
-
 }
 
 .site-footer ul 
@@ -163,6 +165,8 @@ nav a:link
     padding:0;
     margin:0;
 }
+
+
 
 h1 
 {
@@ -356,6 +360,16 @@ a:visited
     text-underline-offset: 0.1em;
     text-decoration-thickness: 0.05em;
 }
+
+a:hover,
+a:active 
+{
+    color: var(--link-color);       
+
+    text-decoration-thickness: 0.10em;
+
+}
+
 
 /* Sidenotes, margin notes, figures, captions */
 img 
@@ -622,16 +636,4 @@ label.margin-toggle:not(.sidenote-number)
         margin-left:-100px;
         padding-left:100px;
     }
-    
-    /*
-    .site-footer 
-    {
-        width:100%;
-        margin:0;
-        padding:0;
-        padding-top:1rem;
-        padding-bottom:1rem;
-    }
-    */
-    
 }
