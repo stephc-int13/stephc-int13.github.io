@@ -139,17 +139,21 @@ nav a:link
 .site-footer 
 {
     font-family: JetBrains Mono; 
-    width: 80%;
-    padding-top:1rem;
-    padding-bottom:1rem;
+
+    width:fit-content;
+
+    margin:0;
+    padding:0;
+    
     border-top: 1px solid color-mix(in srgb, var(--text-color) 15%, transparent); 
+
+
 }
 
 .site-footer ul 
 {
-    padding:0;
     margin:0;
-    width: 87.5%;
+    padding:2rem;  
 } 
 
 .site-footer li 
@@ -619,6 +623,7 @@ label.margin-toggle:not(.sidenote-number)
         padding-left:100px;
     }
     
+    /*
     .site-footer 
     {
         width:100%;
@@ -627,5 +632,6 @@ label.margin-toggle:not(.sidenote-number)
         padding-top:1rem;
         padding-bottom:1rem;
     }
+    */
     
 }
