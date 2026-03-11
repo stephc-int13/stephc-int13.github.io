@@ -82,7 +82,7 @@ nav
     background-color: color-mix(in srgb, var(--background-color) 80%, transparent); 
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);    
-    border-bottom: 1px dotted color-mix(in srgb, var(--text-color) 20%, transparent); 
+    border-bottom: 1px dotted color-mix(in srgb, var(--text-color) 30%, transparent); 
 } 
 
 .blog-title 
@@ -163,7 +163,7 @@ nav a:link
     padding-top:1rem;
     padding-bottom:1rem;
 
-    border-top: 1px dotted color-mix(in srgb, var(--text-color) 20%, transparent); 
+    border-top: 1px dotted color-mix(in srgb, var(--text-color) 30%, transparent); 
 }
 
 .site-footer ul 
@@ -228,6 +228,7 @@ hr
 
 p.subtitle 
 {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
     font-style: italic;
     margin-top: 1rem;
     margin-bottom: 1rem;
