@@ -101,7 +101,7 @@ nav
 {
     font-size: 1.3rem;
     font-weight: normal;
-    padding-right: 0.5rem;
+    padding-right: 1rem;
 }
 
 nav hr
@@ -692,5 +692,6 @@ label.margin-toggle:not(.sidenote-number)
     .blog-title 
     {
         font-size: 1.0rem;
+        padding-right: 0.5rem;
     }
 }
