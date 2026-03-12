@@ -13,7 +13,7 @@
 
 @font-face 
 {
-    font-family: "BarlowCondensed", sans-serif;
+    font-family: "BarlowCondensed";
     font-weight: 300;
     font-style: normal;
     src:url("/fonts/BarlowCondensed-Light.ttf") format("truetype");
