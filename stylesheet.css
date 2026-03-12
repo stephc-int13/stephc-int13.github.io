@@ -101,19 +101,14 @@ nav hr
     height: 1px;
     width: 84%;
     border: 0;
-
     margin:0;
     padding:0;
-
     margin-left: -5%;  
     margin-right: 0px;
     padding-left: 5%;
     padding-right: 0px;
-
     border-bottom: 1px solid color-mix(in srgb, var(--text-color) 15%, transparent); 
-
 }
-
 
 nav ul 
 {
@@ -143,7 +138,7 @@ nav a:link
     margin:-6px; 
 }
 
-.publish-date 
+.cartouche 
 {        
     margin-top: 2.0rem;
     margin-bottom: 0;
@@ -152,17 +147,17 @@ nav a:link
     border-top: 1px solid var(--text-color);
     border-bottom: 1px solid var(--text-color);
 
-    color: color-mix(in srgb, var(--text-color) 75%, transparent); 
+    /* color: color-mix(in srgb, var(--text-color) 75%, transparent);  */
 }
 
-.publish-date ul 
+.cartouche ul 
 {
     padding: 0px;
     margin:0.5rem;
     margin-left : 0;
 }
 
-.publish-date li 
+.cartouche li 
 {  
     font-size: 1rem;
     font-style: italic;
@@ -192,7 +187,6 @@ nav a:link
     padding:0;
     margin:0;
 }
-
 
 
 h1 
@@ -238,13 +232,15 @@ hr
 
 p.subtitle 
 {
-    font-family: BarlowCondensed, sans-serif;
+    font-family: BarlowCondensed, Calibri, sans-serif;
     font-style: normal;
     margin-top: 0.25rem;
     margin-bottom: 3rem;
     font-size: 2rem;
     display: block;
     line-height: 1;
+
+    color: color-mix(in srgb, var(--text-color) 75%, transparent); 
 }
 
 .danger 
