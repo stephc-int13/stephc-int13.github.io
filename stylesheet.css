@@ -18,6 +18,15 @@
     font-display:swap;
 }
 
+@font-face 
+{
+    font-family: "LastikRegular";
+    font-weight: 300;
+    font-style: normal;
+    src:url("/fonts/LastikRegular.woff2") format("woff2");
+    font-display:swap;
+}
+
 *, *::before, *::after 
 {
     box-sizing: content-box;
@@ -44,7 +53,7 @@ body
     margin-right: auto;
     padding-left: 12.5%;
 
-    font-family:  Georgia, serif; 
+    font-family:  LastikRegular, Georgia, serif; 
  
     background-color: var(--background-color);
     color: var(--text-color);
@@ -463,6 +472,7 @@ div.table-wrapper
 {
     font-family: BarlowCondensed, Calibri, sans-serif;
     letter-spacing: .03em;
+    font-weight: normal;
 }
 
 code, pre > code 
