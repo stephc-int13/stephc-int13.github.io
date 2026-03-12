@@ -16,7 +16,7 @@
     font-family: "BarlowCondensed", sans-serif;
     font-weight: 300;
     font-style: normal;
-    src:url("/fonts/BarlowCondensed-Light.ttf") format("ttf");
+    src:url("/fonts/BarlowCondensed-Light.ttf") format("truetype");
     font-display:swap;
 }
 
