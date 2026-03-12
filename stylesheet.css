@@ -10,6 +10,16 @@
     font-display: swap;
 }
 
+
+@font-face 
+{
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    src:url("/fonts/BarlowCondensed-Light.ttf") format("ttf");
+    font-display:swap;
+}
+
 *, *::before, *::after 
 {
     box-sizing: content-box;
@@ -228,10 +238,10 @@ hr
 
 p.subtitle 
 {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-    font-style: italic;
+    font-family: "Barlow Condensed", Calibri, sans-serif;
+    font-style: normal;
     margin-top: 1rem;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     font-size: 1.5rem;
     display: block;
     line-height: 1;
