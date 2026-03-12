@@ -683,14 +683,6 @@ label.margin-toggle:not(.sidenote-number)
 
     nav 
     {
-        position: relative;
-        top: auto;
-        left: auto;
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        overflow: visible;
-        transition: none;
         background-color: var(--background-color);
         backdrop-filter: none;
         -webkit-backdrop-filter: none;
