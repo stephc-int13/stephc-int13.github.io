@@ -670,8 +670,12 @@ label.margin-toggle:not(.sidenote-number)
 }
 
 
-@media (max-width: 330px) 
-{
+@media only screen
+  and (min-device-width: 320px)
+  and (max-device-width: 480px)
+  and (-webkit-device-pixel-ratio: 2) 
+  {
+  
     h1 
     {
         font-size: 4.2rem;
@@ -688,5 +692,4 @@ label.margin-toggle:not(.sidenote-number)
     {
         font-size: 1.0rem;
     }
-
 }
