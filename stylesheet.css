@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-
 @font-face 
 {
     font-family: "JetBrains Mono";
@@ -9,7 +8,6 @@
     src:url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
     font-display: swap;
 }
-
 
 @font-face 
 {
@@ -463,12 +461,12 @@ table.fullwidth
 div.table-wrapper 
 {
     overflow-x: auto;
-    font-family: "Trebuchet MS", "Gill Sans", "Gill Sans MT", sans-serif;
+    font-family: BarlowCondensed, Calibri, sans-serif;
 }
 
 .sans 
 {
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+    font-family: BarlowCondensed, Calibri, sans-serif;
     letter-spacing: .03em;
 }
 
@@ -656,15 +654,6 @@ label.margin-toggle:not(.sidenote-number)
     {        
         width: 100%;
     }
-
-    /*
-    nav
-    {
-        width:89%;
-        margin-left:-8%;
-        padding-left:8%;
-    }
-    */
 
     .site-footer ul 
     {
