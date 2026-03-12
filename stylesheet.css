@@ -153,6 +153,8 @@ nav a:link
     width: 55%;
     border-top: 1px solid var(--text-color);
     border-bottom: 1px solid var(--text-color);
+
+    color: color-mix(in srgb, var(--text-color) 75%, transparent); 
 }
 
 .publish-date ul 
@@ -238,9 +240,9 @@ hr
 
 p.subtitle 
 {
-    font-family: BarlowCondensed;
+    font-family: BarlowCondensed, sans-serif;
     font-style: normal;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
     margin-bottom: 3rem;
     font-size: 2rem;
     display: block;
