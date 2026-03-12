@@ -13,7 +13,7 @@
 
 @font-face 
 {
-    font-family: "Barlow Condensed", sans-serif;
+    font-family: "BarlowCondensed", sans-serif;
     font-weight: 300;
     font-style: normal;
     src:url("/fonts/BarlowCondensed-Light.ttf") format("ttf");
@@ -238,7 +238,7 @@ hr
 
 p.subtitle 
 {
-    font-family: "Barlow Condensed", Calibri, sans-serif;
+    font-family: BarlowCondensed;
     font-style: normal;
     margin-top: 1rem;
     margin-bottom: 3rem;
