@@ -670,7 +670,7 @@ label.margin-toggle:not(.sidenote-number)
 }
 
 
-@media (max-width: 500px) 
+@media (max-width: 330px) 
 {
     h1 
     {
