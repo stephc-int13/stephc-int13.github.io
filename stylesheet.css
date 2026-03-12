@@ -668,3 +668,18 @@ label.margin-toggle:not(.sidenote-number)
         padding:1rem;  
     } 
 }
+
+
+@media (max-width: 500px) 
+{
+    h1 
+    {
+        font-size: 4.2rem;
+    }
+
+    .blog-title 
+    {
+        font-size: 1.0rem;
+    }
+
+}
