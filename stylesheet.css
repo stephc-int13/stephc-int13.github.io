@@ -97,12 +97,6 @@ nav
     -webkit-backdrop-filter: blur(8px);      
 } 
 
-.blog-title 
-{
-    font-size: 1.3rem;
-    font-weight: normal;
-    padding-right: 2rem;
-}
 
 nav hr
 {
@@ -147,6 +141,14 @@ nav a:link
     margin:-6px; 
 }
 
+.blog-title 
+{
+    font-size: 1.3rem;
+    font-weight: normal;
+}
+
+
+
 .cartouche 
 {        
     margin-top: 2.0rem;
@@ -175,7 +177,7 @@ nav a:link
 
 .site-footer 
 {
-    font-family: JetBrains Mono; 
+    font-family: JetBrains Mono, 'Courier New', Courier, monospace; 
     color: color-mix(in srgb, var(--text-color) 60%, transparent); 
     width:fit-content;
     margin:0;
