@@ -294,7 +294,8 @@ p.subtitle
     display: block;
     line-height: 1;
 
-    padding-right: 0.25rem;
+
+    padding:0.25rem;
     color: color-mix(in srgb, var(--background-color) 95%, transparent); 
 
     background-color: #d42c0a;
