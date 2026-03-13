@@ -262,6 +262,13 @@ h3
     font-size: 2.0rem;
     margin-top: 2rem;
     margin-bottom: 1.4rem;
+
+    /*
+    padding:0.25rem;
+    color: color-mix(in srgb, var(--background-color) 95%, transparent); 
+    background-color: #dc2500;
+    width:fit-content;
+    */
 }
 
 
@@ -287,9 +294,8 @@ p.subtitle
     line-height: 1;
 
 
-    padding:0.25rem;
+    padding:0.5rem;
     color: color-mix(in srgb, var(--background-color) 95%, transparent); 
-
     background-color: #dc2500;
     width:fit-content;
 }
