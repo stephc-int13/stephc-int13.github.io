@@ -296,6 +296,11 @@ p.subtitle
 
     color: color-mix(in srgb, var(--text-color) 70%, transparent); 
 
+    text-decoration: underline;
+    text-decoration-color: #dc1600;
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.1em;
+
 /*
     padding:0.5rem;
     padding-top: 0.1rem;
