@@ -290,7 +290,7 @@ p.subtitle
     padding:0.25rem;
     color: color-mix(in srgb, var(--background-color) 95%, transparent); 
 
-    background-color: #d42c0a;
+    background-color: #dc2500;
     width:fit-content;
 }
 
