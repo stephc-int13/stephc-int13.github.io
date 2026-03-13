@@ -249,6 +249,7 @@ h2
     line-height: 1;
     letter-spacing: -0.04em;
 
+    /*
     width:65%;
     padding-left: 1.5rem;
     margin-left: -1.5rem;
@@ -256,6 +257,12 @@ h2
     padding-top: 0.5rem;
     
     background-color: color-mix(in srgb, var(--text-color) 1%, transparent); 
+    */
+
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--text-color) 20%, transparent);
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.1em;
 }
 
 h3 
