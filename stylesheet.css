@@ -163,10 +163,11 @@ nav a:link
     margin-bottom: 0;
     margin-left: 0;
     width: 55%;
+    padding-left: 0.5rem;
     border-top: 1px solid var(--text-color);
     border-bottom: 1px solid var(--text-color);
 
-    background-color: color-mix(in srgb, var(--text-color) 10%, transparent); 
+    background-color: color-mix(in srgb, var(--text-color) 2%, transparent); 
 }
 
 .cartouche ul 
