@@ -157,7 +157,6 @@ nav a:link
 }
 
 
-
 .cartouche 
 {        
     margin-top: 2.0rem;
@@ -167,7 +166,7 @@ nav a:link
     border-top: 1px solid var(--text-color);
     border-bottom: 1px solid var(--text-color);
 
-    /* color: color-mix(in srgb, var(--text-color) 75%, transparent);  */
+    background-color: color-mix(in srgb, var(--text-color) 10%, transparent); 
 }
 
 .cartouche ul 
@@ -223,6 +222,7 @@ h1
 
 h2 
 {
+    font-family:  BarlowCondensed, Calibri, sans-serif;
     font-style: italic;
     font-weight: 400;
     margin-top: 2.1rem;
@@ -233,6 +233,7 @@ h2
 
 h3 
 {
+    font-family:  LastikRegular, Georgia, serif; 
     font-style: italic;
     font-weight: 400;
     font-size: 1.7rem;
