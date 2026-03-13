@@ -5,7 +5,7 @@
     font-family: "JetBrains Mono";
     font-style: normal;
     font-weight: normal;
-    src:url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+    src:url("https://stephc.net/fonts/JetBrainsMono-Regular.woff2") format("woff2");
     font-display: swap;
 }
 
@@ -14,7 +14,7 @@
     font-family: "BarlowCondensed";
     font-weight: 300;
     font-style: normal;
-    src:url("/fonts/BarlowCondensed-Light.ttf") format("truetype");
+    src:url("https://stephc.net/fonts/BarlowCondensed-Light.ttf") format("truetype");
     font-display:swap;
 }
 
@@ -23,8 +23,17 @@
     font-family: "LastikRegular";
     font-weight: 300;
     font-style: normal;
-    src:url("/fonts/Lastik-Regular.woff2") format("woff2");
+    src:url("https://stephc.net/fonts/Lastik-Regular.woff2") format("woff2");
     font-display:swap;
+}
+
+@font-face 
+{
+    font-family: "noto-serif";
+    src: url("https://stephc.net/fonts/notoserif-regular.woff2") format("woff2");
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
 }
 
 *, *::before, *::after 
@@ -53,7 +62,7 @@ body
     margin-right: auto;
     padding-left: 12.5%;
 
-    font-family: Georgia, serif; 
+    font-family: "noto-serif", Georgia, serif; 
  
     background-color: var(--background-color);
     color: var(--text-color);
