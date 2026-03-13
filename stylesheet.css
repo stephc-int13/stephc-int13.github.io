@@ -294,13 +294,16 @@ p.subtitle
     line-height: 1;
     max-width: 55%;
 
+    color: color-mix(in srgb, var(--text-color) 70%, transparent); 
 
+/*
     padding:0.5rem;
     padding-top: 0.1rem;
     padding-bottom: 0.1rem;
     color: var(--background-color); 
     background-color: #dc1600;
     width:fit-content;
+    */
 }
 
 .danger 
