@@ -718,6 +718,11 @@ label.margin-toggle:not(.sidenote-number)
         margin:0;
         padding:1rem;  
     } 
+
+    p.subtitle 
+    {
+        max-width: 100%;
+    }
 }
 
 
