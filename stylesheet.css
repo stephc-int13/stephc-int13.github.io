@@ -742,6 +742,7 @@ label.margin-toggle:not(.sidenote-number)
 
     p.subtitle 
     {
+        font-size: 1.3rem;
         max-width: 100%;
     }
 
