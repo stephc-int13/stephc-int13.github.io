@@ -12,9 +12,9 @@
 @font-face
 {
     font-family: "BarlowCondensed";
-    font-weight: normal;
+    font-weight: 200;
     font-style: normal;
-    src:url("/fonts/barlow-condensed.woff2") format("woff2");
+    src:url("/fonts/BarlowCondensed-ExtraLight.woff2") format("woff2");
     font-display:swap;
 }
 
