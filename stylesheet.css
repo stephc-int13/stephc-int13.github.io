@@ -233,7 +233,7 @@ nav a:link
     margin:0;
 }
 
-.head-spacer
+.head-dinkus
 {
     width:55%;
     font-size: 1.2rem;
@@ -242,6 +242,17 @@ nav a:link
     margin-bottom: 6rem;;
     text-align: center;
     color: color-mix(in srgb, var(--text-color) 40%, transparent); 
+}
+
+.finis-mark
+{
+    width:55%;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 0;
+    margin-bottom: 0;;
+    text-align: center;
+    color: color-mix(in srgb, var(--text-color) 40%, transparent);    
 }
 
 
@@ -315,7 +326,9 @@ p.subtitle
 
 article 
 {
-    padding: 5rem 0rem;
+   /*  padding: 5rem 0rem; */
+   padding-top: 5rem;
+   padding-bottom: 2.5rem;
 }
 
 section 
@@ -742,7 +755,7 @@ label.margin-toggle:not(.sidenote-number)
         max-width: 100%;
     }
 
-    .head-spacer
+    .head-dinkus
     {
         width:100%;
     }   
