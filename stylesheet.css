@@ -260,7 +260,7 @@ h1
 {
     font-family:  LastikRegular, Georgia, serif; 
     font-weight: 400;
-    margin-top: 2rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
     margin-right:5rem;
     font-size: 7.2rem;
@@ -288,10 +288,9 @@ h3
 {
     font-family:  ArchivoNarrow, Calibri, sans-serif;
     font-weight: 400;
-    font-size: 2.0rem;
+    font-size: 1.6rem;
     margin-top: 2rem;
     margin-bottom: 1.4rem;
-
 }
 
 
