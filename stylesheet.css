@@ -640,6 +640,11 @@ label.margin-toggle:not(.sidenote-number)
         padding-right: 10%;
     }
 
+    h1
+    {
+        font-size: 4.5rem;
+    }
+
     hr,
     section > p,
     section > footer,
