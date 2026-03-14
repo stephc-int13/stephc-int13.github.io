@@ -9,16 +9,6 @@
     font-display: swap;
 }
 
-/*
-@font-face 
-{
-    font-family: "ArchivoNarrow";
-    font-weight: normal;
-    font-style: normal;
-    src:url("/fonts/archivo-narrow.woff2") format("woff2");
-    font-display:swap;
-}
-*/
 
 @font-face 
 {
@@ -314,7 +304,7 @@ p.subtitle
     font-weight: 200;
     margin-top: 1rem;
     margin-bottom: 4rem;
-    font-size: 2.0rem;
+    font-size: 3.0rem;
     display: block;
     line-height: 1;
     max-width: 55%;
@@ -744,7 +734,7 @@ label.margin-toggle:not(.sidenote-number)
 
     p.subtitle 
     {
-        font-size: 1.3rem;
+        font-size: 2.0rem;
         max-width: 100%;
     }
 
