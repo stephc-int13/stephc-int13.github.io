@@ -5,10 +5,11 @@
     font-family: "JetBrains Mono";
     font-style: normal;
     font-weight: normal;
-    src:url("/fonts/JetBrainsMono-Regular.woff2") format("woff2");
+    src:url("/fonts/jetbrains-mono.woff2") format("woff2");
     font-display: swap;
 }
 
+/* 
 @font-face 
 {
     font-family: "BarlowCondensed";
@@ -17,13 +18,14 @@
     src:url("/fonts/barlow-condensed.woff2") format("woff2");
     font-display:swap;
 }
+*/
 
 @font-face 
 {
     font-family: "ArchivoNarrow";
     font-weight: normal;
     font-style: normal;
-    src:url("/fonts/ArchivoNarrow-Regular.ttf") format("ttf");
+    src:url("/fonts/archivo-narrow.woff2") format("woff2");
     font-display:swap;
 }
 
@@ -295,7 +297,7 @@ hr
 
 p.subtitle 
 {
-    font-family: ArchivoNarrow, BarlowCondensed, Calibri, sans-serif;
+    font-family: ArchivoNarrow, Calibri, sans-serif;
     font-style: normal;
     font-weight: 200;
     margin-top: 1rem;
