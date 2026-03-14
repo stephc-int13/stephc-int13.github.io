@@ -269,18 +269,12 @@ h2
 
 h3 
 {
-    font-family:  BarlowCondensed, Calibri, sans-serif;
+    font-family:  ArchivoNarrow, Calibri, sans-serif;
     font-weight: 400;
     font-size: 2.0rem;
     margin-top: 2rem;
     margin-bottom: 1.4rem;
 
-    /*
-    padding:0.25rem;
-    color: color-mix(in srgb, var(--background-color) 95%, transparent); 
-    background-color: #dc2500;
-    width:fit-content;
-    */
 }
 
 
@@ -302,13 +296,11 @@ p.subtitle
     font-weight: 200;
     margin-top: 1rem;
     margin-bottom: 4rem;
-    font-size: 2.6rem;
+    font-size: 2.0rem;
     display: block;
     line-height: 1;
     max-width: 55%;
-
-    color: color-mix(in srgb, var(--text-color) 70%, transparent); 
-
+    color: color-mix(in srgb, var(--text-color) 55%, transparent); 
 }
 
 .danger 
