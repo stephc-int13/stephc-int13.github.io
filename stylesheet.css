@@ -184,18 +184,10 @@ nav a:link
     border-top: 1px solid var(--text-color);
     border-bottom: 1px solid var(--text-color);
 
-    background-color: color-mix(in srgb, var(--text-color) 2%, transparent); 
+    background-color: color-mix(in srgb, var(--text-color) 3%, transparent); 
 }
 
-.cartouche hr
-{
-    display: block;
-    height: 0.25rem;
-    width: 100%;
-    border:0;
-    margin:0;
-    padding:0;
-}
+
 
 .cartouche ul 
 {
@@ -296,6 +288,7 @@ p.subtitle
 {
     font-family: BarlowCondensed, Calibri, sans-serif;
     font-style: normal;
+    font-weight: 200;
     margin-top: 1rem;
     margin-bottom: 4rem;
     font-size: 1.6rem;
