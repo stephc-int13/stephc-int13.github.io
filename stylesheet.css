@@ -103,6 +103,10 @@ body
 {
     background-color: #f5d90a;
     color: #2a1f00;
+    text-decoration: underline;
+    text-decoration-color: #f5d90a;
+    text-decoration-thickness: 0.1em;
+    text-underline-offset: 0.1em;
 }
 
 
@@ -300,7 +304,7 @@ p.subtitle
     display: block;
     line-height: 1;
     max-width: 55%;
-    color: color-mix(in srgb, var(--text-color) 55%, transparent); 
+    color: color-mix(in srgb, var(--text-color) 60%, transparent); 
 }
 
 .danger 
