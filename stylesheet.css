@@ -669,6 +669,8 @@ label.margin-toggle:not(.sidenote-number)
     .fullwidth
     {
         max-width: 100%;
+        margin:0;
+        padding:0;
     }
 
     blockquote 
