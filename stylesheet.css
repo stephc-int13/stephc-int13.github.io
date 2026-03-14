@@ -522,12 +522,12 @@ table.fullwidth
 div.table-wrapper 
 {
     overflow-x: auto;
-    font-family: BarlowCondensed, Calibri, sans-serif;
+    font-family: ArchivoNarrow, Calibri, sans-serif;
 }
 
 .sans 
 {
-    font-family: BarlowCondensed, Calibri, sans-serif;
+    font-family: ArchivoNarrow, Calibri, sans-serif;
     font-size: 1.5rem;
     letter-spacing: .03em;
     font-weight: normal;
