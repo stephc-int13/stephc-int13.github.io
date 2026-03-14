@@ -316,7 +316,7 @@ p.subtitle
     display: block;
     line-height: 1;
     max-width: 55%;
-    color: color-mix(in srgb, var(--text-color) 50%, transparent); 
+    color: color-mix(in srgb, var(--text-color) 60%, transparent); 
 }
 
 .danger 
