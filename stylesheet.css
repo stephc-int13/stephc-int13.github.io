@@ -9,17 +9,6 @@
     font-display: swap;
 }
 
-/* 
-@font-face 
-{
-    font-family: "BarlowCondensed";
-    font-weight: normal;
-    font-style: normal;
-    src:url("/fonts/barlow-condensed.woff2") format("woff2");
-    font-display:swap;
-}
-*/
-
 @font-face 
 {
     font-family: "ArchivoNarrow";
@@ -73,6 +62,7 @@
 :root 
 {
   --text-color: #18180c;
+
   --background-color: #eeeee9;
   --highlight-color:#fffff8;
   --link-color:#000; 
