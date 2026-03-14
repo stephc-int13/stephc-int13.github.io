@@ -107,6 +107,7 @@ body
     text-decoration-color: #f5d90a;
     text-decoration-thickness: 0.1em;
     text-underline-offset: 0.1em;
+
 }
 
 
@@ -243,12 +244,25 @@ nav a:link
     margin:0;
 }
 
+.head-spacer
+{
+    width:55%;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-top: 4rem;
+    margin-bottom: 8rem;
+    margin-right:5rem;
+    text-align: center;
+    color: color-mix(in srgb, var(--text-color) 40%, transparent); 
+}
+
+
 
 h1 
 {
     font-family:  LastikRegular, Georgia, serif; 
     font-weight: 400;
-    margin-top: 12rem;
+    margin-top: 2rem;
     margin-bottom: 1rem;
     margin-right:5rem;
     font-size: 7.2rem;
@@ -262,7 +276,7 @@ h2
     font-weight: 400;
     margin-top: 2.1rem;
     margin-bottom: 1.4rem;
-    font-size: 2.5rem;
+    font-size: 2.0rem;
     line-height: 1;
     letter-spacing: -0.04em;
 
@@ -728,6 +742,12 @@ label.margin-toggle:not(.sidenote-number)
     {
         max-width: 100%;
     }
+
+    .head-spacer
+    {
+        width:100%;
+    }   
+
 }
 
 
