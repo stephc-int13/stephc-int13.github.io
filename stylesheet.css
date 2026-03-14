@@ -760,6 +760,11 @@ label.margin-toggle:not(.sidenote-number)
         width:100%;
     }   
 
+    .finis-mark
+    {
+        width:100%;
+    } 
+
 }
 
 
