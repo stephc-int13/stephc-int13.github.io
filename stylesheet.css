@@ -121,7 +121,7 @@ nav
     top:0px;
     z-index: 100;
     width: 100%;
-    max-width: 1200px; 
+    max-width: 1100px; 
     padding:0px;
 
     background-color: color-mix(in srgb, var(--background-color) 85%, transparent); 
@@ -741,7 +741,7 @@ label.margin-toggle:not(.sidenote-number)
 
     .cartouche 
     {        
-        width: 90%;
+        width: 100%;
     }
 
     .site-footer ul 
