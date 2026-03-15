@@ -185,7 +185,7 @@ nav a:link
 {        
     margin-top: 2.0rem;
     margin-bottom: 0;
-    width: 50%;
+    width: 55%;
     padding-left: 1.0rem;
     border-top: 1px solid var(--text-color);
     border-bottom: 1px solid var(--text-color);
@@ -741,7 +741,7 @@ label.margin-toggle:not(.sidenote-number)
 
     .cartouche 
     {        
-        width: 100%;
+        width: 90%;
     }
 
     .site-footer ul 
