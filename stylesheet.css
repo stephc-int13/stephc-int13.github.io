@@ -185,7 +185,7 @@ nav a:link
 {        
     margin-top: 2.0rem;
     margin-bottom: 0;
-    width: 55%;
+    width: 50%;
     padding-left: 1.0rem;
     border-top: 1px solid var(--text-color);
     border-bottom: 1px solid var(--text-color);
