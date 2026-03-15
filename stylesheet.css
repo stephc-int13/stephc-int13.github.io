@@ -84,7 +84,7 @@ body
  
     background-color: var(--background-color);
     color: var(--text-color);
-    max-width: 1350px;
+    max-width: 1000px;
     counter-reset: sidenote-counter;
 }
 
@@ -121,7 +121,7 @@ nav
     top:0px;
     z-index: 100;
     width: 100%;
-    max-width: 1500px; 
+    max-width: 1200px; 
     padding:0px;
 
     background-color: color-mix(in srgb, var(--background-color) 85%, transparent); 
