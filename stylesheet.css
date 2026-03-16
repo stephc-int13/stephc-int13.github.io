@@ -245,6 +245,17 @@ nav a:link
     color: color-mix(in srgb, var(--text-color) 40%, transparent); 
 }
 
+.dinkus
+{
+    width:55%;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-top: 2rem;
+    margin-bottom: 2rem;;
+    text-align: center;
+    color: color-mix(in srgb, var(--text-color) 40%, transparent); 
+}
+
 .finis-mark
 {
     width:55%;
@@ -265,7 +276,7 @@ h1
     margin-bottom: 1rem;
     margin-right:5rem;
     font-size: 7.2rem;
-    line-height: 0.5;
+    line-height: 0.8;
     letter-spacing: -0.04em;
 }
 
