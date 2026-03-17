@@ -96,7 +96,6 @@ body
     text-decoration-color: #f5d90a;
     text-decoration-thickness: 0.1em;
     text-underline-offset: 0.1em;
-
 }
 
 
@@ -772,6 +771,11 @@ label.margin-toggle:not(.sidenote-number)
     {
         width:100%;
     }   
+
+    .dinkus
+    {
+        width:100%;
+    }  
 
     .finis-mark
     {
