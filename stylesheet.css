@@ -105,7 +105,7 @@ body
 {
     :root 
     {
-        --text-color: #ddddcd; /* was d9 */ 
+        --text-color: #ddddd4; 
         --background-color: #181818;;
         --highlight-color:#000018;   
         --link-color:#fff;      
