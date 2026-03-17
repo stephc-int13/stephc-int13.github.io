@@ -62,7 +62,7 @@
 :root 
 {
   --text-color: #18180c;
-  --background-color: #eeeee9;
+  --background-color: #eeeecd;
   --highlight-color:#fffff8;
   --link-color:#000; 
 }
@@ -105,7 +105,7 @@ body
 {
     :root 
     {
-        --text-color: #ddddc8; /* was d9 */ 
+        --text-color: #ddddcd; /* was d9 */ 
         --background-color: #181818;;
         --highlight-color:#000018;   
         --link-color:#fff;      
