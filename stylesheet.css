@@ -809,6 +809,7 @@ label.margin-toggle:not(.sidenote-number)
 
 .disclaimer-box
 {
+    box-sizing: border-box;
     width: 55%;
     margin-top: 2rem;
     margin-bottom: 2.5rem;
@@ -1059,10 +1060,15 @@ label.margin-toggle:not(.sidenote-number)
     } 
 
     .page-intro,
-    .entry-list,
-    .disclaimer-box
+    .entry-list
     {
         width: 100%;
+    }
+
+    .disclaimer-box
+    {
+        width: auto;
+        margin-right: 1rem;
     }
 
     .entry-title
