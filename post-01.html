@@ -48,13 +48,39 @@
       </div>
       <section>
         <h2 id="opening">Opening</h2>
-        <p>This is placeholder article number 01. Its real purpose is not to say anything profound, but to occupy the page in a believable way so we can judge margins, title scale, section spacing, and the overall feel of a full post.</p>
-        <p>Because the mockup phase is about structure first, the prose stays calm and generic. That makes it easier to notice the design decisions rather than getting distracted by the argument itself.</p>
+        <p>This is placeholder article number 01. Its real purpose is not to say anything profound, but to occupy the page in a believable way so we can judge margins, title scale, section spacing, and the overall feel of a full post.<label for="sn-post01-purpose" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-post01-purpose" class="margin-toggle"/><span class="sidenote">Mock content is most useful when it is specific enough to feel real, but bland enough not to dominate the design conversation.</span></p>
+        <p>Because the mockup phase is about structure first, the prose stays calm and generic. That makes it easier to notice the design decisions rather than getting distracted by the argument itself. A page like this needs enough mass to reveal rhythm: the drag of a long heading, the pause created by metadata, and the way a paragraph settles after a large decorative title.</p>
+        <p>In practice, the first article in a set often has to do more than the rest. It is the page people keep revisiting while they tweak spacing, compare type sizes, and decide whether the layout can comfortably hold both thought and ornament.</p>
       </section>
       <section>
         <h2 id="notes">Notes</h2>
-        <p>Even a very plain article is useful once it gives the layout something to carry. A title, a subtitle, a metadata block, and a couple of paragraphs are enough to expose whether the page feels deliberate or merely assembled.</p>
-        <p>If this shape works for Post 01, it should scale to the rest of the archive with minimal fuss. That is exactly what mock content is for.</p>
+        <p>Even a very plain article is useful once it gives the layout something to carry. A title, a subtitle, a metadata block, and a couple of paragraphs are enough to expose whether the page feels deliberate or merely assembled. They also make it easier to test small intrusions into the reading flow, like sidenotes, figures, and brief technical detours.</p>
+        <p>If this shape works for Post 01, it should scale to the rest of the archive with minimal fuss. That is exactly what mock content is for: not to impress, but to prove that the page remains coherent once it is asked to do a little more work.</p>
+      </section>
+      <section>
+        <h2 id="figure-test">Figure Test</h2>
+        <p>Articles rarely stay all-text for long. Sooner or later there is a chart, a photograph, or some secondary visual detail that needs to sit inside the essay without tearing the page apart.
+          <label for="mn-post01-rhino" class="margin-toggle">&#8853;</label>
+          <input type="checkbox" id="mn-post01-rhino" class="margin-toggle"/>
+          <span class="marginnote"><img src="img/rhino.png" alt="A rhinoceros engraving used as a margin image"/>A deliberately odd little margin image, useful for seeing whether side material feels playful or merely cramped.</span>
+          This paragraph exists mostly to see whether a margin image can coexist with the body copy without becoming visually louder than the argument it is attached to.</p>
+        <figure>
+          <img src="img/exports-imports.png" alt="A placeholder data figure used for layout testing"/>
+          <figcaption>A conventional in-column figure, here purely to test how images, captions, and surrounding paragraphs hold together.</figcaption>
+        </figure>
+        <p>The image itself is unimportant. What matters is whether the figure feels integrated into the page rather than pasted between text blocks. Mock content earns its keep when it helps answer that sort of question quickly.</p>
+      </section>
+      <section>
+        <h2 id="code-test">Code Test</h2>
+        <p>Some posts will inevitably drift into technical territory, which means the page also needs to survive a monospace interruption without losing its tone.</p>
+        <pre><code>&lt;article class="draft-post"&gt;
+  &lt;h1&gt;Post 01&lt;/h1&gt;
+  &lt;p class="subtitle"&gt;A useful fake article&lt;/p&gt;
+  &lt;section&gt;
+    &lt;p&gt;Enough content to expose spacing problems.&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/article&gt;</code></pre>
+        <p>The snippet does not need to be clever. It only needs to be code-shaped enough to reveal whether indentation, overflow, and type contrast feel at home in the design.</p>
       </section>
       <div class="finis-mark">⁂</div>
     </article>

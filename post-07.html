@@ -50,13 +50,27 @@
       </div>
       <section>
         <h2 id="opening">Opening</h2>
-        <p>Post 07 stretches the fake reading time a little, mostly so the metadata blocks across the archive do not all look mechanically identical. Small differences like that make placeholders more useful.</p>
-        <p>The page itself remains intentionally plain, which keeps the focus on proportion, not prose.</p>
+        <p>Post 07 stretches the fake reading time a little, mostly so the metadata blocks across the archive do not all look mechanically identical. Small differences like that make placeholders more useful. The full-width image also gives this page a looser, more atmospheric start than the more text-first posts.<label for="sn-post07-image" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-post07-image" class="margin-toggle"/><span class="sidenote">A broad opening image can make a post feel more essayistic, but only if the title that follows still lands with enough force.</span></p>
+        <p>The page itself remains intentionally plain, which keeps the focus on proportion, not prose. What changes here is not complexity so much as texture: a larger opening, more breathing room, and a few denser components further down.</p>
       </section>
       <section>
         <h2 id="notes">Notes</h2>
         <p>A mock article only has to be credible enough to carry weight. Once it does that, the title, subtitle, sections, and footer can be judged under conditions that feel much closer to the finished site.</p>
-        <p>That is more than enough value for a temporary page.</p>
+        <p>That is more than enough value for a temporary page. The real advantage, though, comes when the page also includes one or two denser blocks that test edge cases rather than just the happy path.</p>
+      </section>
+      <section>
+        <h2 id="technical-detour">Technical Detour</h2>
+        <p>Even reflective essays sometimes need a small technical aside, whether that means a command line fragment, a tiny excerpt of code, or a layout recipe that would look silly if explained entirely in prose.</p>
+        <pre><code>build-post --title "Post 07" ^
+           --hero img/imagequilt-chinese-calligraphy.png ^
+           --with-epigraph false ^
+           --notes "exercise image-heavy variants"</code></pre>
+        <p>The exact content of the snippet matters less than its shape: multiple lines, indentation, a bit of punctuation, and enough width to see whether wrapping or overflow becomes awkward.</p>
+        <figure>
+          <img src="img/table-example-be-page-159.png" alt="A secondary in-column figure used to test composition"/>
+          <figcaption>A second figure further down the page, useful for seeing whether image-heavy posts still feel orderly after the opener.</figcaption>
+        </figure>
+        <p>Once two images and a code block appear on the same page, the design is no longer being tested only by idealized article copy. That is usually when the useful problems start showing themselves.</p>
       </section>
       <div class="finis-mark">⁂</div>
     </article>

@@ -51,12 +51,28 @@
       <section>
         <h2 id="opening">Opening</h2>
         <p>Post 10 is mostly a milestone for the archive itself. By the time a list reaches double digits, it starts to reveal whether the catalog page is genuinely comfortable to browse or merely tolerable in small doses.</p>
-        <p>This page helps answer that by giving the list another destination with a familiar shape.</p>
+        <p>This page helps answer that by giving the list another destination with a familiar shape. It also helps test a post that starts visually, remains fairly dense, and still tries to feel composed rather than overloaded.<label for="sn-post10-density" class="margin-toggle sidenote-number"></label><input type="checkbox" id="sn-post10-density" class="margin-toggle"/><span class="sidenote">Archive density and page density are related but not identical problems; one can feel calm while the other feels crowded.</span></p>
       </section>
       <section>
         <h2 id="notes">Notes</h2>
         <p>The individual reading page remains intentionally conservative: big title, restrained subtitle, compact metadata, then prose. That leaves the typography nowhere to hide, which is useful in a mockup.</p>
-        <p>When the content is this plain, any awkwardness belongs to the layout.</p>
+        <p>When the content is this plain, any awkwardness belongs to the layout. When a figure, a code block, and a sidenote all arrive in the same article, the diagnosis becomes even easier.</p>
+      </section>
+      <section>
+        <h2 id="mixed-content">Mixed Content</h2>
+        <p>This is where a mock page becomes more than a placeholder. Once several content modes share the same article, you can tell very quickly whether the reading experience remains coherent or starts to fray.</p>
+        <figure>
+          <img src="img/imagequilt-animal-sounds.png" alt="A mixed-content figure used to test in-article balance"/>
+          <figcaption>A regular-width image appearing after a hero opener, useful for testing visual repetition within a single page.</figcaption>
+        </figure>
+        <pre><code>const articleShape = {
+  hero: true,
+  epigraph: false,
+  sidenotes: 1,
+  figures: 2,
+  codeBlocks: 1
+};</code></pre>
+        <p>The snippet is shamelessly artificial, but that is perfectly fine. It gives the monospace styling something to do while the page tests a busier combination of components.</p>
       </section>
       <div class="finis-mark">⁂</div>
     </article>
