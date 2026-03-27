@@ -65,18 +65,18 @@
   --background-color: #eeeee9;
   --highlight-color:#fffff8;
   --link-color:#000; 
-  --code-bg: #282828;
-  --code-surface: #32302f;
-  --code-border: #504945;
-  --code-text: #ebdbb2;
+  --code-bg: #f2e5bc;
+  --code-surface: #ebdbb2;
+  --code-border: #bdae93;
+  --code-text: #3c3836;
   --code-dim: #928374;
-  --code-red: #fb4934;
-  --code-green: #b8bb26;
-  --code-yellow: #fabd2f;
-  --code-blue: #83a598;
-  --code-purple: #d3869b;
-  --code-aqua: #8ec07c;
-  --code-orange: #fe8019;
+  --code-red: #cc241d;
+  --code-green: #98971a;
+  --code-yellow: #d79921;
+  --code-blue: #458588;
+  --code-purple: #b16286;
+  --code-aqua: #689d6a;
+  --code-orange: #d65d0e;
 }
 
 html 
@@ -120,9 +120,18 @@ body
         --background-color: #181818;;
         --highlight-color:#000018;   
         --link-color:#fff;
-        --code-bg: #202020;
-        --code-surface: #2b2b2b;
-        --code-border: #4b4b4b;
+        --code-bg: #282828;
+        --code-surface: #32302f;
+        --code-border: #504945;
+        --code-text: #ebdbb2;
+        --code-dim: #928374;
+        --code-red: #fb4934;
+        --code-green: #b8bb26;
+        --code-yellow: #fabd2f;
+        --code-blue: #83a598;
+        --code-purple: #d3869b;
+        --code-aqua: #8ec07c;
+        --code-orange: #fe8019;
     }
 }
 
