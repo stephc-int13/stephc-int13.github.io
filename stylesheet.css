@@ -933,7 +933,7 @@ label.margin-toggle:not(.sidenote-number)
 {
     float: none;
     max-width: 100%;
-    margin-top: 0.75rem;
+    margin-top: 0.5rem;
     font-size: 0.75rem;
     color: color-mix(in srgb, var(--text-color) 72%, transparent);
     line-height: 1.45;
