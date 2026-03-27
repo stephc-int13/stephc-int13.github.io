@@ -77,6 +77,9 @@
   --code-purple: #b16286;
   --code-aqua: #689d6a;
   --code-orange: #d65d0e;
+  --code-lang-c: #d79921;
+  --code-lang-cpp: #458588;
+  --code-lang-asm: #98971a;
 }
 
 html 
@@ -132,6 +135,9 @@ body
         --code-purple: #d3869b;
         --code-aqua: #8ec07c;
         --code-orange: #fe8019;
+        --code-lang-c: #fabd2f;
+        --code-lang-cpp: #83a598;
+        --code-lang-asm: #b8bb26;
     }
 }
 
@@ -644,9 +650,25 @@ pre.code-block
     width: 55%;
     margin: 2rem 0;
     padding: 0;
-    background-color: var(--code-bg);
+    background-color: color-mix(in srgb, var(--code-bg) 60%, transparent);
     border-left: 0.4rem solid var(--code-border);
     overflow: hidden;
+    transition: background-color 160ms ease;
+}
+
+pre.code-block.language-c
+{
+    border-left-color: var(--code-lang-c);
+}
+
+pre.code-block.language-cpp
+{
+    border-left-color: var(--code-lang-cpp);
+}
+
+pre.code-block.language-asm
+{
+    border-left-color: var(--code-lang-asm);
 }
 
 pre.code-block > code
@@ -656,6 +678,11 @@ pre.code-block > code
     padding: 1.15rem 1.35rem 1.15rem 1.1rem;
     overflow-x: auto;
     color: var(--code-text);
+    background-color: transparent;
+}
+
+pre.code-block:hover
+{
     background-color: var(--code-bg);
 }
 
