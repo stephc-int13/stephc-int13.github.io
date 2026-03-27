@@ -194,6 +194,24 @@ nav ul
     width: 87.5%;
 } 
 
+nav .nav-row
+{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 87.5%;
+    margin-top: 12px;
+    margin-bottom: 6px;
+}
+
+nav ul.nav-links
+{
+    width: auto;
+    margin: 0;
+    flex: 1 1 auto;
+}
+
 nav ul li a:hover,
 nav ul li a:active 
 {
@@ -219,6 +237,31 @@ nav a:link
     font-size: 1.3rem;
     font-weight: normal;
     letter-spacing: -0.05em;
+}
+
+.language-switch
+{
+    flex: 0 0 auto;
+    margin: 0;
+    font-size: 0.78rem;
+    color: color-mix(in srgb, var(--text-color) 72%, transparent);
+    white-space: nowrap;
+}
+
+.language-switch a
+{
+    color: inherit;
+}
+
+.language-switch [aria-current="page"]
+{
+    color: var(--text-color);
+}
+
+.language-separator
+{
+    color: color-mix(in srgb, var(--text-color) 42%, transparent);
+    padding: 0 0.3rem;
 }
 
 
@@ -1079,6 +1122,25 @@ label.margin-toggle:not(.sidenote-number)
         width: 100%;
     }
 
+    nav .nav-row
+    {
+        width: 100%;
+        flex-wrap: wrap;
+        row-gap: 0.35rem;
+    }
+
+    nav ul.nav-links
+    {
+        width: 100%;
+    }
+
+    .language-switch
+    {
+        width: 100%;
+        text-align: right;
+        font-size: 0.72rem;
+    }
+
     .disclaimer-box
     {
         width: auto;
@@ -1136,6 +1198,11 @@ label.margin-toggle:not(.sidenote-number)
     {
         font-size: 1.0rem;
         padding-right: 0.5rem;
+    }
+
+    .language-switch
+    {
+        font-size: 0.68rem;
     }
 
     .cartouche li 
