@@ -934,14 +934,15 @@ label.margin-toggle:not(.sidenote-number)
     float: none;
     max-width: 100%;
     margin-top: 0.75rem;
-    font-size: 0.98rem;
+    font-size: 0.88rem;
     color: color-mix(in srgb, var(--text-color) 72%, transparent);
+    line-height: 1.45;
 }
 
 .portrait-meta-separator
 {
     color: color-mix(in srgb, var(--text-color) 42%, transparent);
-    padding: 0 0.35rem;
+    padding: 0 0.3rem;
 }
 
 

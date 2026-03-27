@@ -40,10 +40,10 @@
         <img id="about-portrait" class="profile-portrait" src="images/portrait.jpg" alt="Portrait of Stephane Cocquereaumont"/>
         <figcaption id="about-portrait-caption">
           <span id="about-portrait-date">May 2024</span>
-          <span class="portrait-meta-separator">/</span>
+          <span id="about-portrait-separator-1" class="portrait-meta-separator">&middot;</span>
           <span id="about-portrait-location">Paris</span>
-          <span class="portrait-meta-separator">/</span>
-          <span id="about-portrait-credit">photographed by Alice Martin</span>
+          <span id="about-portrait-separator-2" class="portrait-meta-separator" hidden>&middot;</span>
+          <span id="about-portrait-credit" hidden></span>
         </figcaption>
       </figure>
 
@@ -82,8 +82,9 @@
         const portrait = document.getElementById("about-portrait");
         const portraitDate = document.getElementById("about-portrait-date");
         const portraitLocation = document.getElementById("about-portrait-location");
+        const portraitSeparatorTwo = document.getElementById("about-portrait-separator-2");
         const portraitCredit = document.getElementById("about-portrait-credit");
-        if (!portrait || !portraitDate || !portraitLocation || !portraitCredit) return;
+        if (!portrait || !portraitDate || !portraitLocation || !portraitSeparatorTwo || !portraitCredit) return;
 
         const variants = [
           {
@@ -91,7 +92,7 @@
             className: "portrait-variant-1",
             date: "May 2024",
             location: "Paris",
-            credit: "photographed by Alice Martin"
+            credit: ""
           },
           {
             src: "images/portrait2.jpg",
@@ -105,7 +106,7 @@
             className: "portrait-variant-3",
             date: "January 2022",
             location: "London",
-            credit: "photographed by Clara Evans"
+            credit: ""
           },
           {
             src: "images/portrait2.jpg",
@@ -128,7 +129,15 @@
         portrait.classList.add(choice.className);
         portraitDate.textContent = choice.date;
         portraitLocation.textContent = choice.location;
-        portraitCredit.textContent = choice.credit;
+        if (choice.credit) {
+          portraitSeparatorTwo.hidden = false;
+          portraitCredit.hidden = false;
+          portraitCredit.textContent = choice.credit;
+        } else {
+          portraitSeparatorTwo.hidden = true;
+          portraitCredit.hidden = true;
+          portraitCredit.textContent = "";
+        }
       })();
     </script>
   </body>
