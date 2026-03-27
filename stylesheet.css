@@ -122,11 +122,23 @@ nav
     width: 100%;
     max-width: 1150px; 
     padding:0px;
-
-    background-color: color-mix(in srgb, var(--background-color) 85%, transparent); 
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);      
+    isolation: isolate;
 } 
+
+nav::before
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -1rem;
+    right: 0;
+    background-color: color-mix(in srgb, var(--background-color) 85%, transparent);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    pointer-events: none;
+    z-index: -1;
+}
 
 
 nav hr
