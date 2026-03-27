@@ -74,10 +74,13 @@
       </section>
       <section>
         <h2 id="small-snippet">Small Snippet</h2>
-        <pre><code>if (dialog.opensSlowly()) {
-  user.mood--;
-  trust--;
-}</code></pre>
+        <pre class="code-block language-c"><code><span class="tok-type">static int</span> <span class="tok-func">penalty_for_jank</span><span class="tok-symbol">(</span><span class="tok-type">int</span> <span class="tok-symbol">frames_stalled)</span>
+<span class="tok-symbol">{</span>
+    <span class="tok-keyword">if</span> <span class="tok-symbol">(frames_stalled &lt;=</span> <span class="tok-number">1</span><span class="tok-symbol">)</span>
+        <span class="tok-keyword">return</span> <span class="tok-number">0</span><span class="tok-symbol">;</span>
+
+    <span class="tok-keyword">return</span> <span class="tok-symbol">(frames_stalled -</span> <span class="tok-number">1</span><span class="tok-symbol">) *</span> <span class="tok-number">5</span><span class="tok-symbol">;</span>
+<span class="tok-symbol">}</span></code></pre>
         <p>A tiny code block like this is enough to test whether rants can support technical examples without accidentally turning into full posts.</p>
       </section>
       <div class="finis-mark">⁂</div>

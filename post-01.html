@@ -73,13 +73,18 @@
       <section>
         <h2 id="code-test">Code Test</h2>
         <p>Some posts will inevitably drift into technical territory, which means the page also needs to survive a monospace interruption without losing its tone.</p>
-        <pre><code>&lt;article class="draft-post"&gt;
-  &lt;h1&gt;Post 01&lt;/h1&gt;
-  &lt;p class="subtitle"&gt;A useful fake article&lt;/p&gt;
-  &lt;section&gt;
-    &lt;p&gt;Enough content to expose spacing problems.&lt;/p&gt;
-  &lt;/section&gt;
-&lt;/article&gt;</code></pre>
+        <pre class="code-block language-c"><code><span class="tok-type">int</span> <span class="tok-func">sum_positive</span><span class="tok-symbol">(</span><span class="tok-type">const int</span><span class="tok-symbol">*</span> <span class="tok-symbol">values,</span> <span class="tok-type">size_t</span> <span class="tok-symbol">count)</span>
+<span class="tok-symbol">{</span>
+    <span class="tok-type">int</span> <span class="tok-symbol">total =</span> <span class="tok-number">0</span><span class="tok-symbol">;</span>
+
+    <span class="tok-keyword">for</span> <span class="tok-symbol">(</span><span class="tok-type">size_t</span> <span class="tok-symbol">i =</span> <span class="tok-number">0</span><span class="tok-symbol">; i &lt; count; ++i)</span>
+    <span class="tok-symbol">{</span>
+        <span class="tok-keyword">if</span> <span class="tok-symbol">(values[i] &gt;</span> <span class="tok-number">0</span><span class="tok-symbol">)</span>
+            <span class="tok-symbol">total += values[i];</span>
+    <span class="tok-symbol">}</span>
+
+    <span class="tok-keyword">return</span> <span class="tok-symbol">total;</span>
+<span class="tok-symbol">}</span></code></pre>
         <p>The snippet does not need to be clever. It only needs to be code-shaped enough to reveal whether indentation, overflow, and type contrast feel at home in the design.</p>
       </section>
       <div class="finis-mark">⁂</div>

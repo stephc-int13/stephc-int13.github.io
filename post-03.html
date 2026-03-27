@@ -65,11 +65,21 @@
           <input type="checkbox" id="mn-post03-side-image" class="margin-toggle"/>
           <span class="marginnote"><img src="img/imagequilt-animal-sounds.png" alt="A placeholder side image used for layout testing"/>A margin image with enough visual density to make sure the side channel stays readable rather than chaotic.</span>
           A margin image is perfect for that sort of test because it lets us see whether the edge of the page can hold real weight without collapsing into clutter.</p>
-        <pre><code>:root {
-  --text-column: 55%;
-  --margin-column: 50%;
-  --page-mood: "calm but not sleepy";
-}</code></pre>
+        <pre class="code-block language-asm"><code><span class="tok-label">sum_positive:</span>
+        <span class="tok-asm">xor</span>     <span class="tok-register">eax</span><span class="tok-symbol">,</span> <span class="tok-register">eax</span>
+        <span class="tok-asm">xor</span>     <span class="tok-register">ecx</span><span class="tok-symbol">,</span> <span class="tok-register">ecx</span>
+<span class="tok-label">.Lloop:</span>
+        <span class="tok-asm">cmp</span>     <span class="tok-register">rcx</span><span class="tok-symbol">,</span> <span class="tok-register">rsi</span>
+        <span class="tok-asm">je</span>      <span class="tok-label">.Ldone</span>
+        <span class="tok-asm">mov</span>     <span class="tok-register">edx</span><span class="tok-symbol">,</span> <span class="tok-symbol">DWORD PTR [</span><span class="tok-register">rdi</span> <span class="tok-operator">+</span> <span class="tok-register">rcx</span><span class="tok-operator">*</span><span class="tok-number">4</span><span class="tok-symbol">]</span>
+        <span class="tok-asm">test</span>    <span class="tok-register">edx</span><span class="tok-symbol">,</span> <span class="tok-register">edx</span>
+        <span class="tok-asm">jle</span>     <span class="tok-label">.Lskip</span>
+        <span class="tok-asm">add</span>     <span class="tok-register">eax</span><span class="tok-symbol">,</span> <span class="tok-register">edx</span>
+<span class="tok-label">.Lskip:</span>
+        <span class="tok-asm">add</span>     <span class="tok-register">rcx</span><span class="tok-symbol">,</span> <span class="tok-number">1</span>
+        <span class="tok-asm">jmp</span>     <span class="tok-label">.Lloop</span>
+<span class="tok-label">.Ldone:</span>
+        <span class="tok-asm">ret</span></code></pre>
         <p>That snippet is intentionally half serious and half nonsense. It is there to test code styling, not to document anything meaningful.</p>
       </section>
       <div class="finis-mark">⁂</div>

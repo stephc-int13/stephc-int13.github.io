@@ -61,10 +61,16 @@
       <section>
         <h2 id="technical-detour">Technical Detour</h2>
         <p>Even reflective essays sometimes need a small technical aside, whether that means a command line fragment, a tiny excerpt of code, or a layout recipe that would look silly if explained entirely in prose.</p>
-        <pre><code>build-post --title "Post 07" ^
-           --hero img/imagequilt-chinese-calligraphy.png ^
-           --with-epigraph false ^
-           --notes "exercise image-heavy variants"</code></pre>
+        <pre class="code-block language-cpp"><code><span class="tok-keyword">template</span><span class="tok-symbol">&lt;</span><span class="tok-type">typename</span> <span class="tok-type">It</span><span class="tok-symbol">&gt;</span>
+<span class="tok-type">std::uint64_t</span> <span class="tok-func">accumulate_visible_cost</span><span class="tok-symbol">(</span><span class="tok-type">It</span> <span class="tok-symbol">first,</span> <span class="tok-type">It</span> <span class="tok-symbol">last)</span>
+<span class="tok-symbol">{</span>
+    <span class="tok-type">std::uint64_t</span> <span class="tok-symbol">total =</span> <span class="tok-number">0</span><span class="tok-symbol">;</span>
+
+    <span class="tok-keyword">for</span> <span class="tok-symbol">(;</span> <span class="tok-symbol">first != last; ++first)</span>
+        <span class="tok-symbol">total +=</span> <span class="tok-keyword">static_cast</span><span class="tok-symbol">&lt;</span><span class="tok-type">std::uint64_t</span><span class="tok-symbol">&gt;(first-&gt;cycles);</span>
+
+    <span class="tok-keyword">return</span> <span class="tok-symbol">total;</span>
+<span class="tok-symbol">}</span></code></pre>
         <p>The exact content of the snippet matters less than its shape: multiple lines, indentation, a bit of punctuation, and enough width to see whether wrapping or overflow becomes awkward.</p>
         <figure>
           <img src="img/table-example-be-page-159.png" alt="A secondary in-column figure used to test composition"/>

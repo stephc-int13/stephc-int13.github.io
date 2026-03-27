@@ -65,13 +65,19 @@
           <img src="img/imagequilt-animal-sounds.png" alt="A mixed-content figure used to test in-article balance"/>
           <figcaption>A regular-width image appearing after a hero opener, useful for testing visual repetition within a single page.</figcaption>
         </figure>
-        <pre><code>const articleShape = {
-  hero: true,
-  epigraph: false,
-  sidenotes: 1,
-  figures: 2,
-  codeBlocks: 1
-};</code></pre>
+        <pre class="code-block language-asm"><code><span class="tok-label">accumulate_visible_cost:</span>
+        <span class="tok-asm">cbz</span>     <span class="tok-register">x1</span><span class="tok-symbol">,</span> <span class="tok-label">.Ldone</span>
+        <span class="tok-asm">mov</span>     <span class="tok-register">x2</span><span class="tok-symbol">,</span> <span class="tok-number">0</span>
+        <span class="tok-asm">mov</span>     <span class="tok-register">x3</span><span class="tok-symbol">,</span> <span class="tok-number">0</span>
+<span class="tok-label">.Lloop:</span>
+        <span class="tok-asm">ldr</span>     <span class="tok-register">w4</span><span class="tok-symbol">,</span> <span class="tok-symbol">[</span><span class="tok-register">x0</span><span class="tok-symbol">,</span> <span class="tok-register">x2</span><span class="tok-symbol">,</span> <span class="tok-directive">lsl</span> <span class="tok-number">3</span><span class="tok-symbol">]</span>
+        <span class="tok-asm">add</span>     <span class="tok-register">x3</span><span class="tok-symbol">,</span> <span class="tok-register">x3</span><span class="tok-symbol">,</span> <span class="tok-register">x4</span>
+        <span class="tok-asm">add</span>     <span class="tok-register">x2</span><span class="tok-symbol">,</span> <span class="tok-register">x2</span><span class="tok-symbol">,</span> <span class="tok-number">1</span>
+        <span class="tok-asm">cmp</span>     <span class="tok-register">x2</span><span class="tok-symbol">,</span> <span class="tok-register">x1</span>
+        <span class="tok-asm">b.ne</span>    <span class="tok-label">.Lloop</span>
+<span class="tok-label">.Ldone:</span>
+        <span class="tok-asm">mov</span>     <span class="tok-register">x0</span><span class="tok-symbol">,</span> <span class="tok-register">x3</span>
+        <span class="tok-asm">ret</span></code></pre>
         <p>The snippet is shamelessly artificial, but that is perfectly fine. It gives the monospace styling something to do while the page tests a busier combination of components.</p>
       </section>
       <div class="finis-mark">⁂</div>

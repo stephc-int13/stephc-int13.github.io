@@ -67,6 +67,15 @@
           <img src="img/exports-imports.png" alt="A supporting figure used to lengthen Rant 11 for layout testing"/>
           <figcaption>A somewhat disproportionate figure for a rant, useful precisely because it pushes the format a little.</figcaption>
         </figure>
+        <pre class="code-block language-asm"><code><span class="tok-label">.Lhot_path:</span>
+        <span class="tok-asm">mov</span>     <span class="tok-register">eax</span><span class="tok-symbol">,</span> <span class="tok-symbol">DWORD PTR [</span><span class="tok-register">rsp</span> <span class="tok-operator">+</span> <span class="tok-number">12</span><span class="tok-symbol">]</span>
+        <span class="tok-asm">test</span>    <span class="tok-register">eax</span><span class="tok-symbol">,</span> <span class="tok-register">eax</span>
+        <span class="tok-asm">jle</span>     <span class="tok-label">.Lcold_path</span>
+        <span class="tok-asm">imul</span>    <span class="tok-register">eax</span><span class="tok-symbol">,</span> <span class="tok-register">eax</span><span class="tok-symbol">,</span> <span class="tok-number">5</span>
+        <span class="tok-asm">ret</span>
+<span class="tok-label">.Lcold_path:</span>
+        <span class="tok-asm">xor</span>     <span class="tok-register">eax</span><span class="tok-symbol">,</span> <span class="tok-register">eax</span>
+        <span class="tok-asm">ret</span></code></pre>
         <p>That kind of mismatch is worth testing in a mockup. Real sites rarely stay inside their original assumptions for long.</p>
       </section>
       <div class="finis-mark">⁂</div>
