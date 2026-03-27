@@ -37,7 +37,7 @@
       <p class="subtitle">A placeholder profile page for testing hierarchy, portrait placement, and page rhythm</p>
 
       <figure class="profile-figure">
-        <img src="images/portrait.jpg" alt="Portrait of Stephane Cocquereaumont"/>
+        <img id="about-portrait" class="profile-portrait" src="images/portrait.jpg" alt="Portrait of Stephane Cocquereaumont"/>
         <figcaption>A portrait used as a stand-in while the overall page structure is still being designed.</figcaption>
       </figure>
 
@@ -69,5 +69,24 @@
         <li>Made with <a href="https://github.com/stephc-int13/carnet">Carnet</a>&nbsp✚&nbsp<a href="https://crayfish.dev">Crayfish</a></li>
       </ul>
     </div>
+
+    <script>
+      (function () {
+        const portrait = document.getElementById("about-portrait");
+        if (!portrait) return;
+
+        const variants = [
+          { src: "images/portrait.jpg", className: "portrait-variant-1" },
+          { src: "images/portrait2.jpg", className: "portrait-variant-2" },
+          { src: "images/portrait.jpg", className: "portrait-variant-3" },
+          { src: "images/portrait2.jpg", className: "portrait-variant-4" },
+          { src: "images/portrait.jpg", className: "portrait-variant-5" }
+        ];
+
+        const choice = variants[Math.floor(Math.random() * variants.length)];
+        portrait.src = choice.src;
+        portrait.classList.add(choice.className);
+      })();
+    </script>
   </body>
 </html>
