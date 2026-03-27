@@ -650,7 +650,7 @@ pre.code-block
     width: 55%;
     margin: 2rem 0;
     padding: 0;
-    background-color: color-mix(in srgb, var(--code-bg) 60%, transparent);
+    background-color: color-mix(in srgb, var(--code-bg) 20%, transparent);
     border-left: 0.4rem solid var(--code-border);
     overflow: hidden;
     transition: background-color 160ms ease;
