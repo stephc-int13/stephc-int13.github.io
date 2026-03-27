@@ -196,11 +196,11 @@ nav ul
 
 nav .nav-row
 {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 1rem;
-    width: 87.5%;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    column-gap: 1.25rem;
+    width: 84%;
     margin-top: 12px;
     margin-bottom: 6px;
 }
@@ -209,7 +209,6 @@ nav ul.nav-links
 {
     width: auto;
     margin: 0;
-    flex: 1 1 auto;
 }
 
 nav ul li a:hover,
@@ -241,16 +240,25 @@ nav a:link
 
 .language-switch
 {
-    flex: 0 0 auto;
     margin: 0;
-    font-size: 0.78rem;
-    color: color-mix(in srgb, var(--text-color) 72%, transparent);
+    justify-self: end;
+    align-self: start;
+    padding-top: 0.08rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.01em;
+    text-transform: none;
+    color: color-mix(in srgb, var(--text-color) 64%, transparent);
     white-space: nowrap;
 }
 
 .language-switch a
 {
     color: inherit;
+}
+
+.lang-label-short
+{
+    display: none;
 }
 
 .language-switch [aria-current="page"]
@@ -1124,21 +1132,53 @@ label.margin-toggle:not(.sidenote-number)
 
     nav .nav-row
     {
-        width: 100%;
-        flex-wrap: wrap;
-        row-gap: 0.35rem;
+        position: relative;
+        display: block;
+        width: 84%;
+        margin-top: 12px;
+        margin-bottom: 6px;
     }
 
     nav ul.nav-links
     {
-        width: 100%;
+        width: auto;
+        margin: 0 4.4rem 0 0;
+    }
+
+    nav ul.nav-links li
+    {
+        display: inline;
+    }
+
+    nav ul.nav-links li:first-child
+    {
+        margin-right: 0;
+    }
+
+    nav ul.nav-links li:nth-child(2)
+    {
+        display: inline;
     }
 
     .language-switch
     {
-        width: 100%;
+        position: absolute;
+        top: 0.15rem;
+        right: 0;
         text-align: right;
-        font-size: 0.72rem;
+        font-size: 0.56rem;
+        line-height: 1;
+        padding-top: 0;
+    }
+
+    .lang-label-long
+    {
+        display: none;
+    }
+
+    .lang-label-short
+    {
+        display: inline;
     }
 
     .disclaimer-box
@@ -1202,7 +1242,7 @@ label.margin-toggle:not(.sidenote-number)
 
     .language-switch
     {
-        font-size: 0.68rem;
+        font-size: 0.58rem;
     }
 
     .cartouche li 
