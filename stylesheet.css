@@ -1148,23 +1148,29 @@ label.margin-toggle:not(.sidenote-number)
 
     nav ul.nav-links
     {
+        display: grid;
+        grid-template-columns: max-content max-content max-content;
+        align-items: baseline;
+        column-gap: 0.45rem;
+        row-gap: 0.1rem;
         width: auto;
         margin: 0 4.4rem 0 0;
     }
 
     nav ul.nav-links li
     {
-        display: inline;
+        display: block;
     }
 
     nav ul.nav-links li:first-child
     {
+        grid-column: 1 / -1;
         margin-right: 0;
     }
 
     nav ul.nav-links li:nth-child(2)
     {
-        display: inline;
+        display: none;
     }
 
     .language-switch
