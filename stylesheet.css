@@ -228,7 +228,7 @@ nav a:link
 {
     text-decoration: none;
     padding: 2px 4px;
-    margin:-6px; 
+    /* margin:-6px;  */
 }
 
 .blog-title 
