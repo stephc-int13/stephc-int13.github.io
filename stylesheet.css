@@ -9,14 +9,6 @@
     font-display: swap;
 }
 
-@font-face 
-{
-  font-family: "Ioskeley Mono";
-  src: url("/fonts/IoskeleyMono-SemiCondensed.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-}
 
 @font-face
 {
@@ -154,7 +146,7 @@ body
 
 nav 
 {
-    font-family: 'Ioskeley Mono', 'JetBrains Mono', 'Courier New', Courier, monospace; 
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace; 
     position: fixed;
     top:0px;
     z-index: 100;
@@ -320,7 +312,7 @@ nav a:link
 
 .site-footer 
 {
-    font-family: 'Ioskeley Mono', 'JetBrains Mono', 'Courier New', Courier, monospace; 
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace; 
     color: color-mix(in srgb, var(--text-color) 60%, transparent); 
     width:fit-content;
     margin:0;
