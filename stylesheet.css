@@ -229,7 +229,7 @@ nav ul li a:active
 
 nav li 
 {
-    font-size: 0.7rem;
+    font-size: 0.8rem;
     display: inline;
 }
 
@@ -1168,6 +1168,7 @@ label.margin-toggle:not(.sidenote-number)
 
     nav ul.nav-links li
     {
+        font-size: 0.7rem;
         display: block;
     }
 
