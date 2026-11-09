@@ -9,6 +9,15 @@
     font-display: swap;
 }
 
+@font-face 
+{
+  font-family: "Ioskeley Mono";
+  src: url("/fonts/IoskeleyMono-Regular.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 @font-face
 {
     font-family: "BarlowCondensed";
@@ -145,7 +154,7 @@ body
 
 nav 
 {
-    font-family: JetBrains Mono, 'Courier New', Courier, monospace; 
+    font-family: 'Ioskeley Mono', 'JetBrains Mono', 'Courier New', Courier, monospace; 
     position: fixed;
     top:0px;
     z-index: 100;
