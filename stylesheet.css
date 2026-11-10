@@ -185,9 +185,16 @@ nav .blog-title
     font-size: 1.3rem;
     font-weight: normal;
     letter-spacing: -0.05em;
-    white-space: nowrap;    
+    white-space: nowrap;   
+    width: fit-content; 
 }
 
+nav .blog-title:hover,
+nav .blog-title:active
+{
+    color: var(--highlight-color);
+    background-color: var(--text-color);
+}
 
 nav ul 
 {
@@ -228,12 +235,7 @@ nav ul li a:active
     background-color: var(--text-color);
 }
 
-nav .blog-title:hover,
-nav .blog-title:active
-{
-    color: var(--highlight-color);
-    background-color: var(--text-color);
-}
+
 
 nav .language-switch 
 {
