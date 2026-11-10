@@ -228,6 +228,13 @@ nav ul li a:active
     background-color: var(--text-color);
 }
 
+nav .blog-title:hover,
+nav .blog-title:active
+{
+    color: var(--highlight-color);
+    background-color: var(--text-color);
+}
+
 nav .language-switch 
 {
     white-space: nowrap;
