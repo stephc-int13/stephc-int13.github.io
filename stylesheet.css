@@ -143,20 +143,19 @@ body
 }
 
 
-
 nav 
 {
-    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace; 
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
     position: fixed;
-    top:0px;
+    top: 0;
     z-index: 100;
     width: 100%;
-    max-width: 1150px; 
-    padding:0px;
+    max-width: 1150px;
+    padding: 0;
     isolation: isolate;
-} 
+}
 
-nav::before
+nav::before 
 {
     content: "";
     position: absolute;
@@ -171,72 +170,120 @@ nav::before
     z-index: -1;
 }
 
-
-nav hr
+nav .nav-row 
 {
-    display: block;
-    height: 1px;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: baseline;
+    column-gap: 1.25rem;
     width: 84%;
-    border: 0;
-    margin:0;
-    padding:0;
-    margin-left: -5%;  
-    margin-right: 0px;
-    padding-left: 5%;
-    padding-right: 0px;
-    border-bottom: 1px solid color-mix(in srgb, var(--text-color) 15%, transparent); 
+    margin: 12px 0 6px;
 }
+
+nav .blog-title 
+{
+    font-size: 1.3rem;
+    font-weight: normal;
+    letter-spacing: -0.05em;
+    white-space: nowrap;    
+}
+
 
 nav ul 
 {
-    padding: 0px;
-    margin-top:12px;
-    margin-bottom: 6px;
-    width: 87.5%;
-} 
-
-nav .nav-row
-{
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) auto;
-    align-items: end;
-    column-gap: 1.25rem;
-    width: 84%;
-    margin-top: 12px;
-    margin-bottom: 6px;
+    padding: 0;
+    margin: 0;
 }
 
-nav ul.nav-links
+nav ul.nav-links 
 {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    gap: 0.25rem;
     width: auto;
+    list-style: none;
+    min-width: 0;
+    padding-left: 0.25rem;
+}
+
+nav li 
+{
+    display: block;
+    font-size: 0.8rem;
+    white-space: nowrap;
+}
+
+nav a 
+{
+    text-decoration: none;
+    padding: 2px 4px;
     margin: 0;
 }
 
 nav ul li a:hover,
 nav ul li a:active 
 {
-    color: var(--highlight-color);        
-    background-color:var(--text-color);          
+    color: var(--highlight-color);
+    background-color: var(--text-color);
 }
 
-nav li 
+nav .language-switch 
 {
-    font-size: 0.8rem;
-    display: inline;
+    white-space: nowrap;
+    font-size: 0.65rem;
+    text-align: right;
 }
 
-nav a:link 
+nav .lang-label-short 
 {
-    text-decoration: none;
-    padding: 2px 4px;
-    margin:-3px; 
+    display: none;
 }
 
-.blog-title 
+nav hr 
 {
-    font-size: 1.3rem;
-    font-weight: normal;
-    letter-spacing: -0.05em;
+    display: block;
+    height: 1px;
+    width: 84%;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    margin-left: -5%;
+    padding-left: 5%;
+    border-bottom: 1px solid color-mix(in srgb, var(--text-color) 15%, transparent);
+}
+
+
+
+@media (max-width: 768px) 
+{
+    nav .blog-title 
+    {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    nav ul.nav-links 
+    {
+        grid-column: 1;
+        grid-row: 2;
+        gap: 0.25rem;
+    }
+
+    nav li 
+    {
+        font-size: 0.65rem;
+    }
+
+    nav .lang-label-long 
+    {
+        display: none;
+    }
+
+    nav .lang-label-short 
+    {
+        display: inline;
+    }
 }
 
 .language-switch
@@ -1136,65 +1183,6 @@ label.margin-toggle:not(.sidenote-number)
     .entry-list
     {
         width: 100%;
-    }
-
-    nav .nav-row
-    {
-        position: relative;
-        display: block;
-        width: 84%;
-        margin-top: 12px;
-        margin-bottom: 6px;
-    }
-
-    nav ul.nav-links
-    {
-        display: grid;
-        grid-template-columns: max-content max-content max-content;
-        align-items: baseline;
-        column-gap: 0.45rem;
-        row-gap: 0.1rem;
-        width: auto;
-        margin: 0 4.4rem 0 0;
-    }
-
-    nav ul.nav-links li
-    {
-        font-size: 0.7rem;
-        display: block;
-    }
-
-    nav ul.nav-links li:first-child
-    {
-        grid-column: 1 / -1;
-        margin-right: 0;
-    }
-
-    nav ul.nav-links li:nth-child(2)
-    {
-        display: none;
-    }
-
-    .language-switch
-    {
-        position: absolute;
-        top: 0;
-        right: 0;
-        text-align: right;
-        font-size: 0.52rem;
-        line-height: 1;
-        padding: 0.26rem 0.42rem 0.34rem;
-        margin-top: -0.75rem;
-    }
-
-    .lang-label-long
-    {
-        display: none;
-    }
-
-    .lang-label-short
-    {
-        display: inline;
     }
 
     .disclaimer-box
