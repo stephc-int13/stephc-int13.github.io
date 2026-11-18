@@ -60,10 +60,12 @@
     box-sizing: content-box;
 }
 
+/* old background color : #eeeeee9; */
+
 :root 
 {
   --text-color: #18180c;
-  --background-color: #eeeee9;
+  --background-color: #f3f3f0;
   --highlight-color:#fffff8;
   --link-color:#000; 
   --code-bg: #f2e5bc;
