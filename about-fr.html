@@ -58,15 +58,128 @@
       <p class="subtitle">Une page de profil provisoire pour regler la hierarchie, le placement du portrait et le rythme general</p>
 -->
       <figure class="profile-figure">
-        <img id="about-portrait" class="profile-portrait" src="images/portrait.jpg" alt="Portrait de Stephane Cocquereaumont"/>
+        <img id="about-portrait" class="profile-portrait" src="images/portrait1.jpg" width="1087" height="1447" loading="lazy" alt="Portrait de Stephane Cocquereaumont"/>
         <figcaption id="about-portrait-caption">
-          <span id="about-portrait-date">Mai 2024</span>
+          <span id="about-portrait-date">Avril 2026</span>
           <span id="about-portrait-separator-1" class="portrait-meta-separator">&middot;</span>
-          <span id="about-portrait-location">Paris</span>
+          <span id="about-portrait-location">Chausey</span>
           <span id="about-portrait-separator-2" class="portrait-meta-separator" hidden>&middot;</span>
           <span id="about-portrait-credit" hidden></span>
         </figcaption>
       </figure>
+
+      <script>
+        (function () {
+          const portrait = document.getElementById("about-portrait");
+          const portraitDate = document.getElementById("about-portrait-date");
+          const portraitLocation = document.getElementById("about-portrait-location");
+          const portraitSeparatorTwo = document.getElementById("about-portrait-separator-2");
+          const portraitCredit = document.getElementById("about-portrait-credit");
+          if (!portrait || !portraitDate || !portraitLocation || !portraitSeparatorTwo || !portraitCredit) return;
+
+          const variants = [
+            {
+              src: "images/portrait1.jpg",
+              width: 1087,
+              height: 1447,
+              className: "portrait-variant-1",
+              date: "Avril 2026",
+              location: "Chausey",
+              credit: ""
+            },
+            {
+              src: "images/portrait2.jpg",
+              width: 1216,
+              height: 1294,
+              className: "portrait-variant-2",
+              date: "Mars 2026",
+              location: "Leamington Spa",
+              credit: "Photographie par France Quiqueré"
+            },
+            {
+              src: "images/portrait3.jpg",
+              width: 1448,
+              height: 1086,
+              className: "portrait-variant-3",
+              date: "Septembre 2024",
+              location: "Granville",
+              credit: ""
+            },
+            {
+              src: "images/portrait4.jpg",
+              width: 1099,
+              height: 1431,
+              className: "portrait-variant-4",
+              date: "Avril 2026",
+              location: "Granville",
+              credit: ""
+            },
+            {
+              src: "images/portrait5.jpg",
+              width: 1438,
+              height: 1918,
+              className: "portrait-variant-5",
+              date: "Avril 2026",
+              location: "Entre Granville et Chausey",
+              credit: ""
+            },
+            {
+              src: "images/portrait6.jpg",
+              width: 1448,
+              height: 1086,
+              className: "portrait-variant-6",
+              date: "Mai 2026",
+              location: "Leamington Spa",
+              credit: ""
+            }
+          ];
+
+          const storageKey = "about-last-portrait";
+          let currentPortrait;
+
+          function showPortrait() {
+            let lastSrc = currentPortrait?.src;
+            try {
+              lastSrc = localStorage.getItem(storageKey) ?? lastSrc;
+            } catch {
+              // Portraits can still be selected when browser storage is unavailable.
+            }
+
+            const remaining = variants.filter((variant) => variant.src !== lastSrc);
+            const choices = remaining.length ? remaining : variants;
+            const choice = choices[Math.floor(Math.random() * choices.length)];
+            if (currentPortrait) portrait.classList.remove(currentPortrait.className);
+            currentPortrait = choice;
+            portrait.width = choice.width;
+            portrait.height = choice.height;
+            portrait.src = choice.src;
+            portrait.loading = "eager";
+            portrait.classList.add(choice.className);
+            portraitDate.textContent = choice.date;
+            portraitLocation.textContent = choice.location;
+            if (choice.credit) {
+              portraitSeparatorTwo.hidden = false;
+              portraitCredit.hidden = false;
+              portraitCredit.textContent = choice.credit;
+            } else {
+              portraitSeparatorTwo.hidden = true;
+              portraitCredit.hidden = true;
+              portraitCredit.textContent = "";
+            }
+
+            try {
+              localStorage.setItem(storageKey, choice.src);
+            } catch {
+              // The selected portrait can still be displayed.
+            }
+          }
+
+          showPortrait();
+          window.addEventListener("pageshow", (event) => {
+            if (event.persisted) showPortrait();
+          });
+        })();
+      </script>
 
       <section>
         <h2 id="about-me">Moi</h2>
@@ -97,104 +210,6 @@
         <li>Made with <a href="https://github.com/stephc-int13/carnet">Carnet</a>&nbsp;&#10010;&nbsp;<a href="https://crayfish.dev">Crayfish</a></li>
       </ul>
     </div>
-
-    <script>
-      (function () {
-        const portrait = document.getElementById("about-portrait");
-        const portraitDate = document.getElementById("about-portrait-date");
-        const portraitLocation = document.getElementById("about-portrait-location");
-        const portraitSeparatorTwo = document.getElementById("about-portrait-separator-2");
-        const portraitCredit = document.getElementById("about-portrait-credit");
-        if (!portrait || !portraitDate || !portraitLocation || !portraitSeparatorTwo || !portraitCredit) return;
-
-        const variants = [
-          {
-            src: "images/portrait1.jpg",
-            className: "portrait-variant-1",
-            date: "Avril 2026",
-            location: "Chausey",
-            credit: ""
-          },
-          {
-            src: "images/portrait2.jpg",
-            className: "portrait-variant-2",
-            date: "Mars 2026",
-            location: "Leamington Spa",
-            credit: "Photographie par France Quiqueré"
-          },
-          {
-            src: "images/portrait3.jpg",
-            className: "portrait-variant-3",
-            date: "Septembre 2024",
-            location: "Granville",
-            credit: ""
-          },
-          {
-            src: "images/portrait4.jpg",
-            className: "portrait-variant-4",
-            date: "Avril 2026",
-            location: "Granville",
-            credit: ""
-          },
-          {
-            src: "images/portrait5.jpg",
-            className: "portrait-variant-5",
-            date: "Avril 2026",
-            location: "Entre Granville et Chausey",
-            credit: ""
-          },          
-          {
-            src: "images/portrait6.jpg",
-            className: "portrait-variant-6",
-            date: "Mai 2026",
-            location: "Leamington Spa",
-            credit: ""
-          }
-        ];
-
-        const storageKey = "about-last-portrait";
-        let currentPortrait;
-
-        function showPortrait() {
-          let lastSrc = currentPortrait?.src;
-          try {
-            lastSrc = localStorage.getItem(storageKey) ?? lastSrc;
-          } catch {
-            // Portraits can still be selected when browser storage is unavailable.
-          }
-
-          const remaining = variants.filter((variant) => variant.src !== lastSrc);
-          const choices = remaining.length ? remaining : variants;
-          const choice = choices[Math.floor(Math.random() * choices.length)];
-          if (currentPortrait) portrait.classList.remove(currentPortrait.className);
-          currentPortrait = choice;
-          portrait.src = choice.src;
-          portrait.classList.add(choice.className);
-          portraitDate.textContent = choice.date;
-          portraitLocation.textContent = choice.location;
-          if (choice.credit) {
-            portraitSeparatorTwo.hidden = false;
-            portraitCredit.hidden = false;
-            portraitCredit.textContent = choice.credit;
-          } else {
-            portraitSeparatorTwo.hidden = true;
-            portraitCredit.hidden = true;
-            portraitCredit.textContent = "";
-          }
-
-          try {
-            localStorage.setItem(storageKey, choice.src);
-          } catch {
-            // The selected portrait can still be displayed.
-          }
-        }
-
-        showPortrait();
-        window.addEventListener("pageshow", (event) => {
-          if (event.persisted) showPortrait();
-        });
-      })();
-    </script>
   </body>
 </html>
 

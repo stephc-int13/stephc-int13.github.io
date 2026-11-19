@@ -1076,6 +1076,7 @@ label.margin-toggle:not(.sidenote-number)
 {
     display: block;
     width: 100%;
+    height: auto;
 }
 
 .portrait-variant-1
