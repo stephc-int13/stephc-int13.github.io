@@ -152,20 +152,47 @@
           }
         ];
 
-        const choice = variants[Math.floor(Math.random() * variants.length)];
-        portrait.src = choice.src;
-        portrait.classList.add(choice.className);
-        portraitDate.textContent = choice.date;
-        portraitLocation.textContent = choice.location;
-        if (choice.credit) {
-          portraitSeparatorTwo.hidden = false;
-          portraitCredit.hidden = false;
-          portraitCredit.textContent = choice.credit;
-        } else {
-          portraitSeparatorTwo.hidden = true;
-          portraitCredit.hidden = true;
-          portraitCredit.textContent = "";
+        const storageKey = "about-last-portrait";
+        let currentPortrait;
+
+        function showPortrait() {
+          let lastSrc = currentPortrait?.src;
+          try {
+            lastSrc = localStorage.getItem(storageKey) ?? lastSrc;
+          } catch {
+            // Portraits can still be selected when browser storage is unavailable.
+          }
+
+          const remaining = variants.filter((variant) => variant.src !== lastSrc);
+          const choices = remaining.length ? remaining : variants;
+          const choice = choices[Math.floor(Math.random() * choices.length)];
+          if (currentPortrait) portrait.classList.remove(currentPortrait.className);
+          currentPortrait = choice;
+          portrait.src = choice.src;
+          portrait.classList.add(choice.className);
+          portraitDate.textContent = choice.date;
+          portraitLocation.textContent = choice.location;
+          if (choice.credit) {
+            portraitSeparatorTwo.hidden = false;
+            portraitCredit.hidden = false;
+            portraitCredit.textContent = choice.credit;
+          } else {
+            portraitSeparatorTwo.hidden = true;
+            portraitCredit.hidden = true;
+            portraitCredit.textContent = "";
+          }
+
+          try {
+            localStorage.setItem(storageKey, choice.src);
+          } catch {
+            // The selected portrait can still be displayed.
+          }
         }
+
+        showPortrait();
+        window.addEventListener("pageshow", (event) => {
+          if (event.persisted) showPortrait();
+        });
       })();
     </script>
   </body>
