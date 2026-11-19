@@ -364,6 +364,11 @@ nav .home-language-switch > [lang]
 
 @media (max-width: 360px)
 {
+    nav .nav-links li
+    {
+        font-size: 0.675rem;
+    }
+
     .home-language-switch .lang-label-short
     {
         display: none;
