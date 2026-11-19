@@ -543,6 +543,22 @@ article
    padding-bottom: 2.5rem;
 }
 
+.page-top-spacing
+{
+    --nav-clearance: 3rem;
+    padding-top: calc(var(--nav-clearance) + 2rem);
+}
+
+.page-top-spacing--home
+{
+    padding-top: 11rem;
+}
+
+.page-top-spacing--home > .head-dinkus
+{
+    margin-top: 0;
+}
+
 section 
 {
     padding-top: 1rem;
@@ -1112,6 +1128,11 @@ label.margin-toggle:not(.sidenote-number)
         width: 80%;  
         padding-left: 10%;
         padding-right: 10%;
+    }
+
+    .page-top-spacing
+    {
+        --nav-clearance: 4.75rem;
     }
 
     h1
