@@ -1139,6 +1139,7 @@ label.margin-toggle:not(.sidenote-number)
     h1
     {
         font-size: 4rem;
+        margin-right: 0;
     }
 
     hr,
