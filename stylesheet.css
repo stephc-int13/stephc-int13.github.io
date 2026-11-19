@@ -65,7 +65,7 @@
 :root 
 {
   --text-color: #18180c;
-  --background-color: #f3f3f0;
+  --background-color: #eeeee9;
   --highlight-color:#fffff8;
   --link-color:#000; 
   --code-bg: #f2e5bc;
@@ -358,6 +358,40 @@ nav hr
 {
     color: color-mix(in srgb, var(--text-color) 42%, transparent);
     padding: 0 0.3rem;
+}
+
+
+/* Keep the home-page tab on the same grid edge in both nav layouts. */
+.home-language-switch
+{
+    display: grid;
+    grid-column: -2 / -1;
+    grid-row: 1;
+    grid-template-columns: max-content auto max-content;
+    align-items: baseline;
+}
+
+nav .home-language-switch > [lang]
+{
+    width: auto;
+}
+
+.home-language-switch .lang-label-compact
+{
+    display: none;
+}
+
+@media (max-width: 360px)
+{
+    .home-language-switch .lang-label-short
+    {
+        display: none;
+    }
+
+    .home-language-switch .lang-label-compact
+    {
+        display: inline;
+    }
 }
 
 
