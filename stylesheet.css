@@ -239,14 +239,6 @@ nav ul li a:active
 
 
 
-nav .language-switch 
-{
-    white-space: nowrap;
-    font-size: 0.65rem;
-    text-align: right;
-}
-
-
 .language-switch > a,
 .language-switch > span[aria-current="page"] {
     display: inline-block;
@@ -259,17 +251,12 @@ nav .language-switch
 }
 
 
-nav .lang-label-short 
-{
-    display: none;
-}
-
-
-.language-switch .language-separator 
+.language-switch .language-separator
 {
     display: inline-block;
     padding: 0 0.3rem;
     margin: 0;
+    color: color-mix(in srgb, var(--text-color) 42%, transparent);
 }
 
 
@@ -326,8 +313,9 @@ nav hr
     align-self: start;
     padding: 0.32rem 0.6rem 0.42rem;
     margin-top: -0.8rem;
-    font-size: 0.64rem;
+    font-size: 0.65rem;
     letter-spacing: 0.01em;
+    text-align: right;
     text-transform: none;
     color: color-mix(in srgb, var(--text-color) 72%, var(--background-color));
     background-color: color-mix(in srgb, var(--background-color) 90%, var(--text-color));
@@ -353,13 +341,6 @@ nav hr
 {
     color: var(--text-color);
 }
-
-.language-separator
-{
-    color: color-mix(in srgb, var(--text-color) 42%, transparent);
-    padding: 0 0.3rem;
-}
-
 
 /* Keep the home-page tab on the same grid edge in both nav layouts. */
 .home-language-switch
@@ -1308,11 +1289,6 @@ label.margin-toggle:not(.sidenote-number)
     {
         font-size: 1.0rem;
         padding-right: 0.5rem;
-    }
-
-    .language-switch
-    {
-        font-size: 0.58rem;
     }
 
     .cartouche li 
