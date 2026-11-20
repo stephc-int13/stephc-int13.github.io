@@ -340,6 +340,34 @@ nav hr
     color: var(--text-color);
 }
 
+.nav-row > a.language-link
+{
+    grid-column: -2 / -1;
+    grid-row: 1;
+    align-self: center;
+    justify-self: end;
+    min-inline-size: 8.5ch;
+    padding: 0.28rem 0.55rem;
+    border-radius: 0.25rem;
+    background-color: #7ea6d8;
+    color: #18180c;
+    font-size: 0.8rem;
+    line-height: 1.3;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.nav-row > a.language-link:hover
+{
+    text-decoration: underline;
+}
+
+.nav-row > a.language-link:focus-visible
+{
+    outline: 2px solid var(--text-color);
+    outline-offset: 2px;
+}
+
 /* Keep the home-page tab on the same grid edge in both nav layouts. */
 .home-language-switch
 {
