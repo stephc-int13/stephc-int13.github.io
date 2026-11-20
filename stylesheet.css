@@ -371,6 +371,28 @@ nav hr
     }
 }
 
+.language-link-arrow
+{
+    inline-size: 0.75em;
+    block-size: 0.75em;
+    vertical-align: middle;
+    filter: invert(var(--language-arrow-invert, 9%));
+}
+
+.nav-row > a.language-link:is(:hover, :active) .language-link-arrow
+{
+    filter: invert(var(--language-arrow-invert-active, 100%));
+}
+
+@media (prefers-color-scheme: dark)
+{
+    .language-link
+    {
+        --language-arrow-invert: 87%;
+        --language-arrow-invert-active: 0%;
+    }
+}
+
 .nav-row > a.language-link:focus-visible
 {
     outline: 2px solid var(--text-color);
