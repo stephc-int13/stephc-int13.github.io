@@ -1090,6 +1090,41 @@
             [1570, "EX-PARROT!"],
             [940, "REFUND?"],
             [660, label]
+        ),
+        // Alien. Ripley restores Ash's signal long enough to ask about Order 937.
+        sequence(
+            [940, "ASH / RELINK"],
+            [960, "NO RESPONSE"],
+            [620, "[..........]"],
+            [510, "[....:.....]"],
+            [680, "[...:|:....]"],
+            [790, "LINK UP"],
+            [670, "RIPLEY >"],
+            scrollLine("ASH, CAN YOU HEAR ME?", 130),
+            [670, "ASH    >"],
+            [900, "YES, I CAN"],
+            [1060, "HEAR YOU."],
+            [660, "RIPLEY >"],
+            [840, "WHAT WAS"],
+            [1060, "YOUR SPECIAL"],
+            [930, "ORDER?"],
+            [660, "ASH    >"],
+            [1020, "ORDER 937"],
+            [1010, "SPECIMEN"],
+            [1200, "CREW: --"],
+            [660, "RIPLEY >"],
+            [930, "CAN WE STOP"],
+            [730, "IT?"],
+            [660, "ASH    >"],
+            [1230, "YOU CAN'T."],
+            [1060, "THE PERFECT"],
+            [1320, "ORGANISM."],
+            [760, ""],
+            scrollLine("YOU HAVE MY SYMPATHIES.", 140),
+            [590, "[...:|:....]"],
+            [510, "[..........]"],
+            [890, "SIGNAL LOST"],
+            [660, label]
         )
     ];
 
