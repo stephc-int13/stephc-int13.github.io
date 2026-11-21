@@ -31,6 +31,16 @@
         return characters.slice(0, count).join("") + (count < characters.length ? "_" : "");
     }
 
+    function scrollLine(text, millisecondsPerCell = 150) {
+        const padding = " ".repeat(length);
+        const strip = padding + text + padding;
+        const frames = strip.length - length + 1;
+        return [frames * millisecondsPerCell, (progress) => {
+            const start = Math.floor(progress * frames);
+            return strip.slice(start, start + length);
+        }];
+    }
+
     function stackLine(level, value) {
         const prefix = level + ":";
         return prefix + String(value).padStart(length - prefix.length, " ");
@@ -676,6 +686,121 @@
                 return glyphs.map((glyph, index) => (index * 5) % length < exposed ? glyph : ".").join("");
             }],
             [640, label]
+        ),
+        // Archon. Two sparks merge before the first line comes through.
+        sequence(
+            [920, "ARCHON WARP"],
+            [600, "[ *      * ]"],
+            [410, "[  *    *  ]"],
+            [410, "[   *  *   ]"],
+            [420, "[    **    ]"],
+            [680, "[   ::#::  ]"],
+            [880, "POWER"],
+            [1400, "OVERWHELMING"],
+            [1550, (p) => {
+                const settled = Math.floor(p * (length + 1));
+                return glyphs.map((glyph, index) => (index * 7) % length < settled ? glyph : "*").join("");
+            }],
+            [650, label]
+        ),
+        // Archon after repeated clicks. Leave a little quiet around the starfield.
+        sequence(
+            [850, "ARCHON"],
+            [900, ".  *  .    ."],
+            [820, "+  .  *   . "],
+            scrollLine("THEY SHOULD HAVE SENT A POET.", 170),
+            [900, ".  *  .    ."],
+            [460, ""],
+            [640, label]
+        ),
+        // Battlecruiser. A bridge console checks its indicators and reports in.
+        sequence(
+            [880, "BRIDGE BOOT"],
+            [690, "[..........]"],
+            [1520, (p) => {
+                const ready = Math.floor(p * (length - 1));
+                return "[" + "#".repeat(ready) + ".".repeat(length - 2 - ready) + "]";
+            }],
+            [640, "COMMS READY"],
+            scrollLine("BATTLECRUISER OPERATIONAL."),
+            [890, "   [ OK ]   "],
+            [650, label]
+        ),
+        // Artanis. The title has been clicked just often enough to annoy him.
+        sequence(
+            [900, "ARTANIS"],
+            [670, "CLICKS 08/08"],
+            [480, "   [   ]    "],
+            [420, "   [ . ]    "],
+            [420, "   [ : ]    "],
+            [660, "   [ ! ]    "],
+            [1270, "STOP POKING"],
+            [430, ""],
+            [1280, "ME!"],
+            [700, label]
+        ),
+        // Dragoon. The signal returns before the speaker does.
+        sequence(
+            [870, "DRAGOON / RX"],
+            [1080, "SIGNAL LOST"],
+            [740, "[..........]"],
+            [480, "[.....+....]"],
+            [540, "[...::+::..]"],
+            [640, "[== LINK ==]"],
+            [960, "I HAVE"],
+            [1490, "RETURNED."],
+            [1140, (p) => type(label, p)],
+            [650, label]
+        ),
+        // Medic. An ASCII pager beeps twice before anyone answers.
+        sequence(
+            [900, "MEDIC / PAGE"],
+            [730, "[   PAGER  ]"],
+            [500, "[   BEEP   ]"],
+            [430, "[          ]"],
+            [500, "[   BEEP   ]"],
+            [610, "[          ]"],
+            [1160, "DID SOMEONE"],
+            [1350, "PAGE ME?"],
+            [1020, (p) => type(label, p)],
+            [650, label]
+        ),
+        // Overmind. The first words of the Zerg campaign emerge from a dark row.
+        sequence(
+            [950, "OVERMIND"],
+            [1100, ""],
+            [880, "...::..::..."],
+            [1260, "AWAKEN,"],
+            [920, ""],
+            [1430, "MY CHILD."],
+            [730, "...::..::..."],
+            [900, (p) => type(label, p)],
+            [630, label]
+        ),
+        // Ghost. A voice comes through the receiver and disappears into static.
+        sequence(
+            [900, "GHOST / RX"],
+            [780, "[...::::...]"],
+            [690, "CLOAK OFF"],
+            scrollLine("SOMEBODY CALL FOR AN EXTERMINATOR?"),
+            [1110, "I'M GONE."],
+            [1580, (p) => {
+                const phrase = "I'M GONE.";
+                const visible = phrase.length - Math.floor(p * (phrase.length + 1));
+                return phrase.slice(0, visible).padEnd(length, ".");
+            }],
+            [660, label]
+        ),
+        // Ghost after repeated clicks. The silence between the two lines matters.
+        sequence(
+            [900, "GHOST / TX"],
+            [750, "OPEN CHANNEL"],
+            scrollLine("YOU CALLED DOWN THE THUNDER...", 155),
+            [830, "[....!!....]"],
+            scrollLine("NOW REAP THE WHIRLWIND!", 155),
+            [800, "CARRIER LOST"],
+            [440, ""],
+            [650, label]
         )
     ];
 
