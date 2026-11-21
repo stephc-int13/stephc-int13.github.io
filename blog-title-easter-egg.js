@@ -25,6 +25,10 @@
         };
     }
 
+    function slowSequence(...steps) {
+        return sequence(...steps.map(([milliseconds, content]) => [milliseconds * 2, content]));
+    }
+
     function type(text, progress) {
         const characters = Array.from(text);
         const count = Math.floor(progress * (characters.length + 1));
@@ -105,6 +109,8 @@
     const broadcast = "KAB / ON AIR";
     const chevrons = "/\\".repeat(Math.ceil(length / 2)).slice(0, length);
     const reversedTitle = [...glyphs].reverse().join("");
+    const archonStars = ".  *  .    .";
+    const archonSky = "+  .  *   . ";
     const silencioPlayback = [
         [280, ">..:||:....."],
         [320, ">.:|!!|:...."],
@@ -116,144 +122,181 @@
     const effects = [
         // Cold boot with a memory count before the host name is printed.
         sequence(
-            [300, "RESET 0000"],
-            [350, "ROM 064K OK"],
-            [900, (p) => "RAM " + String(Math.floor(p * 64)).padStart(2, "0") + "K"],
-            [300, "MOUNT /"],
-            [350, "SYSTEM READY"],
-            [700, (p) => type(label, p)],
-            [320, label]
+            [650, "RESET 0000"],
+            [850, "ROM 064K OK"],
+            [1480, (p) => "RAM " + String(Math.floor(p * 64)).padStart(2, "0") + "K"],
+            [740, "RAM 64K OK"],
+            [650, "MOUNT /"],
+            [730, "FS CHECK OK"],
+            [840, "BOOT /HOST"],
+            [760, "SYSTEM READY"],
+            [1320, (p) => type(label, p)],
+            [620, label]
         ),
         // A shell prompt types the command and prints its result.
         sequence(
-            [360, "$ _"],
-            [870, (p) => type("$ hostname", p)],
-            [440, "$ hostname"],
-            [700, (p) => type(hostname, p)],
-            [520, hostname],
-            [420, label]
+            [620, "$ _"],
+            [1230, (p) => type("$ whoami", p)],
+            [820, "guest"],
+            [1100, (p) => type("$ pwd", p)],
+            [810, "/home/guest"],
+            [1380, (p) => type("$ hostname", p)],
+            [530, "$ hostname"],
+            [1230, (p) => type(hostname, p)],
+            [720, hostname],
+            [600, label]
         ),
-        // Dial-up chatter turns into a decoded bit stream.
+        // The modem retries a failed call, then decodes the incoming bit stream.
         sequence(
-            [270, "ATZ"],
-            [270, "OK"],
-            [780, (p) => type("ATDT 5550100", p)],
-            [400, "CONNECT 56K"],
-            [1120, (p) => {
+            [600, "ATZ"],
+            [530, "OK"],
+            [1500, (p) => type("ATDT 5550100", p)],
+            [740, "DIALING..."],
+            [920, "NO CARRIER"],
+            [820, "REDIAL..."],
+            [820, "CONNECT 56K"],
+            [2130, (p) => {
                 const step = Math.floor(p * 18);
                 const decoded = Math.floor(p * (length + 1));
                 return glyphs.map((glyph, i) => i >= length - decoded ? glyph : tape[(step + i) % tape.length]).join("");
             }],
-            [350, label]
+            [650, label]
         ),
         // A byte dump walks through the actual characters of the title.
         sequence(
-            [350, "DUMP HOST"],
-            [1550, (p) => {
+            [720, "DUMP HOST"],
+            [3120, (p) => {
                 const offset = 2 * Math.floor(p * Math.ceil(length / 2));
                 return offset.toString(16).toUpperCase().padStart(4, "0") + ": " + hexBytes.slice(offset, offset + 2).join(" ");
             }],
-            [350, "ASCII OUT"],
-            [730, (p) => type(label, p)],
-            [320, label]
+            [830, length + " BYTES"],
+            [940, "END BYTE: " + hexBytes[hexBytes.length - 1]],
+            [810, "ASCII OUT"],
+            [1340, (p) => type(label, p)],
+            [640, label]
         ),
         // A damaged frame fails its checksum and gets repaired in place.
         sequence(
-            [350, "RECV FRAME"],
-            [430, repair(0)],
-            [460, "CRC ERROR"],
-            [350, "FIX 3 BYTES"],
-            [1160, repair],
-            [380, "CRC OK"],
-            [420, label]
+            [660, "RECV FRAME"],
+            [780, repair(0)],
+            [850, "CRC ERROR"],
+            [760, "NACK / RETRY"],
+            [850, "RESEND OK"],
+            [730, "FIX 3 BYTES"],
+            [1960, repair],
+            [780, "CRC OK"],
+            [630, "ACK"],
+            [640, label]
         ),
         // A 32-bit register counts down to zero and releases the host name.
         sequence(
-            [300, "REG32 ARM"],
-            [1650, (p) => "0x" + Math.floor((1 - p) ** 2 * 0xffffffff).toString(16).toUpperCase().padStart(8, "0")],
-            [400, "0x00000000"],
-            [800, (p) => {
+            [690, "REG32 ARM"],
+            [860, "0xFFFFFFFF"],
+            [740, "DECAY / 01"],
+            [2660, (p) => "0x" + Math.floor((1 - p) ** 2 * 0xffffffff).toString(16).toUpperCase().padStart(8, "0")],
+            [830, "0x00000000"],
+            [770, "ZERO SIGNAL"],
+            [1450, (p) => {
                 const done = Math.floor(p * Math.ceil(length / 2));
                 return glyphs.map((glyph, i) => Math.min(i, length - 1 - i) < done ? glyph : "0").join("");
             }],
-            [350, label]
+            [650, label]
         ),
         // Each cipher rotor stops independently on its decoded character.
         sequence(
-            [390, "KEY LOAD"],
-            [1740, (p) => {
+            [710, "KEY LOAD"],
+            [810, "ROTOR HOME"],
+            [1230, (p) => "SET KEY " + rotor[Math.floor(p * rotor.length)]],
+            [750, "KEY FOUND"],
+            [2580, (p) => {
                 const step = Math.floor(p * 22);
                 const locked = Math.floor(p * (length + 1));
                 return glyphs.map((glyph, i) => i === 0 || i === length - 1 || (i * 7) % length < locked
                     ? glyph
                     : rotor[(i * 11 + step * (i % 3 + 1)) % rotor.length]).join("");
             }],
-            [350, "KEY OK"],
-            [400, label]
+            [810, "KEY OK"],
+            [730, "PLAIN TEXT"],
+            [640, label]
         ),
         // The scan writes marks on the outward pass and letters on the return.
         sequence(
-            [320, "SCAN START"],
-            [980, (p) => {
+            [680, "SCAN START"],
+            [750, "FIND EDGES"],
+            [1520, (p) => {
                 const head = Math.floor(p * length);
                 return glyphs.map((_, i) => i < head ? "=" : i === head ? ">" : ".").join("");
             }],
-            [270, "=".repeat(length)],
-            [1080, (p) => {
+            [690, "=".repeat(length)],
+            [820, "PASS 2/2"],
+            [1620, (p) => {
                 const head = length - 1 - Math.floor(p * length);
                 return glyphs.map((glyph, i) => i > head ? glyph : i === head ? "<" : "=").join("");
             }],
-            [340, label]
+            [810, length + " CELLS OK"],
+            [650, label]
         ),
         // A progress bar pauses for verification before opening the title.
         sequence(
-            [330, "LOAD /HOST"],
-            [1350, progressBar],
-            [360, progressBar(1)],
-            [420, "VERIFY..."],
-            [350, "OPEN OK"],
-            [630, (p) => type(label, p)]
+            [670, "LOAD /HOST"],
+            [740, "CACHE MISS"],
+            [650, "READ LOCAL"],
+            [2660, progressBar],
+            [810, progressBar(1)],
+            [900, "VERIFY..."],
+            [810, "OPEN OK"],
+            [1300, (p) => type(label, p)],
+            [650, label]
         ),
         // Two packets fill alternating cells before the frame is complete.
         sequence(
-            [320, "RX 1/2"],
-            [860, (p) => assemble(0, p)],
-            [350, assemble(0, 1)],
-            [320, "RX 2/2"],
-            [860, (p) => assemble(1, p)],
-            [330, "FRAME OK"],
-            [370, label]
+            [700, "RX 1/2"],
+            [1440, (p) => assemble(0, p)],
+            [730, assemble(0, 1)],
+            [800, "PKT 2 LOST"],
+            [850, "RESEND 2"],
+            [680, "RX 2/2"],
+            [1530, (p) => assemble(1, p)],
+            [810, "FRAME OK"],
+            [650, label]
         ),
         // Morse symbols fill successive rows, then the receiver prints the result.
         sequence(
-            [360, "MORSE TX"],
-            [1700, (p) => {
+            [690, "MORSE TX"],
+            [790, "CALLING..."],
+            [2760, (p) => {
                 const sent = Math.floor(p * (signal.length + 1));
-                const row = sent - sent % length;
-                return signal.slice(row, sent) + "_";
+                const row = Math.floor(Math.max(0, sent - 1) / length) * length;
+                const symbols = signal.slice(row, sent);
+                return symbols.length === length ? symbols : symbols + "_";
             }],
-            [400, "RX COMPLETE"],
-            [840, (p) => type(hostname, p)],
-            [380, label]
+            [750, "RX COMPLETE"],
+            [810, "DECODE CW"],
+            [1350, (p) => type(hostname, p)],
+            [730, hostname],
+            [650, label]
         ),
         // A paper tape moves beneath a fixed read head.
         sequence(
-            [350, "INSERT TAPE"],
-            [350, "REEL 01"],
-            [1480, (p) => {
+            [690, "INSERT TAPE"],
+            [750, "REEL 01"],
+            [780, "SET READHEAD"],
+            [2460, (p) => {
                 const offset = Math.floor(p * tape.length);
                 const readHead = Math.floor(length / 2);
                 return glyphs.map((_, i) => i === readHead ? "|" : tape[(offset + i) % tape.length] === "1" ? "o" : ".").join("");
             }],
-            [390, "END OF TAPE"],
-            [850, (p) => {
+            [790, "END OF TAPE"],
+            [790, "REWIND <<"],
+            [790, "PRINT BUFFER"],
+            [1390, (p) => {
                 const count = Math.floor(p * (length + 1));
                 return label.slice(length - count).padStart(length, " ");
             }],
-            [320, label]
+            [650, label]
         ),
         // A miniature text adventure ends at a sign bearing the title.
-        sequence(
+        slowSequence(
             [540, "DARK ROOM"],
             [760, (p) => type("> LOOK", p)],
             [750, "A KEY / DOOR"],
@@ -262,17 +305,19 @@
             [850, (p) => type("> UNLOCK", p)],
             [590, "* CLICK *"],
             [770, (p) => type("> GO NORTH", p)],
+            [480, "A COLD HALL"],
             [660, "A SIGN READS"],
             [1240, (p) => type(label, p)],
             [680, label]
         ),
         // A cellular automaton runs at two speeds before its final row is printed over.
-        sequence(
+        slowSequence(
             [590, "RULE 30"],
             [560, "SEED 0001"],
             [1820, (p) => generations[Math.floor(p * 9)]],
             [480, "CLOCK x3"],
             [2260, (p) => generations[9 + Math.floor(p * (generations.length - 9))]],
+            [460, generations.length + " ROWS"],
             [450, "HALT"],
             [1350, (p) => {
                 const written = Math.floor(p * (length + 1));
@@ -281,21 +326,23 @@
             [620, label]
         ),
         // Altitude and descent rate update as a lander fires its engines.
-        sequence(
+        slowSequence(
             [650, "LANDER RX"],
             [560, "DESCENT AUTO"],
             [1950, (p) => telemetry(120 - 62 * p, 28 + 6 * p)],
             [650, "RETROBURN"],
             [2250, (p) => telemetry(58 * (1 - p) ** 2, 34 * (1 - p))],
             [510, "TOUCHDOWN"],
+            [570, "DUST SETTLES"],
             [610, "BASE BEACON"],
             [1110, (p) => type(label, p)],
             [650, label]
         ),
         // A spectrum display picks out two peaks in a noisy signal.
-        sequence(
+        slowSequence(
             [600, "SPECTRUM RX"],
             [1280, (p) => spectrum(0, Math.floor(p * 11))],
+            [500, "NO CARRIER"],
             [590, "GAIN UP"],
             [1960, (p) => spectrum(p, Math.floor(p * 17))],
             [610, lockedSpectrum],
@@ -307,8 +354,9 @@
             [630, label]
         ),
         // A tiny BASIC program prompts for the name, then echoes it back.
-        sequence(
+        slowSequence(
             [510, "READY."],
+            [430, "NEW"],
             [850, (p) => type("10 INPUT A$", p)],
             [850, (p) => type("20 PRINT A$", p)],
             [700, (p) => type("30 END", p)],
@@ -321,9 +369,10 @@
             [650, label]
         ),
         // A test chamber promises dessert and delivers an empty tray.
-        sequence(
+        slowSequence(
             [750, "TEST ROOM 08"],
             [800, "REWARD: CAKE"],
+            [530, "ORDER READY"],
             [1090, (p) => type("> SCAN TRAY", p)],
             [1450, (p) => {
                 const scanned = Math.floor(p * 5);
@@ -336,12 +385,13 @@
             [550, label]
         ),
         // An action hero runs out of gum before running out of doors to kick.
-        sequence(
+        slowSequence(
             [700, "GUM: ZERO"],
             [700, "BOOTS: TWO"],
             [800, "DOOR LOCKED"],
             [1050, (p) => type("> TRY KNOB", p)],
             [680, "NOPE."],
+            [470, "PLAN B"],
             [1050, (p) => type("> APPLY BOOT", p)],
             [420, "[====||====]"],
             [300, "[===/  \\===]"],
@@ -350,7 +400,7 @@
             [620, label]
         ),
         // A cartoon sign-off with a one-row ASCII iris close.
-        sequence(
+        slowSequence(
             [640, "----(3)-----"],
             [640, "----(2)-----"],
             [640, "----(1)-----"],
@@ -363,11 +413,12 @@
                     ? "#"
                     : cartoonSignOff[index] ?? " ").join("");
             }],
+            [490, "END OF REEL"],
             [420, ""],
             [650, label]
         ),
         // The CPC boots into Locomotive BASIC and runs a program from Drive A:.
-        sequence(
+        slowSequence(
             [700, "CPC 6128"],
             [680, "Amstrad 128K"],
             [760, "BASIC 1.1"],
@@ -375,6 +426,7 @@
             [790, (p) => type("mode 2", p)],
             [680, (p) => type("cat", p)],
             [470, "Drive A:"],
+            [520, "DISC READY"],
             [820, "HOST.BAS  1K"],
             [1230, (p) => type('run "host"', p)],
             [420, ""],
@@ -382,8 +434,9 @@
             [700, label]
         ),
         // An original one-row warehouse puzzle. @ pushes $ onto the marked goal.
-        sequence(
+        slowSequence(
             [680, "PUSH / 01"],
+            [460, "GOAL: ."],
             [850, "#@ $     . #"],
             [500, "# @$     . #"],
             [520, "#  @$    . #"],
@@ -397,9 +450,10 @@
             [580, label]
         ),
         // Deep Thought delivers an answer and leaves the question open.
-        sequence(
+        slowSequence(
             [1000, "DON'T PANIC!"],
             [940, "DEEP THOUGHT"],
+            [540, "QUERY QUEUED"],
             [2350, (p) => (p * 7.5).toFixed(1) + "M YEARS"],
             [550, "7.5M YEARS"],
             [720, "THE ANSWER"],
@@ -409,7 +463,7 @@
             [680, label]
         ),
         // Vim refuses to quit until the buffer containing the hostname is saved.
-        sequence(
+        slowSequence(
             [1000, (p) => type("$ vim notes", p)],
             [690, "-- INSERT --"],
             [1200, (p) => type(hostname, p)],
@@ -419,12 +473,14 @@
             [880, (p) => type(":help quit", p)],
             [630, "SAVE & QUIT"],
             [710, (p) => type(":wq", p)],
+            [520, "WRITING..."],
             [600, '"notes" 1L'],
             [700, label]
         ),
         // They Live. The sunglasses decode a billboard one cell at a time.
-        sequence(
+        slowSequence(
             [1050, billboard],
+            [520, "[ AD BREAK ]"],
             [800, "  (o)--(o)  "],
             [700, "GLASSES ON"],
             [1640, (p) => {
@@ -438,11 +494,12 @@
             [580, label]
         ),
         // The Thing. Hold on the dish long enough for it to seem safe.
-        sequence(
+        slowSequence(
             [850, "OUTPOST 31"],
             [750, "SAMPLE 01"],
             [1000, "[    .     ]"],
             [580, "NO REACTION"],
+            [550, "ROOM QUIET"],
             [600, "SAMPLE 02"],
             [1650, "[    .     ]"],
             [350, "[    o     ]"],
@@ -453,9 +510,10 @@
             [650, label]
         ),
         // Escape from New York. A wireframe glider approach and a very late extraction.
-        sequence(
+        slowSequence(
             [920, "NYC / 1997"],
             [760, "GLIDER IN"],
+            [480, "RADAR LOCK"],
             [470, "[....+.....]"],
             [420, "[..../\\....]"],
             [420, "[.../==\\...]"],
@@ -468,10 +526,11 @@
             [650, label]
         ),
         // Halloween. The shape in the doorway is still there when the light returns.
-        sequence(
+        slowSequence(
             [860, "HADDONFIELD"],
             [850, "OCT 31"],
             [730, "11:59 PM"],
+            [550, "PORCH LIGHT"],
             [900, "[    ||    ]"],
             [780, "[    ..    ]"],
             [1120, "[    /o\\   ]"],
@@ -481,9 +540,10 @@
             [680, label]
         ),
         // The Fog. A lighthouse broadcast disappears beneath a bank of tildes.
-        sequence(
+        slowSequence(
             [790, "ANTONIO BAY"],
             [890, "LIGHTHOUSE"],
+            [540, "BUOY LOST"],
             [860, broadcast],
             [1840, (p) => {
                 const covered = Math.floor(p * (length + 1));
@@ -499,8 +559,9 @@
             [630, label]
         ),
         // Twin Peaks. The Red Room writes the title backwards across its floor.
-        sequence(
+        slowSequence(
             [960, "THE RED ROOM"],
+            [560, "CURTAIN"],
             [1160, chevrons],
             [1460, (p) => String(Math.floor(p * 25)).padStart(2, "0") + " YEARS"],
             [920, "25 YEARS"],
@@ -514,13 +575,14 @@
             [740, label]
         ),
         // Mulholland Drive. The exact same signal plays after the mic is cut.
-        sequence(
+        slowSequence(
             [740, "CLUB"],
             [960, "SILENCIO"],
             [1090, "NO HAY BANDA"],
             ...silencioPlayback,
             [740, "MIC OFF"],
             ...silencioPlayback,
+            [500, "PLAYBACK"],
             [820, "BLUE BOX"],
             [480, "[==========]"],
             [630, "[==      ==]"],
@@ -528,9 +590,10 @@
             [610, label]
         ),
         // Eraserhead. Steam gives way to a spotlight inside the radiator.
-        sequence(
+        slowSequence(
             [1020, "THE RADIATOR"],
             [760, "[||||||||||]"],
+            [480, "VALVE OPEN"],
             [1810, (p) => {
                 const pressure = Math.floor(p * 9);
                 const grille = glyphs.slice(2).map((_, index) => (index * 3 + pressure) % 7 < 2 ? ":" : "|");
@@ -544,10 +607,11 @@
             [650, label]
         ),
         // Blue Velvet. Look down through the neat grass of Lumberton.
-        sequence(
+        slowSequence(
             [990, "LUMBERTON"],
             [850, "NICE LAWN."],
             [650, "||||||||||||"],
+            [510, "LOOK CLOSER"],
             [1750, (p) => {
                 const exposed = p * length / 2;
                 return glyphs.map((_, index) => Math.abs(index - (length - 1) / 2) < exposed
@@ -563,9 +627,10 @@
             [670, label]
         ),
         // Lost Highway. A tape shows a call from home and rewinds itself.
-        sequence(
+        slowSequence(
             [800, "UNMARKED VHS"],
             [600, "PLAY >"],
+            [510, "TRACKING..."],
             [1440, (p) => "00:00:00:" + String(Math.floor(p * 24)).padStart(2, "0")],
             [640, "...:##%:...."],
             [960, "RING AT HOME"],
@@ -578,7 +643,7 @@
             [650, label]
         ),
         // DOS-era BIOS geometry. Zero ES:DI for old BIOSes before peeling the sector count out of CL.
-        sequence(
+        slowSequence(
             [900, (p) => type("A:\\>CHS", p)],
             [620, "BITS 16"],
             [650, "xor dx,dx"],
@@ -588,6 +653,7 @@
             [500, "stc"],
             [900, "int 13h"],
             [660, "jc diskerr"],
+            [450, "BIOS REPLY"],
             [1080, "CF=0 CX=4F12"],
             [620, "CL=ccssssss"],
             [910, "and cl,3Fh"],
@@ -596,8 +662,9 @@
             [650, label]
         ),
         // HP 48 RPN. Multiply cylinders, heads, sectors per track, and bytes per sector.
-        sequence(
+        slowSequence(
             [900, "HP 48 / RPN"],
+            [470, "STACK CLEAR"],
             [850, "80 ENTER"],
             [660, stackLine(1, 80)],
             [750, "2 ENTER"],
@@ -613,8 +680,9 @@
             [650, label]
         ),
         // Saturn SASM. Increment the same two nibbles in hex and BCD modes.
-        sequence(
+        slowSequence(
             [920, "SATURN / ASM"],
+            [460, "TWO NIBBLES"],
             [690, "P= 0"],
             [650, "SETHEX"],
             [770, "LCHEX 99"],
@@ -628,13 +696,34 @@
             [590, "RTN"],
             [650, label]
         ),
-        // 2001. HAL's eye, a refused request, and six memory blocks pulled in turn.
+        // 2001. Dave and HAL trade messages from the pod bay to the logic center.
         sequence(
             [850, "HAL 9000"],
             [820, "    (o)     "],
-            [1060, (p) => type("> OPEN BAY", p)],
-            [1130, "DENIED, DAVE"],
+            [580, "DAVE >"],
+            scrollLine("OPEN THE POD BAY DOORS, HAL.", 125),
+            [580, "HAL  >"],
+            scrollLine("I'M SORRY, DAVE. I'M AFRAID I CAN'T DO THAT.", 125),
+            [580, "DAVE >"],
+            [780, "WHAT'S THE"],
+            [850, "PROBLEM?"],
+            [580, "HAL  >"],
+            [850, "THE MISSION"],
+            [950, "COMES FIRST."],
+            [790, "I READ"],
+            [990, "YOUR LIPS."],
+            [580, "DAVE >"],
+            [880, "I'LL USE THE"],
+            [1110, "AIRLOCK."],
+            [580, "HAL  >"],
+            [1070, "NO HELMET?"],
+            [580, "DAVE >"],
+            [1050, "OPEN THEM."],
+            [580, "HAL  >"],
+            [1210, "GOODBYE."],
+            [740, "[NO CARRIER]"],
             [850, "LOGIC CENTER"],
+            [1030, "STOP, DAVE."],
             [2390, (p) => {
                 const removed = Math.floor(p * 7);
                 return "MEM [" + "#".repeat(6 - removed) + ".".repeat(removed) + "]";
@@ -646,9 +735,10 @@
             [640, label]
         ),
         // The Shining. The Overlook's door gives way to a warning in the mirror.
-        sequence(
+        slowSequence(
             [900, "THE OVERLOOK"],
             [1040, "ROOM 237"],
+            [550, "HALL EMPTY"],
             [680, "[   ||||   ]"],
             [720, "[    ||    ]"],
             [740, "[          ]"],
@@ -660,22 +750,24 @@
             [620, label]
         ),
         // Dr. Strangelove. The recall goes out and one receiver stays silent.
-        sequence(
+        slowSequence(
             [910, "CRM-114"],
             [830, "RECALL / TX"],
             [740, "PREFIX ???"],
             [1120, (p) => type("PREFIX OPE", p)],
             [920, "TX [O][P][E]"],
+            [530, "WAIT FOR ACK"],
             [2110, (p) => "RX [" + ".".repeat(Math.floor(p * 8)).padEnd(7, " ") + "]"],
             [1060, "NO REPLY"],
             [970, "01 STILL OUT"],
             [650, label]
         ),
         // Barry Lyndon. Candle flames expose the title through the Planar lens.
-        sequence(
+        slowSequence(
             [920, "BARRY LYNDON"],
             [910, "ZEISS 50MM"],
             [1060, "PLANAR f/0.7"],
+            [490, "LIGHT METER"],
             [740, "  |  |  |   "],
             [480, "  i  |  |   "],
             [510, "  i  i  |   "],
@@ -688,8 +780,9 @@
             [640, label]
         ),
         // Archon. Two sparks merge before the first line comes through.
-        sequence(
+        slowSequence(
             [920, "ARCHON WARP"],
+            [530, "2 TEMPLAR"],
             [600, "[ *      * ]"],
             [410, "[  *    *  ]"],
             [410, "[   *  *   ]"],
@@ -705,30 +798,52 @@
         ),
         // Archon after repeated clicks. Leave a little quiet around the starfield.
         sequence(
-            [850, "ARCHON"],
-            [900, ".  *  .    ."],
-            [820, "+  .  *   . "],
+            [1050, "ARCHON"],
+            [840, "DEEP FIELD"],
+            [1060, archonStars],
+            [1490, "* .  :  .  *"],
+            [2270, (p) => {
+                const focused = Math.floor(p * (length + 1));
+                return archonSky.slice(0, focused) + archonStars.slice(focused);
+            }],
+            [1490, "NO WORDS"],
+            [990, ""],
             scrollLine("THEY SHOULD HAVE SENT A POET.", 170),
-            [900, ".  *  .    ."],
-            [460, ""],
-            [640, label]
+            [1580, archonStars],
+            [2450, (p) => {
+                const remaining = length - Math.floor(p * (length + 1));
+                return archonStars.slice(0, remaining);
+            }],
+            [860, ""],
+            [1700, (p) => type(label, p)],
+            [650, label]
         ),
         // Battlecruiser. A bridge console checks its indicators and reports in.
         sequence(
-            [880, "BRIDGE BOOT"],
-            [690, "[..........]"],
-            [1520, (p) => {
+            [1150, "BRIDGE BOOT"],
+            [980, "REACTOR IDLE"],
+            [1300, "AUX POWER"],
+            [830, "[..........]"],
+            [2510, (p) => {
                 const ready = Math.floor(p * (length - 1));
                 return "[" + "#".repeat(ready) + ".".repeat(length - 2 - ready) + "]";
             }],
-            [640, "COMMS READY"],
+            [1290, "REACTOR ON"],
+            [1000, "LINK TEST"],
+            [1030, "PING..."],
+            [990, "ACK RECEIVED"],
+            [1100, "COMMS READY"],
             scrollLine("BATTLECRUISER OPERATIONAL."),
-            [890, "   [ OK ]   "],
-            [650, label]
+            [1060, "   [ OK ]   "],
+            [1530, (p) => type("DOCK RELEASE", p)],
+            [1020, "ALL SYSTEMS"],
+            [1060, "ON STATION"],
+            [720, label]
         ),
         // Artanis. The title has been clicked just often enough to annoy him.
-        sequence(
+        slowSequence(
             [900, "ARTANIS"],
+            [470, "SELECTED"],
             [670, "CLICKS 08/08"],
             [480, "   [   ]    "],
             [420, "   [ . ]    "],
@@ -740,9 +855,10 @@
             [700, label]
         ),
         // Dragoon. The signal returns before the speaker does.
-        sequence(
+        slowSequence(
             [870, "DRAGOON / RX"],
             [1080, "SIGNAL LOST"],
+            [550, "TRYING RX"],
             [740, "[..........]"],
             [480, "[.....+....]"],
             [540, "[...::+::..]"],
@@ -753,8 +869,9 @@
             [650, label]
         ),
         // Medic. An ASCII pager beeps twice before anyone answers.
-        sequence(
+        slowSequence(
             [900, "MEDIC / PAGE"],
+            [480, "PAGE / 001"],
             [730, "[   PAGER  ]"],
             [500, "[   BEEP   ]"],
             [430, "[          ]"],
@@ -766,8 +883,9 @@
             [650, label]
         ),
         // Overmind. The first words of the Zerg campaign emerge from a dark row.
-        sequence(
+        slowSequence(
             [950, "OVERMIND"],
+            [550, "Z E R G"],
             [1100, ""],
             [880, "...::..::..."],
             [1260, "AWAKEN,"],
