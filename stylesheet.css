@@ -410,6 +410,7 @@ nav hr
 
 .cartouche 
 {        
+    box-sizing: border-box;
     margin-top: 2.0rem;
     margin-bottom: 0;
     width: 55%;
@@ -435,6 +436,13 @@ nav hr
     font-size: 1rem;
     font-style: italic;
     display: inline-block;
+}
+
+.cartouche .metadata-tag
+{
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    font-style: normal;
 }
 
 .site-footer 
