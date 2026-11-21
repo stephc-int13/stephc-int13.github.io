@@ -196,6 +196,38 @@ nav .blog-title:active
     background-color: var(--text-color);
 }
 
+nav .blog-title-easter-egg
+{
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.blog-title-stage
+{
+    position: relative;
+    display: inline-block;
+}
+
+.blog-title-original
+{
+    visibility: hidden;
+}
+
+.blog-title-animation
+{
+    position: absolute;
+    inset: 0;
+    display: flex;
+    pointer-events: none;
+    white-space: pre;
+}
+
+.blog-title-animation > span
+{
+    flex: 1 1 0;
+    min-width: 0;
+}
+
 nav ul 
 {
     padding: 0;
