@@ -1145,6 +1145,7 @@
     let playing = false;
     let clickCount = 0;
     let lastClick = -Infinity;
+    let homeNavigation;
 
     function readProgress() {
         try {
@@ -1273,20 +1274,30 @@
             event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return;
 
         const current = new URL(window.location.href);
-        const atHome = current.pathname === home.pathname ||
-            (home.pathname.endsWith("/index.html") && current.pathname === directory.pathname);
-        if (!atHome || current.origin !== home.origin || (current.hash && current.hash !== "#top")) return;
+        if (current.origin !== home.origin) return;
+        const atHome = (!current.hash || current.hash === "#top") &&
+            (current.pathname === home.pathname ||
+                (home.pathname.endsWith("/index.html") && current.pathname === directory.pathname));
+        const now = performance.now();
+        const inBurst = now - lastClick <= 1000;
+        if (playing && !atHome && !inBurst) return;
 
         event.preventDefault();
-        if (window.scrollX || window.scrollY) window.scrollTo(0, 0);
+        if (atHome && (window.scrollX || window.scrollY)) window.scrollTo(0, 0);
+        lastClick = now;
         if (playing) return;
 
-        const now = performance.now();
-        clickCount = now - lastClick <= 1000 ? clickCount + 1 : 1;
-        lastClick = now;
+        clickCount = inBurst ? clickCount + 1 : 1;
+        window.clearTimeout(homeNavigation);
         if (clickCount >= 8) {
             clickCount = 0;
             play();
+        } else if (!atHome) {
+            // A short delay gives a second tap a chance to start the Easter egg gesture.
+            homeNavigation = window.setTimeout(() => {
+                clickCount = 0;
+                window.location.assign(home.href);
+            }, clickCount === 1 ? 350 : 1000);
         }
     });
 })();

@@ -196,38 +196,6 @@ nav .blog-title:active
     background-color: var(--text-color);
 }
 
-nav .blog-title-easter-egg
-{
-    -webkit-user-select: none;
-    user-select: none;
-}
-
-.blog-title-stage
-{
-    position: relative;
-    display: inline-block;
-}
-
-.blog-title-original
-{
-    visibility: hidden;
-}
-
-.blog-title-animation
-{
-    position: absolute;
-    inset: 0;
-    display: flex;
-    pointer-events: none;
-    white-space: pre;
-}
-
-.blog-title-animation > span
-{
-    flex: 1 1 0;
-    min-width: 0;
-}
-
 nav ul 
 {
     padding: 0;
@@ -470,11 +438,54 @@ nav hr
     display: inline-block;
 }
 
+.cartouche-header
+{
+    display: flex;
+    align-items: baseline;
+    column-gap: 0.75rem;
+    margin: 0.5rem 1rem 0 0;
+}
+
+.cartouche-reading-time
+{
+    font-size: 1rem;
+    font-style: italic;
+    line-height: 1.7rem;
+}
+
+.cartouche .cartouche-tags
+{
+    display: flex;
+    flex: 1;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0 0.35rem;
+    min-width: 0;
+    margin: 0;
+    line-height: 1.4rem;
+    text-align: right;
+}
+
+.cartouche-header + ul
+{
+    margin-top: 0;
+}
+
 .cartouche .metadata-tag
 {
     font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
     font-size: 0.8rem;
     font-style: normal;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 360px)
+{
+    .cartouche .cartouche-tags
+    {
+        flex-basis: auto;
+    }
 }
 
 .site-footer 
@@ -1401,7 +1412,8 @@ figure.profile-figure
         padding-right: 0.5rem;
     }
 
-    .cartouche li 
+    .cartouche li,
+    .cartouche-reading-time
     {
         font-size: 0.8rem;
     }
