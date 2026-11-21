@@ -1102,7 +1102,7 @@ label.margin-toggle:not(.sidenote-number)
     color: color-mix(in srgb, var(--text-color) 60%, transparent);
 }
 
-.profile-figure
+figure.profile-figure
 {
     margin-top: 0;
     margin-bottom: 2rem;
@@ -1113,6 +1113,9 @@ label.margin-toggle:not(.sidenote-number)
     display: block;
     width: 100%;
     height: auto;
+    max-height: 60vh;
+    object-fit: contain;
+    object-position: left top;
 }
 
 .portrait-variant-1
@@ -1219,6 +1222,11 @@ label.margin-toggle:not(.sidenote-number)
     {
         margin-right: 0%;
         max-width: 100%;
+    }
+
+    .profile-portrait
+    {
+        max-height: none;
     }
 
     .profile-figure figcaption
