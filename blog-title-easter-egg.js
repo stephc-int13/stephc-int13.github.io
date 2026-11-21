@@ -919,6 +919,22 @@
             [800, "CARRIER LOST"],
             [440, ""],
             [650, label]
+        ),
+        // Pinky and the Brain. Another night on the Acme Labs shift.
+        sequence(
+            [900, "ACME LABS"],
+            [820, "NIGHT SHIFT"],
+            [930, "[  o    O  ]"],
+            [670, "PINKY >"],
+            scrollLine("GEE, BRAIN, WHAT DO YOU WANT TO DO TONIGHT?", 125),
+            [670, "BRAIN >"],
+            scrollLine("THE SAME THING WE DO EVERY NIGHT, PINKY.", 125),
+            [650, ""],
+            [1100, "TRY TO TAKE"],
+            [940, "OVER THE"],
+            [1470, "   WORLD!   "],
+            [780, "PLAN FILED"],
+            [650, label]
         )
     ];
 
