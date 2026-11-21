@@ -50,6 +50,16 @@
         return prefix + String(value).padStart(length - prefix.length, " ");
     }
 
+    function ticTacToeFrames(moves, millisecondsPerMove) {
+        const board = Array(9).fill(".");
+        const turns = moves.map((square, turn) => {
+            board[square] = turn % 2 === 0 ? "X" : "O";
+            const cells = board.join("");
+            return [millisecondsPerMove, cells.slice(0, 3) + "/" + cells.slice(3, 6) + "/" + cells.slice(6)];
+        });
+        return [[millisecondsPerMove, ".../.../..."], ...turns];
+    }
+
     function progressBar(progress) {
         const slots = Math.max(0, length - 6);
         const filled = Math.floor(progress * slots);
@@ -111,6 +121,7 @@
     const reversedTitle = [...glyphs].reverse().join("");
     const archonStars = ".  *  .    .";
     const archonSky = "+  .  *   . ";
+    const shadokDigits = ["GA", "BU", "ZO", "MEU"];
     const silencioPlayback = [
         [280, ">..:||:....."],
         [320, ">.:|!!|:...."],
@@ -935,6 +946,150 @@
             [1470, "   WORLD!   "],
             [780, "PLAN FILED"],
             [650, label]
+        ),
+        // Brazil. A literal bug changes one letter on a Ministry form.
+        sequence(
+            [990, "MINISTRY"],
+            [1400, (p) => type("FORM PRINT", p)],
+            [1240, "NAME: TUTTLE"],
+            [620, "*     TUTTLE"],
+            [620, "  *   TUTTLE"],
+            [620, "    * TUTTLE"],
+            [860, "NAME: *UTTLE"],
+            [1380, "NAME: BUTTLE"],
+            [1010, "VERIFY FORM"],
+            [1420, (p) => type("NAME: BUTTLE", p)],
+            [1180, "FORM VALID"],
+            [1290, "FORM FILED"],
+            [920, "NEXT FORM..."],
+            [1350, (p) => type(label, p)],
+            [650, label]
+        ),
+        // Les Shadoks. Four words suffice once the counter carries in base four.
+        sequence(
+            [1070, "LES SHADOKS"],
+            [1460, shadokDigits.join(" ")],
+            [980, "COMPTER..."],
+            [3940, (p) => shadokDigits[Math.floor(p * shadokDigits.length)]],
+            [1250, "MEU + BU ?"],
+            [1170, "PLUS DE MOT"],
+            [1060, "RETENUE"],
+            [4910, (p) => {
+                const value = 4 + Math.floor(p * 5);
+                return Array.from(value.toString(4), (digit) => shadokDigits[Number(digit)]).join(" ");
+            }],
+            [1110, "BASE 4"],
+            [1350, (p) => type(label, p)],
+            [650, label]
+        ),
+        // Minitel. Dial the kiosk, enter the service code, and draw the sommaire.
+        sequence(
+            [1020, "MINITEL"],
+            [1030, (p) => type("3615", p)],
+            [1020, "CONNEXION"],
+            [1500, (p) => "ATTENTE " + ".".repeat(Math.floor(p * 5))],
+            [1030, "CODE SERVICE"],
+            [1230, (p) => type("STEPHC", p)],
+            [900, "ENVOI"],
+            [1160, "3615 STEPHC"],
+            [1200, "SOMMAIRE"],
+            [1060, "01 BILLETS"],
+            [1060, "02 A PROPOS"],
+            [760, "[##..::..##]"],
+            [2170, (p) => {
+                const drawn = Math.floor(p * (length + 1));
+                return glyphs.map((glyph, index) => index < drawn ? glyph : "#:."[index % 3]).join("");
+            }],
+            [650, label]
+        ),
+        // WarGames. Joshua tries the same game at three speeds and never finds a winner.
+        sequence(
+            [1020, "JOSHUA"],
+            scrollLine("SHALL WE PLAY A GAME?", 115),
+            [1060, "TIC-TAC-TOE"],
+            ...ticTacToeFrames([0, 4, 8, 1, 7, 6, 2, 5, 3], 390),
+            [720, "DRAW / 01"],
+            ...ticTacToeFrames([4, 2, 0, 8, 1, 7, 6, 3, 5], 260),
+            [720, "DRAW / 02"],
+            ...ticTacToeFrames([4, 0, 8, 5, 2, 1, 7, 6, 3], 175),
+            [720, "DRAW / 03"],
+            [1250, "WINNER: NONE"],
+            [720, ""],
+            [1670, "STRANGE GAME"],
+            [680, label]
+        ),
+        // Alien. Mother's display quietly changes its priorities.
+        sequence(
+            [1040, "NOSTROMO"],
+            [1090, "MU/TH/UR"],
+            [960, "WAKE CREW"],
+            [1130, "CREW: 07"],
+            [1390, "SIGNAL RX"],
+            [980, "DISTRESS?"],
+            [1410, (p) => type("> CREW INFO", p)],
+            [1250, "ORDER 937"],
+            [1040, "PRIORITY 1"],
+            [1180, "SPECIMEN"],
+            [1010, "CREW: 07"],
+            [650, "CREW: 0-"],
+            [1630, "CREW: --"],
+            [740, ""],
+            [660, label]
+        ),
+        // Apollo 11. Eagle reads out a program alarm and waits for Houston's go.
+        sequence(
+            [1080, "APOLLO 11"],
+            [1050, "EAGLE / DSKY"],
+            [1130, "DESCENT"],
+            [1020, "PROG ALARM"],
+            [1030, "VERB 05"],
+            [1030, "NOUN 09"],
+            [700, "ENTER"],
+            [1480, "ALARM 1202"],
+            [830, "EAGLE >"],
+            [1220, "YOU COPY?"],
+            [1650, ""],
+            [860, "HOUSTON >"],
+            [1570, "GO ON ALARM"],
+            [1010, "DESCENT GO"],
+            [1130, "CONTACT LT"],
+            [1280, "EAGLE LANDED"],
+            [670, label]
+        ),
+        // Amiga. Workbench hangs, the Guru appears, and the machine reboots.
+        sequence(
+            [980, "AMIGA"],
+            [1160, "KICKSTART"],
+            [1120, "WORKBENCH"],
+            [2170, (p) => progressBar(p * 0.78)],
+            [1020, "LOAD STOPPED"],
+            [690, ""],
+            [1010, "GURU"],
+            [1350, "MEDITATION"],
+            [1130, "ERR B7000000"],
+            [1130, "AT  00020000"],
+            [1040, "LMB / RESET"],
+            [1240, "REBOOT..."],
+            [1660, (p) => type(label, p)],
+            [650, label]
+        ),
+        // Monty Python. The shopkeeper's diagnosis fails the tap test.
+        sequence(
+            [1000, "PET SHOP"],
+            [900, "NORWEGIAN"],
+            [900, "BLUE"],
+            [700, "SHOP >"],
+            [1300, "RESTING"],
+            [740, "TEST >"],
+            [940, "* TAP TAP *"],
+            [1410, ""],
+            [1320, "NO RESPONSE"],
+            [720, "SHOP >"],
+            [1160, "IT'S FINE."],
+            [720, "TEST >"],
+            [1570, "EX-PARROT!"],
+            [940, "REFUND?"],
+            [660, label]
         )
     ];
 
