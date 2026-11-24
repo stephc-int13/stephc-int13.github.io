@@ -19,6 +19,15 @@
     font-display:swap;
 }
 
+@font-face
+{
+    font-family: "Sofia Sans Extra Condensed";
+    font-style: normal;
+    font-weight: 200;
+    src: url("/fonts/SofiaSansExtraCondensed-ExtraLight.woff2") format("woff2");
+    font-display: swap;
+}
+
 @font-face 
 {
     font-family: "LastikRegular";
@@ -598,7 +607,7 @@ hr
 
 p.subtitle 
 {
-    font-family: BarlowCondensed, Calibri, sans-serif;
+    font-family: "Sofia Sans Extra Condensed", Calibri, sans-serif;
     font-style: normal;
     font-weight: 200;
     margin-top: 1rem;
