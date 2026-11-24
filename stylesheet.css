@@ -28,6 +28,15 @@
     font-display: swap;
 }
 
+@font-face
+{
+    font-family: "Sofia Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: url("/fonts/SofiaSans-Regular.woff2") format("woff2");
+    font-display: swap;
+}
+
 @font-face 
 {
     font-family: "LastikRegular";
@@ -874,9 +883,9 @@ div.table-wrapper
 
 .sans 
 {
-    font-family: BarlowCondensed, Calibri, sans-serif;
-    font-size: 1.5rem;
-    letter-spacing: .03em;
+    font-family: "Sofia Sans", Calibri, sans-serif;
+    font-size: 1.35rem;
+    letter-spacing: normal;
     font-weight: normal;
 }
 
