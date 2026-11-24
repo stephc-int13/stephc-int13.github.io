@@ -581,17 +581,23 @@ h2
     text-decoration-color: color-mix(in srgb, var(--text-color) 20%, transparent);
     text-decoration-thickness: 0.1em;
     text-underline-offset: 0.1em;
-    text-decoration-inset: 0 -4px;
+    text-decoration-inset: -4px;
 }
 
-@supports not (text-decoration-inset: 0 -4px)
+@supports not (text-decoration-inset: -4px)
 {
+    h2::before,
     h2::after
     {
-        /* Let the underline continue through a small nonbreaking space. */
+        /* Let the underline extend through a small space on each side. */
         content: "\00a0";
-        font-size: 0.4em;
+        font-size: 0.5em;
         letter-spacing: 0;
+    }
+
+    h2::before
+    {
+        margin-inline-start: -4px;
     }
 }
 
