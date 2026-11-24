@@ -30,10 +30,10 @@
 
 @font-face
 {
-    font-family: "Sofia Sans";
+    font-family: "Sofia Sans Condensed";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/SofiaSans-Regular.woff2") format("woff2");
+    src: url("/fonts/SofiaSansCondensed-Regular.woff2") format("woff2");
     font-display: swap;
 }
 
@@ -883,7 +883,7 @@ div.table-wrapper
 
 .sans 
 {
-    font-family: "Sofia Sans", Calibri, sans-serif;
+    font-family: "Sofia Sans Condensed", Calibri, sans-serif;
     font-size: 1.35rem;
     letter-spacing: normal;
     font-weight: normal;
