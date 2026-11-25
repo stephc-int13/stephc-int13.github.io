@@ -603,7 +603,7 @@ h2
 
 h3 
 {
-    font-family:  BarlowCondensed, Calibri, sans-serif;
+    font-family:  "Sofia Sans Condensed", Calibri, sans-serif;
     font-weight: 400;
     font-size: 2.0rem;
     margin-top: 2rem;
@@ -869,7 +869,7 @@ table.fullwidth
 div.table-wrapper 
 {
     overflow-x: auto;
-    font-family: BarlowCondensed, Calibri, sans-serif;
+    font-family: "Sofia Sans Condensed", Calibri, sans-serif;
 }
 
 .sans 
