@@ -131,7 +131,34 @@
         [300, ">.....:|:..."]
     ];
 
-    const effects = [
+    const titleEffects = [
+        sequence("title-typewriter",
+            [1250, (p) => type(label, p)],
+            [450, label]
+        ),
+        sequence("title-sweep",
+            [1300, (p) => {
+                const head = Math.floor(p * length);
+                return glyphs.map((glyph, index) => index < head ? glyph : index === head ? "|" : ".").join("");
+            }],
+            [450, label]
+        ),
+        sequence("title-mirror",
+            [500, reversedTitle],
+            [1000, (p) => {
+                const restored = Math.floor(p * length);
+                return glyphs.map((glyph, index) => index < restored ? glyph : glyphs[length - index - 1]).join("");
+            }],
+            [450, label]
+        ),
+        sequence("title-alternating",
+            [700, (p) => assemble(0, p)],
+            [750, (p) => assemble(1, p)],
+            [450, label]
+        )
+    ];
+
+    const referenceEffects = [
         // Cold boot with a memory count before the host name is printed.
         sequence("cold-boot",
             [650, "RESET 0000"],
@@ -1126,8 +1153,69 @@
             [510, "[..........]"],
             [890, "SIGNAL LOST"],
             [660, label]
+        ),
+        // The talking cat's growls get subtitles on the title display.
+        sequence("oh-long-johnson",
+            [650, "  /\\_/\\"],
+            [750, " ( o.o )"],
+            [1100, "OH MY DOG"],
+            [1300, "OH LONG JOHN"],
+            scrollLine("OH LONG JOHNSON", 125),
+            [1450, "OH DON PIANO"],
+            scrollLine("WHY I EYES YA", 125),
+            [650, label]
+        ),
+        // The classic LOLcat has a two-part request.
+        sequence("i-can-has-cheezburger",
+            [1250, "I CAN HAS"],
+            [450, ""],
+            [1700, "CHEEZBURGER?"],
+            [650, label]
+        ),
+        // Longcat is too long to fit on the display.
+        sequence("longcat",
+            [1300, "LONGCAT IS"],
+            scrollLine("LOOOOOOOOOOOOOOONG", 145),
+            [650, label]
+        ),
+        // Keyboard Cat plays a short sign-off on five ASCII keys.
+        sequence("keyboard-cat",
+            [1200, "PLAY HIM OFF"],
+            [1300, "KEYBOARD CAT"],
+            [400, "[|.|.|.|.|.]"],
+            [200, "[|*|.|.|.|.]"],
+            [200, "[|.|*|.|.|.]"],
+            [200, "[|.|.|*|.|.]"],
+            [300, "[|.|.|.|*|.]"],
+            [200, "[|.|.|*|.|.]"],
+            [200, "[|.|*|.|.|.]"],
+            [430, "[|*|.|.|.|*]"],
+            [350, "[|.|.|.|.|.]"],
+            [650, label]
+        ),
+        // The newspaper-reading cat arrives at a sudden decision.
+        sequence("i-should-buy-a-boat",
+            [1250, "I SHOULD"],
+            [1500, "    ..."],
+            [1650, "BUY A BOAT"],
+            [650, label]
         )
     ];
+
+    // References go in layer two unless listed here as longer scenes or deep cuts.
+    const elaborateReferences = new Set([
+        "amstrad-cpc-6128", "int-13h", "hp-48-rpn", "saturn-assembly", "minitel", "amiga-guru",
+        "the-fog", "mulholland-drive", "eraserhead", "blue-velvet", "lost-highway", "hal-9000",
+        "the-shining", "barry-lyndon", "brazil", "wargames", "alien-ash",
+        "archon-power", "archon-poet", "battlecruiser", "artanis", "dragoon", "medic", "overmind",
+        "ghost-exterminator", "ghost-thunder", "pinky-and-the-brain", "les-shadoks", "apollo-11"
+    ]);
+    const layers = [
+        titleEffects,
+        referenceEffects.filter(({ id }) => !elaborateReferences.has(id)),
+        referenceEffects.filter(({ id }) => elaborateReferences.has(id))
+    ];
+    const effects = layers.flat();
 
     const seen = new Set();
     const seenKeyPrefix = "stephc:title-easter-egg:seen:";
@@ -1165,6 +1253,10 @@
         } catch {
             // In-memory progress is available for the rest of this page visit.
         }
+    }
+
+    function activeLayerIndex() {
+        return layers.findIndex((layer) => layer.some(({ id }) => !seen.has(id)));
     }
 
     function play() {
@@ -1208,8 +1300,10 @@
         }
 
         readProgress();
-        const unseen = effects.filter((effect) => !seen.has(effect.id));
-        const choices = unseen.length ? unseen : effects.filter((effect) => effect !== previousEffect);
+        const layerIndex = activeLayerIndex();
+        const choices = layerIndex === -1
+            ? effects.filter((effect) => effect !== previousEffect)
+            : layers[layerIndex].filter(({ id }) => !seen.has(id));
         const effect = choices[Math.floor(Math.random() * choices.length)];
         previousEffect = effect;
 
@@ -1255,16 +1349,26 @@
             }
 
             readProgress();
-            if (seen.size !== effects.length || congratulationsSeen) {
-                restore();
+            const nextLayerIndex = activeLayerIndex();
+            if (nextLayerIndex === -1 && !congratulationsSeen) {
+                animate(congratulations, () => {
+                    congratulationsSeen = true;
+                    saveProgress(completionKey, collection);
+                    restore();
+                });
                 return;
             }
 
-            animate(congratulations, () => {
-                congratulationsSeen = true;
-                saveProgress(completionKey, collection);
-                restore();
-            });
+            if (nextLayerIndex > layerIndex) {
+                const total = layers[layerIndex].length;
+                animate(sequence("layer-unlocked",
+                    [1000, "L" + (layerIndex + 1) + " " + total + "/" + total],
+                    [1250, "LAYER " + (nextLayerIndex + 1) + " OPEN"]
+                ), restore);
+                return;
+            }
+
+            restore();
         });
     }
 
@@ -1289,7 +1393,7 @@
 
         clickCount = inBurst ? clickCount + 1 : 1;
         window.clearTimeout(homeNavigation);
-        if (clickCount >= 8) {
+        if (clickCount >= 3) {
             clickCount = 0;
             play();
         } else if (!atHome) {
