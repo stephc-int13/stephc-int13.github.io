@@ -12,15 +12,6 @@
 
 @font-face
 {
-    font-family: "BarlowCondensed";
-    font-weight: 200;
-    font-style: normal;
-    src:url("/fonts/BarlowCondensed-ExtraLight.woff2") format("woff2");
-    font-display:swap;
-}
-
-@font-face
-{
     font-family: "Sofia Sans Extra Condensed";
     font-style: normal;
     font-weight: 200;
@@ -33,7 +24,7 @@
     font-family: "Sofia Sans Condensed";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/SofiaSansCondensed-Regular.woff2") format("woff2");
+    src: url("/fonts/sofia-sans-condensed-latin-400-normal.woff2") format("woff2");
     font-display: swap;
 }
 
