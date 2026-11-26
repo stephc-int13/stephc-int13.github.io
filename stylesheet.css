@@ -440,11 +440,21 @@ nav hr
     margin-left : 0;
 }
 
+.cartouche ul:has(> li + li)
+{
+    line-height: 1.25rem;
+}
+
 .cartouche li 
 {  
     font-size: 1rem;
     font-style: italic;
     display: inline-block;
+}
+
+.cartouche li + li
+{
+    margin-top: 0;
 }
 
 .cartouche-header
@@ -462,6 +472,11 @@ nav hr
 .cartouche-header + ul
 {
     margin-top: 0;
+}
+
+.cartouche-header + ul:has(> li + li)
+{
+    margin-top: 0.375rem;
 }
 
 .site-footer 
