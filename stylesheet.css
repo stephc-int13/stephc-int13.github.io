@@ -5,8 +5,7 @@
     font-family: "JetBrains Mono";
     font-style: normal;
     font-weight: normal;
-    /* src:url("/fonts/jetbrains-mono.woff2") format("woff2"); */
-    src:url("/fonts/HelixMono-Medium.woff2") format("woff2");
+    src:url("/fonts/jetbrains-mono.woff2") format("woff2"); 
     font-display: swap;
 }
 
@@ -25,10 +24,7 @@
     font-family: "Sofia Sans Condensed";
     font-style: normal;
     font-weight: 400;
-    /* src: url("/fonts/sofia-sans-condensed-latin-400-normal.woff2") format("woff2"); */
-
-    src: url("/fonts/ls-nav_medium.woff2") format("woff2");
-
+    src: url("/fonts/sofia-sans-condensed-latin-400-normal.woff2") format("woff2"); 
     font-display: swap;
 }
 
