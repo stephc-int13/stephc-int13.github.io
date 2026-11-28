@@ -76,7 +76,6 @@
   --highlight-color:#fffff8;
   --link-color:#000; 
   --code-bg: #f2e5bc;
-  --code-surface: #ebdbb2;
   --code-border: #bdae93;
   --code-text: #3c3836;
   --code-dim: #928374;
@@ -133,7 +132,6 @@ body
         --highlight-color:#000018;   
         --link-color:#fff;
         --code-bg: #282828;
-        --code-surface: #32302f;
         --code-border: #504945;
         --code-text: #ebdbb2;
         --code-dim: #928374;
@@ -260,15 +258,6 @@ nav ul li a:active,
 }
 
 
-.language-switch .language-separator
-{
-    display: inline-block;
-    padding: 0 0.3rem;
-    margin: 0;
-    color: color-mix(in srgb, var(--text-color) 42%, transparent);
-}
-
-
 :is(nav, :where(.site-header)) hr
 {
     display: block;
@@ -303,16 +292,6 @@ nav ul li a:active,
     {
         font-size: 0.75rem;
     }
-
-    nav .lang-label-long 
-    {
-        display: none;
-    }
-
-    nav .lang-label-short 
-    {
-        display: inline;
-    }
 }
 
 .language-switch
@@ -339,11 +318,6 @@ nav ul li a:active,
 .language-switch a
 {
     color: inherit;
-}
-
-.lang-label-short
-{
-    display: none;
 }
 
 .language-switch [aria-current="page"]
@@ -626,11 +600,6 @@ p.subtitle
     color: color-mix(in srgb, var(--text-color) 80%, transparent); 
 }
 
-.danger 
-{
-    color: red;
-}
-
 article 
 {   
    --article-top-padding: 5rem;
@@ -849,18 +818,6 @@ blockquote .marginnote
     text-align: left;
 }
 
-div.fullwidth,
-table.fullwidth 
-{
-    width: 100%;
-}
-
-div.table-wrapper 
-{
-    overflow-x: auto;
-    font-family: "Sofia Sans Condensed", Calibri, sans-serif;
-}
-
 .sans 
 {
     font-family: "Sofia Sans Condensed", Calibri, sans-serif;
@@ -1014,11 +971,6 @@ pre.code-block:hover
 .code-block code .tok-symbol
 {
     color: var(--code-text);
-}
-
-pre.fullwidth > code 
-{
-    width: 90%;
 }
 
 .fullwidth 
@@ -1359,7 +1311,6 @@ figure.profile-figure
         cursor: pointer;
     }
 
-    div.table-wrapper,
     table 
     {
         width: 85%;
