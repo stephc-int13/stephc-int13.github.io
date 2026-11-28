@@ -7,8 +7,14 @@
     <link rel="stylesheet" href="/stylesheet.css">
     <link rel="icon" href="/favicon.svg">
     <style>
+      .error-layout {
+        width: 75%;
+        padding-inline: 0;
+      }
+
       .error-header {
-        padding-top: 0.8rem;
+        padding-block: 0.8rem 0.4rem;
+        border-bottom: 1px solid color-mix(in srgb, var(--text-color) 15%, transparent);
       }
 
       .error-header a {
@@ -37,10 +43,16 @@
         height: auto;
         image-rendering: pixelated;
       }
+
+      @media (max-width: 768px) {
+        .error-layout {
+          width: 80%;
+        }
+      }
     </style>
   </head>
 
-  <body>
+  <body class="error-layout">
     <header class="error-header">
       <a href="/">[stephc.net]</a>
     </header>
