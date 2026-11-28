@@ -1280,6 +1280,24 @@ figure.profile-figure
         font-size: 0.65rem;
     }
 
+    /* Keep the credit together when it fits on one line. */
+    #about-portrait-credit:not([hidden])
+    {
+        display: inline-block;
+        max-width: 100%;
+        overflow-wrap: anywhere;
+    }
+
+    .portrait-credit-on-next-line #about-portrait-separator-2
+    {
+        display: none;
+    }
+
+    .portrait-credit-on-next-line #about-portrait-credit:not([hidden])
+    {
+        display: block;
+    }
+
     .fullwidth
     {
         max-width: 100%;
