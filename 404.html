@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404 · Page not found | stephc.net</title>
+    <link rel="stylesheet" href="/stylesheet.css">
+    <link rel="icon" href="/favicon.svg">
+    <link rel="stylesheet" href="/blog-title-easter-egg.css">
+    <script src="/blog-title-easter-egg.js" defer></script>
+    <style>
+      .error-page {
+        padding-block: calc(var(--article-top-padding) + var(--mobile-nav-offset, 0px)) 2.5rem;
+      }
+
+      .error-page .subtitle {
+        margin-bottom: 1.75rem;
+      }
+
+      .error-illustration {
+        width: 415px;
+        margin-bottom: 1.5rem;
+      }
+
+      .error-illustration img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+
+      .error-animation-toggle {
+        margin-top: 0.5rem;
+        padding: 0;
+        border: 0;
+        background: none;
+        color: inherit;
+        font: 0.9rem 'JetBrains Mono', 'Courier New', monospace;
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
+        cursor: pointer;
+      }
+
+      .error-home {
+        margin: 0;
+      }
+
+      @media (max-width: 768px) {
+        .error-page {
+          --mobile-nav-offset: 1rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <div class="nav-row">
+        <a class="blog-title" href="/">[stephc.net]</a>
+        <ul class="nav-links">
+          <li><a href="/posts.html">/posts</a></li>
+          <li><a href="/rants.html">/rants</a></li>
+          <li><a href="/about.html">/about</a></li>
+        </ul>
+        <a class="language-link" href="/index-fr.html#top" lang="fr" hreflang="fr"><span class="language-link-label"><img class="language-link-arrow" src="/images/language-arrow.svg" width="12" height="12" alt=""> Français</span></a>
+      </div>
+      <hr>
+    </nav>
+
+    <main class="page-top-spacing error-page">
+      <h1 id="title" aria-label="404. Page not found">404</h1>
+      <p class="subtitle" id="error-message">The page is gone. The GIF survived.</p>
+
+      <figure class="error-illustration">
+        <picture>
+          <source id="error-still" media="(prefers-reduced-motion: reduce)" srcset="/images/lz8b-still.png">
+          <img src="/images/lz8b.gif" width="415" height="237" alt="A grainy collage of a poodle, a rat, mugshots and other oddities.">
+        </picture>
+        <button class="error-animation-toggle" id="error-animation-toggle" type="button" hidden>Pause animation</button>
+      </figure>
+
+      <p class="error-home"><a href="/">Back to the homepage</a></p>
+    </main>
+
+    <footer class="site-footer">
+      <ul>
+        <li>Copyright&nbsp;2026 Stephane&nbsp;Cocquereaumont.</li>
+        <li>Made with <a href="https://github.com/stephc-int13/carnet">Carnet</a>&nbsp;&#10010;&nbsp;<a href="https://crayfish.dev">Crayfish</a></li>
+      </ul>
+    </footer>
+
+    <script>
+      const message = document.getElementById("error-message");
+      const messages = [
+        message.textContent,
+        "This URL has been declared legally dead.",
+        "The page was last seen in the company of a broken link.",
+        "The page had a brief and entirely undocumented life.",
+        "The link led nowhere. At least the poodle showed up.",
+        "The page is missing. The rat declined to comment.",
+        "Nothing at this address but a GIF with a suspicious alibi."
+      ];
+      message.textContent = messages[Math.floor(Math.random() * messages.length)];
+
+      const stillFrame = document.getElementById("error-still");
+      const animationToggle = document.getElementById("error-animation-toggle");
+      const reducedMotion = window.matchMedia(stillFrame.media);
+
+      function setAnimation(playing) {
+        stillFrame.media = playing ? "not all" : "all";
+        animationToggle.textContent = playing ? "Pause animation" : "Play animation";
+      }
+
+      setAnimation(!reducedMotion.matches);
+      animationToggle.hidden = false;
+      animationToggle.addEventListener("click", () => setAnimation(stillFrame.media === "all"));
+      reducedMotion.addEventListener("change", (event) => setAnimation(!event.matches));
+    </script>
+  </body>
+</html>
