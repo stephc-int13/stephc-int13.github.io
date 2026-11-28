@@ -21,11 +21,14 @@
         min-block-size: 2.1rem;
       }
 
-      .error-page {
+      .error-content {
         width: 75%;
         max-width: 1000px;
         margin-inline: auto;
-        padding-block: 4.25rem 1.5rem;
+      }
+
+      .error-page {
+        padding-block: 4.25rem 2.5rem;
       }
 
       .error-page .subtitle {
@@ -35,17 +38,17 @@
 
       .error-illustration {
         display: block;
-        width: 100%;
+        width: auto;
         height: auto;
         image-rendering: pixelated;
       }
 
       @media (max-width: 768px) {
         .site-header .nav-row {
-          grid-template-rows: 44px 1.95rem;
+          grid-template-rows: 44px;
         }
 
-        /* Match the language control's baseline and reserve the lower row. */
+        /* Keep the title aligned with the first row of the mobile header. */
         .site-header .nav-row::after {
           content: "\00a0";
           grid-area: 1 / 3;
@@ -56,9 +59,12 @@
           line-height: 1.3;
         }
 
-        .error-page {
+        .error-content {
           width: 80%;
-          padding-block-start: 7rem;
+        }
+
+        .error-page {
+          padding-block-start: 5rem;
         }
       }
     </style>
@@ -74,11 +80,20 @@
       </header>
     </div>
 
-    <main class="error-page">
-      <h1 id="title" aria-label="404. Page not found">404</h1>
-      <p class="subtitle" id="error-message">The page is gone. The GIF survived.</p>
-      <img class="error-illustration" src="/images/lz8b.gif" width="415" height="237" alt="A grainy collage of a poodle, a rat, mugshots and other oddities.">
-    </main>
+    <div class="error-content">
+      <main class="error-page">
+        <h1 id="title" aria-label="404. Page not found">404</h1>
+        <p class="subtitle" id="error-message">The page is gone. The GIF survived.</p>
+        <img class="error-illustration" src="/images/lz8b.gif" width="415" height="237" alt="A grainy collage of a poodle, a rat, mugshots and other oddities.">
+      </main>
+
+      <footer class="site-footer">
+        <ul>
+          <li>Copyright&nbsp;2026 Stephane&nbsp;Cocquereaumont.</li>
+          <li>Made with <a href="https://github.com/stephc-int13/carnet">Carnet</a>&nbsp;&#10010;&nbsp;<a href="https://crayfish.dev">Crayfish</a></li>
+        </ul>
+      </footer>
+    </div>
 
     <script>
       const message = document.getElementById("error-message");
