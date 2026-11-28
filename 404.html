@@ -21,6 +21,7 @@
 
       .error-page .subtitle {
         margin-bottom: 1.5rem;
+        white-space: pre-line;
       }
 
       .error-illustration {
@@ -63,7 +64,7 @@
 
     <main class="error-page">
       <h1 id="title" aria-label="404. Page not found">404</h1>
-      <p class="subtitle" id="error-message">The page is gone. Apparently.</p>
+      <p class="subtitle" id="error-message">The page is gone.&#10;Apparently.</p>
       <img class="error-illustration" src="/images/lz8b.gif" width="415" height="237" alt="A grainy collage of William Gates III, Seymour Cray, Choron, a naked rat and other oddities.">
     </main>
 
@@ -76,6 +77,7 @@
 
     <script>
       const message = document.getElementById("error-message");
+      // Use \n to start each sentence on a new line.
       const messages = [
         message.textContent,
         "This URL is dead, just like Charlie Kirk.",
@@ -85,33 +87,33 @@
         "Fantome d'une page disparue.",
         "Epstein didn't kill himself.",
         "Oh, my dog, Oh, long Johnson, Oh, Don piano...",
-        "I am sorry, Dave. I'm afraid this page is not available.",
-        "The page you are looking for is not here. It may have been moved, deleted, or never existed in the first place. Remember to check your spelling and try again.",
-        "Unfortunately, the page you are looking for is not available. Please check the URL and try again.",
-        "Sacre bleu! This page has vanished into the digital ether.",
+        "I am sorry, Dave.\nI'm afraid this page is not available.",
+        "The page you are looking for is not here.\nIt may have been moved, deleted, or never existed in the first place.\nRemember to check your spelling and try again.",
+        "Unfortunately, the page you are looking for is not available.\nPlease check the URL and try again.",
+        "Sacre bleu!\nThis page has vanished into the digital ether.",
         "Ooops!",
-        "Why did the chicken cross the road? To die, under the rain.",
-        "Knock knock. Who's there?",
-        "Well, this is awkward. The page you requested bla bla bla" ,
-        "Hop on pop, this page is gone. Please check the URL and try again.",
-        "What are we doing here? This page is missing. Please check the URL and try again.",
+        "Why did the chicken cross the road?\nTo die, under the rain.",
+        "Knock knock.\nWho's there?",
+        "Well, this is awkward.\nThe page you requested bla bla bla",
+        "Hop on pop, this page is gone.\nPlease check the URL and try again.",
+        "What are we doing here?\nThis page is missing.\nPlease check the URL and try again.",
         "What are we doing tonight, brain?", 
         "What's up, Doc?",
-        "Is that you John Wayne? Is this me?", 
+        "Is that you John Wayne?\nIs this me?",
         "Tonerre de Brest!",
         "Moule a gaufres!",      
-        "You made a mistake. I think.",
+        "You made a mistake.\nI think.",
         "Putain de bordel de merde!",
         "I see plans within plans within plans, and I see a page that is not here.",
-        "I am a page that is not here. I am a page that is not here. I am a page that is not here.",
-        "Why I eyes ya? All the livelong day.",
+        "I am a page that is not here.\nI am a page that is not here.\nI am a page that is not here.",
+        "Why I eyes ya?\nAll the livelong day.",
         "This page is mising, and Musk will die on earth like everyone else.",
         "If you see this page, it means that you are not supposed to see it.",
         "Damn, I am good!",
-        "Heh, heh, heh... What a mess!",
+        "Heh, heh, heh...\nWhat a mess!",
         "Damn, those alien bastards are gonna pay for shooting up my ride.",
         "Holy shit, this page is gone!",
-        "All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy. All work and no play makes Jack a dull boy.",
+        "All work and no play makes Jack a dull boy.\nAll work and no play makes Jack a dull boy.\nAll work and no play makes Jack a dull boy.",
       ];
       message.textContent = messages[Math.floor(Math.random() * messages.length)];
     </script>
