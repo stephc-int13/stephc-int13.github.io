@@ -97,19 +97,22 @@ html
     font-size: 15px;
 }
 
-body 
+body,
+.site-header-frame
 {
     width: 87.5%;
-        
     margin-left: auto;
     margin-right: auto;
     padding-left: 12.5%;
+    max-width: 1000px;
+}
 
+body
+{
     font-family: "noto-serif", Georgia, serif; 
  
     background-color: var(--background-color);
     color: var(--text-color);
-    max-width: 1000px;
     counter-reset: sidenote-counter;
 }
 
@@ -152,7 +155,7 @@ body
 }
 
 
-nav 
+:is(nav, :where(.site-header))
 {
     font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
     position: fixed;
@@ -164,7 +167,7 @@ nav
     isolation: isolate;
 }
 
-nav::before 
+:is(nav, :where(.site-header))::before
 {
     content: "";
     position: absolute;
@@ -179,7 +182,7 @@ nav::before
     z-index: -1;
 }
 
-nav .nav-row 
+:is(nav, :where(.site-header)) .nav-row
 {
     display: grid;
     grid-template-columns: auto minmax(0, 1fr) auto;
@@ -189,7 +192,7 @@ nav .nav-row
     margin: 12px 0 6px;
 }
 
-nav .blog-title 
+:is(nav, :where(.site-header)) .blog-title
 {
     font-size: 1.3rem;
     font-weight: normal;
@@ -198,8 +201,8 @@ nav .blog-title
     width: fit-content; 
 }
 
-nav .blog-title:hover,
-nav .blog-title:active
+:is(nav, :where(.site-header)) .blog-title:hover,
+:is(nav, :where(.site-header)) .blog-title:active
 {
     color: var(--highlight-color);
     background-color: var(--text-color);
@@ -230,7 +233,7 @@ nav li
     white-space: nowrap;
 }
 
-nav a,
+:is(nav, :where(.site-header)) a,
 nav .language-link-label
 {
     text-decoration: none;
@@ -270,7 +273,7 @@ nav ul li a:active,
 }
 
 
-nav hr 
+:is(nav, :where(.site-header)) hr
 {
     display: block;
     height: 1px;
@@ -287,7 +290,7 @@ nav hr
 
 @media (max-width: 768px) 
 {
-    nav .blog-title 
+    :is(nav, :where(.site-header)) .blog-title
     {
         grid-column: 1;
         grid-row: 1;
@@ -1233,7 +1236,8 @@ figure.profile-figure
 
 @media (max-width: 768px) 
 {
-    body 
+    body,
+    .site-header-frame
     {
         width: 80%;  
         padding-left: 10%;
@@ -1426,7 +1430,7 @@ figure.profile-figure
         font-size: 5.2rem;
     }
 
-    nav 
+    :is(nav, :where(.site-header))
     {
         background-color: var(--background-color);
         backdrop-filter: none;
