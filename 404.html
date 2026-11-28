@@ -28,20 +28,26 @@
         height: auto;
       }
 
-      .error-animation-toggle {
-        margin-top: 0.5rem;
-        padding: 0;
-        border: 0;
-        background: none;
-        color: inherit;
-        font: 0.9rem 'JetBrains Mono', 'Courier New', monospace;
-        text-decoration: underline;
-        text-underline-offset: 0.15em;
-        cursor: pointer;
+      .error-home {
+        display: inline-block;
+        box-sizing: border-box;
+        max-width: 100%;
+        padding: 0.7rem 1rem;
+        border: 1px solid var(--text-color);
+        background-color: color-mix(in srgb, var(--text-color) 5%, var(--background-color));
+        box-shadow: 0.2rem 0.2rem color-mix(in srgb, var(--text-color) 35%, transparent);
+        font: 0.95rem/1.4 'JetBrains Mono', 'Courier New', monospace;
+        text-decoration: none;
       }
 
-      .error-home {
-        margin: 0;
+      .error-home:is(:hover, :active) {
+        background-color: var(--text-color);
+        color: var(--background-color);
+      }
+
+      .error-home:focus-visible {
+        outline: 2px solid var(--text-color);
+        outline-offset: 0.3rem;
       }
 
       @media (max-width: 768px) {
@@ -71,14 +77,10 @@
       <p class="subtitle" id="error-message">The page is gone. The GIF survived.</p>
 
       <figure class="error-illustration">
-        <picture>
-          <source id="error-still" media="(prefers-reduced-motion: reduce)" srcset="/images/lz8b-still.png">
-          <img src="/images/lz8b.gif" width="415" height="237" alt="A grainy collage of a poodle, a rat, mugshots and other oddities.">
-        </picture>
-        <button class="error-animation-toggle" id="error-animation-toggle" type="button" hidden>Pause animation</button>
+        <img src="/images/lz8b.gif" width="415" height="237" alt="A grainy collage of a poodle, a rat, mugshots and other oddities.">
       </figure>
 
-      <p class="error-home"><a href="/">Back to the homepage</a></p>
+      <a class="error-home" href="/">Back home, while you still can.</a>
     </main>
 
     <footer class="site-footer">
@@ -90,30 +92,19 @@
 
     <script>
       const message = document.getElementById("error-message");
+      const homeLink = document.querySelector(".error-home");
       const messages = [
-        message.textContent,
-        "This URL has been declared legally dead.",
-        "The page was last seen in the company of a broken link.",
-        "The page had a brief and entirely undocumented life.",
-        "The link led nowhere. At least the poodle showed up.",
-        "The page is missing. The rat declined to comment.",
-        "Nothing at this address but a GIF with a suspicious alibi."
+        [message.textContent, homeLink.textContent],
+        ["This URL has been declared legally dead.", "Pay your respects on the homepage."],
+        ["The page was last seen in the company of a broken link.", "Go home before you become a suspect."],
+        ["The page had a brief and entirely undocumented life.", "Go home. Skip the obituary."],
+        ["The link led nowhere. At least the poodle showed up.", "Head home before it follows you."],
+        ["The page is missing. The rat declined to comment.", "Ask the homepage. It saw nothing."],
+        ["Nothing at this address but a GIF with a suspicious alibi.", "Go home before the GIF lawyers up."]
       ];
-      message.textContent = messages[Math.floor(Math.random() * messages.length)];
-
-      const stillFrame = document.getElementById("error-still");
-      const animationToggle = document.getElementById("error-animation-toggle");
-      const reducedMotion = window.matchMedia(stillFrame.media);
-
-      function setAnimation(playing) {
-        stillFrame.media = playing ? "not all" : "all";
-        animationToggle.textContent = playing ? "Pause animation" : "Play animation";
-      }
-
-      setAnimation(!reducedMotion.matches);
-      animationToggle.hidden = false;
-      animationToggle.addEventListener("click", () => setAnimation(stillFrame.media === "all"));
-      reducedMotion.addEventListener("change", (event) => setAnimation(!event.matches));
+      const [setup, punchline] = messages[Math.floor(Math.random() * messages.length)];
+      message.textContent = setup;
+      homeLink.textContent = punchline;
     </script>
   </body>
 </html>
