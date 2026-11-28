@@ -83,8 +83,8 @@
     <div class="error-content">
       <main class="error-page">
         <h1 id="title" aria-label="404. Page not found">404</h1>
-        <p class="subtitle" id="error-message">The page is gone. The GIF survived.</p>
-        <img class="error-illustration" src="/images/lz8b.gif" width="415" height="237" alt="A grainy collage of a poodle, a rat, mugshots and other oddities.">
+        <p class="subtitle" id="error-message">The page is gone. Apparently.</p>
+        <img class="error-illustration" src="/images/lz8b.gif" width="415" height="237" alt="A grainy collage of William Gates III, Seymour Cray, Choron, a naked rat and other oddities.">
       </main>
 
       <footer class="site-footer">
@@ -99,12 +99,13 @@
       const message = document.getElementById("error-message");
       const messages = [
         message.textContent,
-        "This URL has been declared legally dead.",
-        "The page was last seen in the company of a broken link.",
-        "The page had a brief and entirely undocumented life.",
-        "The link led nowhere. At least the poodle showed up.",
-        "The page is missing. The rat declined to comment.",
-        "Nothing at this address but a GIF with a suspicious alibi."
+        "This URL is dead, just like Charlie Kirk.",
+        "Someone made a mistake.",
+        "You are not supposed to see this.",
+        "Tout abus sera puni.",
+        "No comment.",
+        "Fantome d'une page disparue.",
+        "Epstein didn't kill himself.",
       ];
       message.textContent = messages[Math.floor(Math.random() * messages.length)];
     </script>
