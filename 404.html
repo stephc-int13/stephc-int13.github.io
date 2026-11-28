@@ -11,20 +11,8 @@
         scrollbar-gutter: stable;
       }
 
-      .error-layout {
-        width: auto;
-        max-width: none;
-        padding-inline: 0;
-      }
-
       .site-header .nav-row {
         min-block-size: 2.1rem;
-      }
-
-      .error-content {
-        width: 75%;
-        max-width: 1000px;
-        margin-inline: auto;
       }
 
       .error-page {
@@ -59,10 +47,6 @@
           line-height: 1.3;
         }
 
-        .error-content {
-          width: 80%;
-        }
-
         .error-page {
           padding-block-start: 5rem;
         }
@@ -70,30 +54,26 @@
     </style>
   </head>
 
-  <body class="error-layout">
-    <div class="site-header-frame">
-      <header class="site-header">
-        <div class="nav-row">
-          <a class="blog-title" href="/">[stephc.net]</a>
-        </div>
-        <hr>
-      </header>
-    </div>
+  <body>
+    <header class="site-header">
+      <div class="nav-row">
+        <a class="blog-title" href="/">[stephc.net]</a>
+      </div>
+      <hr>
+    </header>
 
-    <div class="error-content">
-      <main class="error-page">
-        <h1 id="title" aria-label="404. Page not found">404</h1>
-        <p class="subtitle" id="error-message">The page is gone. Apparently.</p>
-        <img class="error-illustration" src="/images/lz8b.gif" width="415" height="237" alt="A grainy collage of William Gates III, Seymour Cray, Choron, a naked rat and other oddities.">
-      </main>
+    <main class="error-page">
+      <h1 id="title" aria-label="404. Page not found">404</h1>
+      <p class="subtitle" id="error-message">The page is gone. Apparently.</p>
+      <img class="error-illustration" src="/images/lz8b.gif" width="415" height="237" alt="A grainy collage of William Gates III, Seymour Cray, Choron, a naked rat and other oddities.">
+    </main>
 
-      <footer class="site-footer">
-        <ul>
-          <li>Copyright&nbsp;2026 Stephane&nbsp;Cocquereaumont.</li>
-          <li>Made with <a href="https://github.com/stephc-int13/carnet">Carnet</a>&nbsp;&#10010;&nbsp;<a href="https://crayfish.dev">Crayfish</a></li>
-        </ul>
-      </footer>
-    </div>
+    <footer class="site-footer">
+      <ul>
+        <li>Copyright&nbsp;2026 Stephane&nbsp;Cocquereaumont.</li>
+        <li>Made with <a href="https://github.com/stephc-int13/carnet">Carnet</a>&nbsp;&#10010;&nbsp;<a href="https://crayfish.dev">Crayfish</a></li>
+      </ul>
+    </footer>
 
     <script>
       const message = document.getElementById("error-message");

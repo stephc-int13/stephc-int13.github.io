@@ -97,18 +97,14 @@ html
     font-size: 15px;
 }
 
-body,
-.site-header-frame
+body
 {
     width: 87.5%;
     margin-left: auto;
     margin-right: auto;
     padding-left: 12.5%;
     max-width: 1000px;
-}
 
-body
-{
     font-family: "noto-serif", Georgia, serif; 
  
     background-color: var(--background-color);
@@ -1244,8 +1240,7 @@ figure.profile-figure
 
 @media (max-width: 768px) 
 {
-    body,
-    .site-header-frame
+    body
     {
         width: 80%;  
         padding-left: 10%;
