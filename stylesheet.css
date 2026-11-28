@@ -1280,22 +1280,22 @@ figure.profile-figure
         font-size: 0.65rem;
     }
 
-    /* Keep the credit together when it fits on one line. */
+    /* Put the credit on its own line unless the full caption fits inline. */
     #about-portrait-credit:not([hidden])
     {
-        display: inline-block;
-        max-width: 100%;
+        display: block;
         overflow-wrap: anywhere;
     }
 
-    .portrait-credit-on-next-line #about-portrait-separator-2
+    #about-portrait-separator-2
     {
         display: none;
     }
 
-    .portrait-credit-on-next-line #about-portrait-credit:not([hidden])
+    .portrait-credit-inline #about-portrait-separator-2:not([hidden]),
+    .portrait-credit-inline #about-portrait-credit:not([hidden])
     {
-        display: block;
+        display: inline;
     }
 
     .fullwidth

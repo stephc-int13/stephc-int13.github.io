@@ -22,7 +22,6 @@
     <link rel="alternate" hreflang="fr" href="about-fr.html">
     <link rel="stylesheet" href="blog-title-easter-egg.css">
     <script src="blog-title-easter-egg.js" defer></script>
-    <script src="about-portrait-caption.js" defer></script>
   </head>
 
   <body>
@@ -62,11 +61,12 @@
       <script>
         (function () {
           const portrait = document.getElementById("about-portrait");
+          const caption = document.getElementById("about-portrait-caption");
           const portraitDate = document.getElementById("about-portrait-date");
           const portraitLocation = document.getElementById("about-portrait-location");
           const portraitSeparatorTwo = document.getElementById("about-portrait-separator-2");
           const portraitCredit = document.getElementById("about-portrait-credit");
-          if (!portrait || !portraitDate || !portraitLocation || !portraitSeparatorTwo || !portraitCredit) return;
+          if (!portrait || !caption || !portraitDate || !portraitLocation || !portraitSeparatorTwo || !portraitCredit) return;
 
           const variants = [
             {
@@ -126,7 +126,22 @@
           ];
 
           const storageKey = "about-last-portrait";
+          const mobile = window.matchMedia("(max-width: 768px)");
           let currentPortrait;
+
+          function positionCredit() {
+            if (!mobile.matches || portraitCredit.hidden) {
+              caption.classList.remove("portrait-credit-inline");
+              return;
+            }
+
+            // Measure the caption as one line with the separator included.
+            caption.classList.add("portrait-credit-inline");
+            caption.style.whiteSpace = "nowrap";
+            const fits = portraitCredit.getBoundingClientRect().right <= caption.getBoundingClientRect().right;
+            caption.style.removeProperty("white-space");
+            caption.classList.toggle("portrait-credit-inline", fits);
+          }
 
           function showPortrait() {
             let lastSrc = currentPortrait?.src;
@@ -157,6 +172,7 @@
               portraitCredit.hidden = true;
               portraitCredit.textContent = "";
             }
+            positionCredit();
 
             try {
               localStorage.setItem(storageKey, choice.src);
@@ -166,6 +182,8 @@
           }
 
           showPortrait();
+          new ResizeObserver(positionCredit).observe(caption);
+          document.fonts.ready.then(positionCredit);
           window.addEventListener("pageshow", (event) => {
             if (event.persisted) showPortrait();
           });
