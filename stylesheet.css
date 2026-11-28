@@ -370,6 +370,14 @@ nav ul li a:active,
     white-space: nowrap;
 }
 
+@media (width > 768px)
+{
+    .nav-row > a.language-link
+    {
+        margin-inline-end: min(5vw, 6rem);
+    }
+}
+
 @media (max-width: 768px)
 {
     nav .nav-row:has(> .language-link)
