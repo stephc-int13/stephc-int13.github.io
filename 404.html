@@ -6,105 +6,63 @@
     <title>404 · Page not found | stephc.net</title>
     <link rel="stylesheet" href="/stylesheet.css">
     <link rel="icon" href="/favicon.svg">
-    <link rel="stylesheet" href="/blog-title-easter-egg.css">
-    <script src="/blog-title-easter-egg.js" defer></script>
     <style>
-      .error-page {
-        padding-block: calc(var(--article-top-padding) + var(--mobile-nav-offset, 0px)) 2.5rem;
+      .error-header {
+        padding-top: 0.8rem;
       }
 
-      .error-page .subtitle {
-        margin-bottom: 1.75rem;
-      }
-
-      .error-illustration {
-        width: 415px;
-        margin-bottom: 1.5rem;
-      }
-
-      .error-illustration img {
-        display: block;
-        max-width: 100%;
-        height: auto;
-      }
-
-      .error-home {
-        display: inline-block;
-        box-sizing: border-box;
-        max-width: 100%;
-        padding: 0.7rem 1rem;
-        border: 1px solid var(--text-color);
-        background-color: color-mix(in srgb, var(--text-color) 5%, var(--background-color));
-        box-shadow: 0.2rem 0.2rem color-mix(in srgb, var(--text-color) 35%, transparent);
-        font: 0.95rem/1.4 'JetBrains Mono', 'Courier New', monospace;
+      .error-header a {
+        font: 1.3rem 'JetBrains Mono', 'Courier New', monospace;
+        letter-spacing: -0.05em;
         text-decoration: none;
       }
 
-      .error-home:is(:hover, :active) {
+      .error-header a:hover {
         background-color: var(--text-color);
         color: var(--background-color);
       }
 
-      .error-home:focus-visible {
-        outline: 2px solid var(--text-color);
-        outline-offset: 0.3rem;
+      .error-page {
+        padding-block: 1.25rem 1.5rem;
       }
 
-      @media (max-width: 768px) {
-        .error-page {
-          --mobile-nav-offset: 1rem;
-        }
+      .error-page .subtitle {
+        max-width: none;
+        margin-bottom: 1.5rem;
+      }
+
+      .error-illustration {
+        display: block;
+        width: 100%;
+        height: auto;
+        image-rendering: pixelated;
       }
     </style>
   </head>
 
   <body>
-    <nav>
-      <div class="nav-row">
-        <a class="blog-title" href="/">[stephc.net]</a>
-        <ul class="nav-links">
-          <li><a href="/posts.html">/posts</a></li>
-          <li><a href="/rants.html">/rants</a></li>
-          <li><a href="/about.html">/about</a></li>
-        </ul>
-        <a class="language-link" href="/index-fr.html#top" lang="fr" hreflang="fr"><span class="language-link-label"><img class="language-link-arrow" src="/images/language-arrow.svg" width="12" height="12" alt=""> Français</span></a>
-      </div>
-      <hr>
-    </nav>
+    <header class="error-header">
+      <a href="/">[stephc.net]</a>
+    </header>
 
-    <main class="page-top-spacing error-page">
+    <main class="error-page">
       <h1 id="title" aria-label="404. Page not found">404</h1>
       <p class="subtitle" id="error-message">The page is gone. The GIF survived.</p>
-
-      <figure class="error-illustration">
-        <img src="/images/lz8b.gif" width="415" height="237" alt="A grainy collage of a poodle, a rat, mugshots and other oddities.">
-      </figure>
-
-      <a class="error-home" href="/">Back home, while you still can.</a>
+      <img class="error-illustration" src="/images/lz8b.gif" width="415" height="237" alt="A grainy collage of a poodle, a rat, mugshots and other oddities.">
     </main>
-
-    <footer class="site-footer">
-      <ul>
-        <li>Copyright&nbsp;2026 Stephane&nbsp;Cocquereaumont.</li>
-        <li>Made with <a href="https://github.com/stephc-int13/carnet">Carnet</a>&nbsp;&#10010;&nbsp;<a href="https://crayfish.dev">Crayfish</a></li>
-      </ul>
-    </footer>
 
     <script>
       const message = document.getElementById("error-message");
-      const homeLink = document.querySelector(".error-home");
       const messages = [
-        [message.textContent, homeLink.textContent],
-        ["This URL has been declared legally dead.", "Pay your respects on the homepage."],
-        ["The page was last seen in the company of a broken link.", "Go home before you become a suspect."],
-        ["The page had a brief and entirely undocumented life.", "Go home. Skip the obituary."],
-        ["The link led nowhere. At least the poodle showed up.", "Head home before it follows you."],
-        ["The page is missing. The rat declined to comment.", "Ask the homepage. It saw nothing."],
-        ["Nothing at this address but a GIF with a suspicious alibi.", "Go home before the GIF lawyers up."]
+        message.textContent,
+        "This URL has been declared legally dead.",
+        "The page was last seen in the company of a broken link.",
+        "The page had a brief and entirely undocumented life.",
+        "The link led nowhere. At least the poodle showed up.",
+        "The page is missing. The rat declined to comment.",
+        "Nothing at this address but a GIF with a suspicious alibi."
       ];
-      const [setup, punchline] = messages[Math.floor(Math.random() * messages.length)];
-      message.textContent = setup;
-      homeLink.textContent = punchline;
+      message.textContent = messages[Math.floor(Math.random() * messages.length)];
     </script>
   </body>
 </html>
