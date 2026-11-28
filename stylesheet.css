@@ -96,6 +96,7 @@ html
     font-size: 15px;
 }
 
+/* Desktop content width and left gutter. The mobile gutters are set below. */
 body
 {
     width: 87.5%;
@@ -149,6 +150,7 @@ body
 }
 
 
+/* Fixed header shared by the main navigation and the title-only 404 page. */
 :is(nav, :where(.site-header))
 {
     font-family: 'JetBrains Mono', 'Courier New', Courier, monospace;
@@ -179,10 +181,12 @@ body
 :is(nav, :where(.site-header)) .nav-row
 {
     display: grid;
+    /* The columns hold the blog title, section links, and language link. */
     grid-template-columns: auto minmax(0, 1fr) auto;
     align-items: baseline;
     column-gap: 1.25rem;
     width: 84%;
+    /* Space above the row and between the row and the hairline. */
     margin: 12px 0 6px;
 }
 
@@ -246,6 +250,7 @@ nav ul li a:active,
 
 
 
+/* Label sizing for the grouped language switch in the Carnet template. */
 .language-switch > a,
 .language-switch > span[aria-current="page"] {
     display: inline-block;
@@ -258,6 +263,7 @@ nav ul li a:active,
 }
 
 
+/* Keep this width in sync with .nav-row to align their right edges. */
 :is(nav, :where(.site-header)) hr
 {
     display: block;
@@ -300,6 +306,7 @@ nav ul li a:active,
     justify-self: end;
     align-self: start;
     padding: 0.32rem 0.6rem 0.42rem;
+    /* A more negative value pulls the grouped switch closer to the top. */
     margin-top: -0.8rem;
     font-size: 0.65rem;
     letter-spacing: 0.01em;
@@ -325,11 +332,13 @@ nav ul li a:active,
     color: var(--text-color);
 }
 
+/* The single language link used in the published header. */
 .nav-row > a.language-link
 {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    /* Keep it at the right edge of the first row when the menu moves below. */
     grid-column: -2 / -1;
     grid-row: 1;
     justify-self: end;
@@ -344,10 +353,13 @@ nav ul li a:active,
 {
     .nav-row > a.language-link
     {
-        margin-inline-end: min(5vw, 6rem);
+        /* Extra right inset on desktop. Increase 5vw to move it inward faster,
+           or increase 6rem to raise the cap on wide windows. */
+        margin-inline-end: min(3vw, 4rem);
     }
 }
 
+/* Mobile keeps the switcher on the first row with a tighter column gap. */
 @media (max-width: 768px)
 {
     nav .nav-row:has(> .language-link)
@@ -357,6 +369,7 @@ nav ul li a:active,
 
     .nav-row > a.language-link
     {
+        /* This sets the tap target height and affects header clearance. */
         min-block-size: 44px;
     }
 }
@@ -421,6 +434,7 @@ nav ul li a:active,
     margin-left : 0;
 }
 
+/* Line spacing when published and revision dates wrap onto separate lines. */
 .cartouche ul:has(> li + li)
 {
     line-height: 1.25rem;
@@ -455,6 +469,7 @@ nav ul li a:active,
     margin-top: 0;
 }
 
+/* Gap after the reading time when both dates are present. */
 .cartouche-header + ul:has(> li + li)
 {
     margin-top: 0.375rem;
@@ -596,6 +611,7 @@ p.subtitle
     font-size: 2.7rem;
     display: block;
     line-height: 1;
+    /* Desktop subtitle width. The mobile rule below uses the full column. */
     max-width: 55%;
     color: color-mix(in srgb, var(--text-color) 80%, transparent); 
 }
@@ -609,6 +625,7 @@ article
 
 .page-top-spacing
 {
+   /* Clearance under the fixed header, plus the gap before the article. */
     --nav-clearance: 3rem;
     --article-top-padding: calc(var(--nav-clearance) + 2rem);
 }
@@ -1201,7 +1218,7 @@ figure.profile-figure
 
     nav:has(.language-link) + article
     {
-        /* Reserve room for the taller mobile tap target. */
+        /* Add article clearance for the taller mobile language switcher. */
         --mobile-nav-offset: 1rem;
     }
 
